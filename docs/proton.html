@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Proton Guide — MRTrick</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">MRTrick</a>
+        <nav class="nav">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Guides</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" style="padding:36px 0">
+      <h1>Proton (Steam Play) Quick Guide</h1>
+      <p class="lead">A concise walkthrough to enable Steam Play and use Proton compatibility tools.</p>
+
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>A working Steam client (native or Flatpak)</li>
+        <li>Updated graphics drivers (Vulkan support recommended)</li>
+      </ul>
+
+      <h2>Enabling Steam Play</h2>
+      <ol>
+        <li>Open Steam → Settings → Steam Play.</li>
+        <li>Enable "Enable Steam Play for supported titles" and optionally "Enable Steam Play for all other titles".</li>
+        <li>Choose a Proton version (Proton Experimental or a Proton-GE build).</li>
+      </ol>
+
+      <h2>Install Proton-GE (recommended)</h2>
+      <p>Proton-GE provides community fixes for many titles. Install via ProtonUp-Qt or manually:</p>
+      <pre><code># example: install Proton-GE manually (download and extract)
+mkdir -p ~/.steam/root/compatibilitytools.d
+# extract the Proton-GE tarball into that directory
+cp -r /path/to/Proton-GE-*.tar.gz ~/.steam/root/compatibilitytools.d/
+</code></pre>
+
+      <h2>Per-game override</h2>
+      <ol>
+        <li>Right-click the game in Steam → Properties → Compatibility.</li>
+        <li>Check "Force the use of a specific Steam Play compatibility tool" and select the Proton/Proton-GE build.</li>
+      </ol>
+
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li>Verify Vulkan works: <code>vulkaninfo</code> or check drivers.</li>
+        <li>Try different Proton versions or Proton-GE builds for regressions.</li>
+        <li>Use the game's launch options for debug logs: <code>PROTON_LOG=1 %command%</code></li>
+      </ul>
+    </main>
+    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+  </body>
+</html>

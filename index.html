@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MRTrick — Linux Gaming & Tweaks</title>
+    <meta name="description" content="Linux gaming guides, tweaks, and community resources." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#0b0f12">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">MRTrick</a>
+        <nav class="nav">
+          <a href="#features">Features</a>
+            <a href="docs/index.html">Guides</a>
+          <a href="#games">Games</a>
+          <a href="#community">Community</a>
+          <a class="cta" href="#download">Get Started</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Play Linux. Play Better.</h1>
+            <p class="lead">Optimized guides, compatibility tips, and curated tools to get your favorite games running on Linux — fast.</p>
+            <p class="actions">
+              <a id="download" class="btn primary" href="#">Download Tools</a>
+              <a class="btn ghost" href="#features">See Features</a>
+            </p>
+            <ul class="trust-list">
+              <li>Proton & Wine tips</li>
+              <li>Performance tweaks</li>
+              <li>Flatpak & Steam Deck friendly</li>
+            </ul>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="monitor">
+              <svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" class="screen">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1">
+                    <stop offset="0" stop-color="#00ffa3" stop-opacity="0.18"/>
+                    <stop offset="1" stop-color="#00a3ff" stop-opacity="0.12"/>
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="480" rx="12" fill="url(#g)"/>
+                <g fill="#bfefff" opacity="0.95" font-family="Inter, system-ui, sans-serif">
+                  <text x="40" y="80" font-size="28">Top Games on Linux</text>
+                  <text x="40" y="130" font-size="18" opacity="0.9">- Cyberpunk 2077 (Proton)</text>
+                  <text x="40" y="160" font-size="18" opacity="0.9">- Dota 2 (Native)</text>
+                  <text x="40" y="190" font-size="18" opacity="0.9">- Elden Ring (Proton)</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="container features">
+        <h2>What we provide</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="icon">🛠️</div>
+            <h3>Tweaks & Guides</h3>
+            <p>Step-by-step performance tuning and compatibility fixes tailored to popular distros.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🎮</div>
+            <h3>Game Compatibility</h3>
+            <p>Curated compatibility notes, Proton/Wine configs, and playbooks for well-known titles.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📦</div>
+            <h3>Installers & Tools</h3>
+            <p>One-click scripts and packages for Flatpak, AppImage, and Steam integration.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🌐</div>
+            <h3>Community</h3>
+            <p>Guides, forums, and Discord meetups — share configs and learn from others.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="games" class="container games">
+        <h2>Featured Setup</h2>
+        <div class="game-grid">
+          <div class="game-card">
+            <h4>Steam + Proton</h4>
+            <p>Optimize Proton for raytracing-heavy titles and get better FPS with kernel tweaks.</p>
+          </div>
+          <div class="game-card">
+            <h4>Native & Crossplay</h4>
+            <p>Install native ports and keep multiplayer compatibility across platforms.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="community" class="container newsletter">
+        <div class="newsletter-inner">
+          <div>
+            <h2>Stay Updated</h2>
+            <p>Get weekly tips, release notes, and compatibility reports.</p>
+          </div>
+          <form id="newsletter-form" class="newsletter-form">
+            <input type="email" name="email" placeholder="you@linuxmail.example" required>
+            <button class="btn primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> MRTrick — Linux Gaming & Tweaks</p>
+        <p><a href="#">Privacy</a> · <a href="#">Resources</a></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

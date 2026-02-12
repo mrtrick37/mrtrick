@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Wine Guide — MRTrick</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">MRTrick</a>
+        <nav class="nav">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Guides</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" style="padding:36px 0">
+      <h1>Wine Quick Guide</h1>
+      <p class="lead">Install Wine, create isolated prefixes, and run Windows installers under Linux.</p>
+
+      <h2>Install (Ubuntu / Debian example)</h2>
+      <pre><code># add WineHQ repo and install (replace distro codename accordingly)
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+sudo apt update
+sudo apt install --install-recommends winehq-stable winetricks
+</code></pre>
+
+      <h2>Create a wine prefix</h2>
+      <pre><code># 32-bit prefix example
+WINEPREFIX=$HOME/.wine32 WINEARCH=win32 winecfg
+
+# 64-bit prefix example
+WINEPREFIX=$HOME/.wine64 WINEARCH=win64 winecfg
+</code></pre>
+
+      <h2>Install common dependencies</h2>
+      <pre><code># using winetricks
+WINEPREFIX=$HOME/.wine64 winetricks corefonts vcrun2019 dotnet48
+</code></pre>
+
+      <h2>Run installers</h2>
+      <pre><code># run a windows installer inside a prefix
+WINEPREFIX=$HOME/.wine64 wine setup.exe
+</code></pre>
+
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li>Use separate prefixes per app to avoid dependency conflicts.</li>
+        <li>Check Wine AppDB for app-specific tweaks.</li>
+      </ul>
+    </main>
+    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+  </body>
+</html>
