@@ -137,60 +137,77 @@
         pager.appendChild(prev); pager.appendChild(info); pager.appendChild(next);
       }
 
-      // Open a discussion thread in the in-page modal (falls back to external url)
-      async function openThread(number, externalUrl){
-        if(!PROXY_BASE){ window.open(externalUrl || `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/discussions/${number}`,'_blank'); return }
-        const modal = document.getElementById('thread-modal');
-        const titleEl = document.getElementById('thread-title');
-        const metaEl = document.getElementById('thread-meta');
-        const bodyEl = document.getElementById('thread-body');
-        const commentsEl = document.getElementById('thread-comments');
-        const feedback = document.getElementById('reply-feedback');
-        titleEl.textContent = 'Loading...'; metaEl.textContent=''; bodyEl.innerHTML=''; commentsEl.innerHTML=''; feedback.textContent='';
-        modal.style.display='block';
-        try{
-          const resp = await fetch(`${PROXY_BASE}/discussions/${number}?owner=${GITHUB_OWNER}&repo=${GITHUB_REPO}`);
-          if(!resp.ok) throw new Error('Failed to load thread');
-          const data = await resp.json();
-          const d = data.discussion;
-          titleEl.textContent = d.title || ('Discussion #'+number);
-          metaEl.textContent = `by ${d.user?.login||d.author?.login||'unknown'} • ${timeAgo(d.created_at||d.createdAt)}`;
-          bodyEl.innerHTML = escapeHtml(d.body || d.bodyText || '');
-          // render comments
-          const comments = data.comments || [];
-          if(!comments.length) commentsEl.innerHTML = '<p>No replies yet.</p>';
-          else{
-            commentsEl.innerHTML='';
-            comments.forEach(c=>{
-              const wrap = document.createElement('div'); wrap.style.padding='8px'; wrap.style.borderRadius='8px'; wrap.style.marginBottom='8px'; wrap.style.background='rgba(255,255,255,0.02)';
-              const meta = document.createElement('div'); meta.style.color='var(--muted)'; meta.style.marginBottom='6px'; meta.textContent = `${c.user?.login || c.author?.login || 'unknown'} • ${timeAgo(c.created_at || c.createdAt)}`;
-              const b = document.createElement('div'); b.innerHTML = escapeHtml(c.body || c.bodyText || c.body_html || '');
-              wrap.appendChild(meta); wrap.appendChild(b); commentsEl.appendChild(wrap);
-            });
-          }
+            // Open a discussion thread in the in-page modal (fetch directly from GitHub when no proxy)
+            async function openThread(number, externalUrl){
+              const modal = document.getElementById('thread-modal');
+              const titleEl = document.getElementById('thread-title');
+              const metaEl = document.getElementById('thread-meta');
+              const bodyEl = document.getElementById('thread-body');
+              const commentsEl = document.getElementById('thread-comments');
+              const feedback = document.getElementById('reply-feedback');
+              titleEl.textContent = 'Loading...'; metaEl.textContent=''; bodyEl.innerHTML=''; commentsEl.innerHTML=''; feedback.textContent='';
+              modal.style.display='block';
+              try{
+                let d = null;
+                let comments = [];
+                if(PROXY_BASE){
+                  const resp = await fetch(`${PROXY_BASE}/discussions/${number}?owner=${GITHUB_OWNER}&repo=${GITHUB_REPO}`);
+                  if(!resp.ok) throw new Error('Failed to load thread');
+                  const data = await resp.json();
+                  d = data.discussion;
+                  comments = data.comments || [];
+                } else {
+                  // Fetch directly from GitHub Discussions REST API (read-only, unauthenticated rate-limited)
+                  const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/discussions/${number}`);
+                  if(!resp.ok) throw new Error('GitHub API error: '+resp.status);
+                  d = await resp.json();
+                  // fetch comments
+                  const cResp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/discussions/${number}/comments`);
+                  if(cResp.ok) comments = await cResp.json(); else comments = [];
+                }
 
-          // wire reply submit
-          const submit = document.getElementById('submit-reply');
-          const cancel = document.getElementById('cancel-reply');
-          const replyBox = document.getElementById('reply-body');
-          submit.onclick = async ()=>{
-            feedback.style.color='var(--muted)'; feedback.textContent='Posting…';
-            const body = replyBox.value.trim();
-            if(!body){ feedback.style.color='salmon'; feedback.textContent='Reply cannot be empty'; return }
-            try{
-              const post = await fetch(`${PROXY_BASE}/discussions/${number}/comments`, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ owner: GITHUB_OWNER, repo: GITHUB_REPO, body }) });
-              if(!post.ok){ const err = await post.json().catch(()=>({})); throw new Error(err.error || post.status) }
-              const result = await post.json();
-              feedback.style.color='var(--accent)'; feedback.textContent='Reply posted';
-              replyBox.value='';
-              // reload thread
-              openThread(number, externalUrl);
-            }catch(err){ console.error(err); feedback.style.color='salmon'; feedback.textContent='Failed to post reply'; }
-          };
-          cancel.onclick = ()=>{ replyBox.value=''; feedback.textContent=''; };
+                titleEl.textContent = d.title || ('Discussion #'+number);
+                metaEl.textContent = `by ${d.user?.login||d.author?.login||'unknown'} • ${timeAgo(d.created_at||d.createdAt)}`;
+                bodyEl.innerHTML = escapeHtml(d.body || d.bodyText || d.body_html || '');
 
-        }catch(err){ console.error(err); titleEl.textContent='Error loading thread'; bodyEl.innerHTML='<p>Could not load thread.</p>' }
-      }
+                // render comments
+                if(!comments.length) commentsEl.innerHTML = '<p>No replies yet.</p>';
+                else{
+                  commentsEl.innerHTML='';
+                  comments.forEach(c=>{
+                    const wrap = document.createElement('div'); wrap.style.padding='8px'; wrap.style.borderRadius='8px'; wrap.style.marginBottom='8px'; wrap.style.background='rgba(255,255,255,0.02)';
+                    const meta = document.createElement('div'); meta.style.color='var(--muted)'; meta.style.marginBottom='6px'; meta.textContent = `${c.user?.login || c.author?.login || 'unknown'} • ${timeAgo(c.created_at || c.createdAt)}`;
+                    const b = document.createElement('div'); b.innerHTML = escapeHtml(c.body || c.bodyText || c.body_html || '');
+                    wrap.appendChild(meta); wrap.appendChild(b); commentsEl.appendChild(wrap);
+                  });
+                }
+
+                // wire reply submit: posting requires authentication or a proxy. If no proxy, open the discussion page externally.
+                const submit = document.getElementById('submit-reply');
+                const cancel = document.getElementById('cancel-reply');
+                const replyBox = document.getElementById('reply-body');
+                submit.onclick = async ()=>{
+                  if(PROXY_BASE){
+                    feedback.style.color='var(--muted)'; feedback.textContent='Posting…';
+                    const body = replyBox.value.trim();
+                    if(!body){ feedback.style.color='salmon'; feedback.textContent='Reply cannot be empty'; return }
+                    try{
+                      const post = await fetch(`${PROXY_BASE}/discussions/${number}/comments`, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ owner: GITHUB_OWNER, repo: GITHUB_REPO, body }) });
+                      if(!post.ok){ const err = await post.json().catch(()=>({})); throw new Error(err.error || post.status) }
+                      await post.json();
+                      feedback.style.color='var(--accent)'; feedback.textContent='Reply posted';
+                      replyBox.value='';
+                      openThread(number, externalUrl);
+                    }catch(err){ console.error(err); feedback.style.color='salmon'; feedback.textContent='Failed to post reply'; }
+                  } else {
+                    // open the GitHub Discussions page for authenticated posting
+                    window.open(externalUrl || `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/discussions/${number}`,'_blank');
+                  }
+                };
+                cancel.onclick = ()=>{ replyBox.value=''; feedback.textContent=''; };
+
+              }catch(err){ console.error(err); titleEl.textContent='Error loading thread'; bodyEl.innerHTML='<p>Could not load thread.</p>' }
+            }
 
       document.getElementById('close-thread').addEventListener('click', ()=>{ document.getElementById('thread-modal').style.display='none'; document.getElementById('reply-feedback').textContent=''; document.getElementById('reply-body').value=''; });
 
