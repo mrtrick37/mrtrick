@@ -39,6 +39,9 @@
       // Configuration: auto-detected repo owner + name
       const GITHUB_OWNER = 'mrtrick37';
       const GITHUB_REPO = 'mrtrick';
+      // If you deploy the optional proxy (forum-api), set PROXY_BASE to its URL.
+      // Example: const PROXY_BASE = 'https://forum.example.com';
+      const PROXY_BASE = '';
 
       function timeAgo(iso){
         const d = new Date(iso);
@@ -53,28 +56,39 @@
         const el = document.getElementById('topics');
         el.innerHTML = 'Loading topics…';
         try{
-          const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&per_page=30`);
-          if(!resp.ok) throw new Error('GitHub API error: '+resp.status);
-          const issues = await resp.json();
-          if(!issues.length){ el.innerHTML = '<p>No topics yet — be the first to create one.</p>'; return }
+          let items = [];
+          if(PROXY_BASE){
+            const resp = await fetch(`${PROXY_BASE}/discussions?owner=${GITHUB_OWNER}&repo=${GITHUB_REPO}`);
+            if(!resp.ok) throw new Error('Proxy error: '+resp.status);
+            const data = await resp.json();
+            items = data.nodes || [];
+          } else {
+            // Fallback: list issues (public, rate-limited)
+            const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&per_page=30`);
+            if(!resp.ok) throw new Error('GitHub API error: '+resp.status);
+            items = await resp.json();
+          }
+
+          if(!items.length){ el.innerHTML = '<p>No topics yet — be the first to create one.</p>'; return }
 
           const list = document.createElement('div');
           list.className = 'grid';
-          issues.forEach(issue=>{
+          items.forEach(item=>{
             const card = document.createElement('article');
             card.className = 'card';
             const title = document.createElement('h3');
-            const a = document.createElement('a'); a.href = issue.html_url; a.target = '_blank'; a.rel='noopener'; a.textContent = issue.title;
+            const a = document.createElement('a'); a.href = item.url || item.html_url || item.htmlUrl; a.target = '_blank'; a.rel='noopener'; a.textContent = item.title || item.subject?.title || '';
             title.appendChild(a);
             const meta = document.createElement('p'); meta.style.color='var(--muted)'; meta.style.margin='6px 0';
-            const labels = (issue.labels||[]).map(l=>l.name).join(', ');
-            meta.textContent = `#${issue.number} • opened by ${issue.user.login} • ${timeAgo(issue.created_at)} • ${labels}`;
-            const body = document.createElement('p'); body.style.opacity='0.95'; body.textContent = issue.body ? issue.body.slice(0,240) : '';
+            const author = item.author?.login || item.user?.login || (item.author?.name);
+            const created = item.createdAt || item.created_at;
+            meta.textContent = `#${item.number || item.discussionNumber || ''} • opened by ${author || 'unknown'} • ${timeAgo(created)} `;
+            const body = document.createElement('p'); body.style.opacity='0.95'; body.textContent = (item.bodyText || item.body || item.excerpt || '').slice(0,240);
             card.appendChild(title); card.appendChild(meta); card.appendChild(body);
             list.appendChild(card);
           });
           el.innerHTML = ''; el.appendChild(list);
-        }catch(err){ el.innerHTML = '<p>Could not load topics — API rate limit or network issue.</p>'; console.error(err)}
+        }catch(err){ el.innerHTML = '<p>Could not load topics — API rate limit, proxy unreachable, or network issue.</p>'; console.error(err)}
       }
 
       document.addEventListener('DOMContentLoaded', ()=>{
