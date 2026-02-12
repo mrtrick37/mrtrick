@@ -35,6 +35,65 @@ app.get('/discussions', async (req, res) => {
   }
 });
 
+// Get a single discussion and its comments
+app.get('/discussions/:number', async (req, res) => {
+  const owner = req.query.owner;
+  const repo = req.query.repo;
+  const number = req.params.number;
+  if(!owner || !repo) return res.status(400).json({error:'owner and repo query params required'});
+  try{
+    const url = `https://api.github.com/repos/${owner}/${repo}/discussions/${number}`;
+    const commentsUrl = `https://api.github.com/repos/${owner}/${repo}/discussions/${number}/comments`;
+    const headers = { Accept: 'application/vnd.github.v3+json' };
+    if(GITHUB_TOKEN) headers.Authorization = `token ${GITHUB_TOKEN}`;
+
+    const [discussionRes, commentsRes] = await Promise.all([
+      axios.get(url, { headers }),
+      axios.get(commentsUrl, { headers })
+    ]);
+
+    return res.json({ discussion: discussionRes.data, comments: commentsRes.data });
+  }catch(err){
+    console.error(err.response ? err.response.data : err.message);
+    return res.status(500).json({ error: 'Failed to fetch discussion', details: err.response?.data || err.message });
+  }
+});
+
+// Post a comment to a discussion
+app.post('/discussions/:number/comments', async (req, res) => {
+  const owner = req.body.owner || req.query.owner;
+  const repo = req.body.repo || req.query.repo;
+  const number = req.params.number;
+  const body = req.body.body;
+  if(!owner || !repo || !body) return res.status(400).json({error:'owner, repo and body required'});
+  if(!GITHUB_TOKEN) return res.status(500).json({error:'Server not configured: GITHUB_TOKEN missing'});
+  try{
+    const createUrl = `https://api.github.com/repos/${owner}/${repo}/discussions/${number}/comments`;
+    const createRes = await axios.post(createUrl, { body }, { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json' } });
+    return res.json(createRes.data);
+  }catch(err){
+    console.error(err.response ? err.response.data : err.message);
+    return res.status(500).json({ error: 'Failed to create comment', details: err.response?.data || err.message });
+  }
+});
+
+// List discussion categories for a repo
+app.get('/categories', async (req, res) => {
+  const owner = req.query.owner;
+  const repo = req.query.repo;
+  if(!owner || !repo) return res.status(400).json({error:'owner and repo query params required'});
+  try{
+    const url = `https://api.github.com/repos/${owner}/${repo}/discussion-categories`;
+    const headers = { Accept: 'application/vnd.github.v3+json' };
+    if(GITHUB_TOKEN) headers.Authorization = `token ${GITHUB_TOKEN}`;
+    const cats = await axios.get(url, { headers });
+    return res.json(cats.data);
+  }catch(err){
+    console.error(err.response ? err.response.data : err.message);
+    return res.status(500).json({ error: 'Failed to fetch categories', details: err.response?.data || err.message });
+  }
+});
+
 app.post('/discussions', async (req, res) => {
   const { owner, repo, title, body } = req.body || {};
   if(!owner || !repo || !title) return res.status(400).json({error:'owner, repo, and title required'});
