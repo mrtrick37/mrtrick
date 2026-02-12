@@ -267,7 +267,7 @@
         perPageSelect.addEventListener('change', ()=>{ currentPage=1; renderTopicsList(filtered); });
 
         newBtn.addEventListener('click', ()=>{
-          // if PROXY_BASE is not configured, open GitHub new issue page
+          // if PROXY_BASE is not configured, open GitHub new discussion page
           if(!PROXY_BASE){
             const title = encodeURIComponent('[Forum] ');
             const body = encodeURIComponent('Describe your question or report here.\n\n---\n(Please include distro, GPU, driver, Proton/Wine version, and steps to reproduce)');
