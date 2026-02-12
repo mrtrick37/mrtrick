@@ -29,3 +29,27 @@ node index.js
 ```
 
 Then in `community.html` set `PROXY_BASE` to `http://localhost:3000` while testing.
+
+Deploying to Fly (recommended)
+------------------------------
+1. Install `flyctl` and log in: `flyctl auth login`.
+2. Create an app or use the name in `fly.toml`:
+
+```bash
+flyctl launch --name mrtrick-forum-api --no-deploy
+```
+
+3. Set the required secret on Fly (your GitHub token):
+
+```bash
+flyctl secrets set GITHUB_TOKEN=ghp_xxx
+```
+
+4. Deploy:
+
+```bash
+flyctl deploy --config fly.toml
+```
+
+Alternatively, push to the repo and the included GitHub Actions workflow will deploy automatically if you add the `FLY_API_TOKEN` secret in the repository settings. The workflow triggers on changes under `forum-api/**`.
+

@@ -1,0 +1,9 @@
+app = "mrtrick-forum-api"
+primary_region = "iad"
+
+[env]
+  PORT = "3000"
+
+[build]
+  # Use the repository Dockerfile
+  image = "Dockerfile"
