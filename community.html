@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Community — MRTrick</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">MRTrick</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="docs/index.html">Guides</a>
+          <a href="community.html">Community</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" style="padding:36px 0">
+      <div class="community-hero">
+        <h1>Community Forum</h1>
+        <p class="lead">Browse topics, report compatibility notes, and start new discussions. This forum mirrors GitHub Issues for the repo.</p>
+        <p>
+          <a id="new-topic" class="btn primary" href="#">New Topic</a>
+          <a id="refresh" class="btn ghost" href="#">Refresh</a>
+        </p>
+      </div>
+
+      <section id="forum" style="margin-top:22px">
+        <div id="topics">Loading topics…</div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+
+    <script>
+      // Configuration: auto-detected repo owner + name
+      const GITHUB_OWNER = 'mrtrick37';
+      const GITHUB_REPO = 'mrtrick';
+
+      function timeAgo(iso){
+        const d = new Date(iso);
+        const s = Math.floor((Date.now()-d)/1000);
+        if(s<60) return s+ 's';
+        if(s<3600) return Math.floor(s/60)+'m';
+        if(s<86400) return Math.floor(s/3600)+'h';
+        return Math.floor(s/86400)+'d';
+      }
+
+      async function loadTopics(){
+        const el = document.getElementById('topics');
+        el.innerHTML = 'Loading topics…';
+        try{
+          const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&per_page=30`);
+          if(!resp.ok) throw new Error('GitHub API error: '+resp.status);
+          const issues = await resp.json();
+          if(!issues.length){ el.innerHTML = '<p>No topics yet — be the first to create one.</p>'; return }
+
+          const list = document.createElement('div');
+          list.className = 'grid';
+          issues.forEach(issue=>{
+            const card = document.createElement('article');
+            card.className = 'card';
+            const title = document.createElement('h3');
+            const a = document.createElement('a'); a.href = issue.html_url; a.target = '_blank'; a.rel='noopener'; a.textContent = issue.title;
+            title.appendChild(a);
+            const meta = document.createElement('p'); meta.style.color='var(--muted)'; meta.style.margin='6px 0';
+            const labels = (issue.labels||[]).map(l=>l.name).join(', ');
+            meta.textContent = `#${issue.number} • opened by ${issue.user.login} • ${timeAgo(issue.created_at)} • ${labels}`;
+            const body = document.createElement('p'); body.style.opacity='0.95'; body.textContent = issue.body ? issue.body.slice(0,240) : '';
+            card.appendChild(title); card.appendChild(meta); card.appendChild(body);
+            list.appendChild(card);
+          });
+          el.innerHTML = ''; el.appendChild(list);
+        }catch(err){ el.innerHTML = '<p>Could not load topics — API rate limit or network issue.</p>'; console.error(err)}
+      }
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const newBtn = document.getElementById('new-topic');
+        newBtn.addEventListener('click', ()=>{
+          const title = encodeURIComponent('[Forum] ');
+          const body = encodeURIComponent('Describe your question or report here.\n\n---\n(Please include distro, GPU, driver, Proton/Wine version, and steps to reproduce)');
+          const url = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new?title=${title}&body=${body}`;
+          window.open(url,'_blank');
+        });
+        document.getElementById('refresh').addEventListener('click', (e)=>{ e.preventDefault(); loadTopics() });
+        loadTopics();
+      });
+    </script>
+  </body>
+</html>
