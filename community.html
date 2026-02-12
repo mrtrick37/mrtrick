@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Community — MRTrick</title>
+    <title>Community — mrtrick_</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -30,6 +30,10 @@
           <div class="card">
             <label style="display:block;margin-bottom:8px">Title</label>
             <input id="topic-title" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Short descriptive title" />
+            <label style="display:block;margin:10px 0 8px">Category</label>
+            <select id="topic-category" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit">
+              <option value="">(Select a category)</option>
+            </select>
             <label style="display:block;margin:10px 0 8px">Body</label>
             <textarea id="topic-body" rows="6" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Details, steps to reproduce, distro, GPU, driver, Proton/Wine version"></textarea>
             <div style="margin-top:10px">
@@ -266,7 +270,7 @@
         searchInput.addEventListener('input', ()=>{ currentPage=1; applyFilter(); });
         perPageSelect.addEventListener('change', ()=>{ currentPage=1; renderTopicsList(filtered); });
 
-        newBtn.addEventListener('click', ()=>{
+        newBtn.addEventListener('click', async ()=>{
           // if PROXY_BASE is not configured, open GitHub new discussion page
           if(!PROXY_BASE){
             const title = encodeURIComponent('[Forum] ');
@@ -275,18 +279,33 @@
             window.open(url,'_blank');
             return;
           }
+
+          // Toggle form and load categories from proxy when showing
           formWrap.style.display = formWrap.style.display === 'none' ? 'block' : 'none';
+          if(formWrap.style.display === 'block'){
+            const sel = document.getElementById('topic-category');
+            sel.innerHTML = '<option value="">Loading categories…</option>';
+            try{
+              const resp = await fetch(`${PROXY_BASE}/categories?owner=${GITHUB_OWNER}&repo=${GITHUB_REPO}`);
+              if(!resp.ok) throw new Error('Failed to load categories');
+              const cats = await resp.json();
+              sel.innerHTML = '<option value="">(Select a category)</option>';
+              cats.forEach(c=>{ const opt = document.createElement('option'); opt.value = c.id; opt.textContent = c.name; sel.appendChild(opt); });
+            }catch(err){ console.error(err); sel.innerHTML = '<option value="">Could not load categories</option>' }
+          }
         });
 
         cancelBtn.addEventListener('click', (e)=>{ e.preventDefault(); formWrap.style.display='none'; feedback.textContent=''; });
 
         // confirmation modal flow: before creating, show confirm dialog
-        async function createDiscussion(title, body){
+        async function createDiscussion(title, body, category_id){
           const ok = confirm('Create discussion titled:\n"'+title+'" ?');
           if(!ok) return null;
+          const payload = { owner: GITHUB_OWNER, repo: GITHUB_REPO, title, body };
+          if(category_id) payload.category_id = category_id;
           const resp = await fetch(`${PROXY_BASE}/discussions`, {
             method:'POST', headers:{ 'Content-Type':'application/json' },
-            body: JSON.stringify({ owner: GITHUB_OWNER, repo: GITHUB_REPO, title, body })
+            body: JSON.stringify(payload)
           });
           if(!resp.ok){ const err = await resp.json().catch(()=>({})); throw new Error(err.error||resp.status) }
           return resp.json();
@@ -298,9 +317,10 @@
           feedback.textContent = 'Submitting…';
           const title = document.getElementById('topic-title').value.trim();
           const body = document.getElementById('topic-body').value.trim();
+          const category_id = document.getElementById('topic-category') ? document.getElementById('topic-category').value || null : null;
           if(!title){ feedback.style.color='salmon'; feedback.textContent='Title is required'; return }
           try{
-            const data = await createDiscussion(title, body);
+            const data = await createDiscussion(title, body, category_id);
             if(!data) { feedback.textContent='Cancelled'; return }
             feedback.style.color='var(--accent)';
             feedback.textContent = 'Discussion created — opening...';

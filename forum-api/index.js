@@ -103,7 +103,10 @@ app.post('/discussions', async (req, res) => {
     // fetch categories to pick a category id
     const urlCats = `https://api.github.com/repos/${owner}/${repo}/discussion-categories`;
     const catsRes = await axios.get(urlCats, { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json' } });
-    const category_id = (catsRes.data && catsRes.data[0] && catsRes.data[0].id) || null;
+    const availableCats = catsRes.data || [];
+    // allow client to provide category_id, otherwise fall back to first category
+    const clientCategory = req.body.category_id || null;
+    const category_id = clientCategory || (availableCats[0] && availableCats[0].id) || null;
 
     const createUrl = `https://api.github.com/repos/${owner}/${repo}/discussions`;
     const payload = { title, body: body || '', category_id };
