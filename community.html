@@ -21,7 +21,7 @@
     <main class="container" style="padding:36px 0">
       <div class="community-hero">
         <h1>Community Forum</h1>
-        <p class="lead">Browse topics, report compatibility notes, and start new discussions. This forum mirrors GitHub Issues for the repo.</p>
+        <p class="lead">Browse topics, report compatibility notes, and start new discussions. This forum mirrors GitHub Discussions for the repo.</p>
         <p>
           <a id="new-topic" class="btn primary" href="#">New Topic</a>
           <a id="refresh" class="btn ghost" href="#">Refresh</a>
@@ -213,8 +213,8 @@
             const data = await resp.json();
             items = data.nodes || [];
           } else {
-            // Fallback: list issues (public, rate-limited)
-            const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues?state=open&per_page=200`);
+            // Fallback: list discussions (public, rate-limited)
+            const resp = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/discussions?per_page=200`);
             if(!resp.ok) throw new Error('GitHub API error: '+resp.status);
             items = await resp.json();
           }
@@ -254,7 +254,7 @@
           if(!PROXY_BASE){
             const title = encodeURIComponent('[Forum] ');
             const body = encodeURIComponent('Describe your question or report here.\n\n---\n(Please include distro, GPU, driver, Proton/Wine version, and steps to reproduce)');
-            const url = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new?title=${title}&body=${body}`;
+            const url = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/discussions/new?title=${title}&body=${body}`;
             window.open(url,'_blank');
             return;
           }
