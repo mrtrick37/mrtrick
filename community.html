@@ -26,6 +26,19 @@
           <a id="new-topic" class="btn primary" href="#">New Topic</a>
           <a id="refresh" class="btn ghost" href="#">Refresh</a>
         </p>
+        <div id="new-topic-form" style="display:none;margin-top:18px">
+          <div class="card">
+            <label style="display:block;margin-bottom:8px">Title</label>
+            <input id="topic-title" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Short descriptive title" />
+            <label style="display:block;margin:10px 0 8px">Body</label>
+            <textarea id="topic-body" rows="6" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit" placeholder="Details, steps to reproduce, distro, GPU, driver, Proton/Wine version"></textarea>
+            <div style="margin-top:10px">
+              <button id="submit-topic" class="btn primary">Create Topic</button>
+              <button id="cancel-topic" class="btn ghost">Cancel</button>
+            </div>
+            <div id="topic-feedback" style="margin-top:8px;color:var(--muted)"></div>
+          </div>
+        </div>
       </div>
 
       <section id="forum" style="margin-top:22px">
@@ -93,12 +106,49 @@
 
       document.addEventListener('DOMContentLoaded', ()=>{
         const newBtn = document.getElementById('new-topic');
+        const formWrap = document.getElementById('new-topic-form');
+        const submitBtn = document.getElementById('submit-topic');
+        const cancelBtn = document.getElementById('cancel-topic');
+        const feedback = document.getElementById('topic-feedback');
+
         newBtn.addEventListener('click', ()=>{
-          const title = encodeURIComponent('[Forum] ');
-          const body = encodeURIComponent('Describe your question or report here.\n\n---\n(Please include distro, GPU, driver, Proton/Wine version, and steps to reproduce)');
-          const url = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new?title=${title}&body=${body}`;
-          window.open(url,'_blank');
+          // if PROXY_BASE is not configured, open GitHub new issue page
+          if(!PROXY_BASE){
+            const title = encodeURIComponent('[Forum] ');
+            const body = encodeURIComponent('Describe your question or report here.\n\n---\n(Please include distro, GPU, driver, Proton/Wine version, and steps to reproduce)');
+            const url = `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new?title=${title}&body=${body}`;
+            window.open(url,'_blank');
+            return;
+          }
+          formWrap.style.display = formWrap.style.display === 'none' ? 'block' : 'none';
         });
+
+        cancelBtn.addEventListener('click', (e)=>{ e.preventDefault(); formWrap.style.display='none'; feedback.textContent=''; });
+
+        submitBtn.addEventListener('click', async (e)=>{
+          e.preventDefault();
+          feedback.style.color = 'var(--muted)';
+          feedback.textContent = 'Submitting…';
+          const title = document.getElementById('topic-title').value.trim();
+          const body = document.getElementById('topic-body').value.trim();
+          if(!title){ feedback.style.color='salmon'; feedback.textContent='Title is required'; return }
+          try{
+            const resp = await fetch(`${PROXY_BASE}/discussions`, {
+              method:'POST', headers:{ 'Content-Type':'application/json' },
+              body: JSON.stringify({ owner: GITHUB_OWNER, repo: GITHUB_REPO, title, body })
+            });
+            if(!resp.ok){ const err = await resp.json().catch(()=>({})); throw new Error(err.error||resp.status) }
+            const data = await resp.json();
+            feedback.style.color='var(--accent)';
+            feedback.textContent = 'Discussion created — opening...';
+            window.open(data.html_url || data.url, '_blank');
+            formWrap.style.display='none';
+            document.getElementById('topic-title').value='';
+            document.getElementById('topic-body').value='';
+            loadTopics();
+          }catch(err){ console.error(err); feedback.style.color='salmon'; feedback.textContent = 'Failed to create discussion (see console)'; }
+        });
+
         document.getElementById('refresh').addEventListener('click', (e)=>{ e.preventDefault(); loadTopics() });
         loadTopics();
       });
