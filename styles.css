@@ -57,7 +57,7 @@ body{
 .os-link:hover h3{color:var(--accent)}
 .os-link:hover .icon{filter:brightness(1.2)}
 
-.os-icon-img{display:flex;align-items:center;justify-content:center}
+.os-icon-img{display:flex;align-items:center;justify-content:flex-start}
 .os-logo{width:42px;height:42px;object-fit:contain}
 
 .games{padding:40px 0}
