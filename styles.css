@@ -57,6 +57,9 @@ body{
 .os-link:hover h3{color:var(--accent)}
 .os-link:hover .icon{filter:brightness(1.2)}
 
+.os-icon-img{display:flex;align-items:center;justify-content:center}
+.os-logo{width:42px;height:42px;object-fit:contain}
+
 .games{padding:40px 0}
 .game-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .game-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:10px}
