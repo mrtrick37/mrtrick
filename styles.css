@@ -25,7 +25,7 @@ body{
 .nav .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:8px 14px;border-radius:8px;color:#061218}
 
 .hero{padding:48px 0}
-.hero-grid{display:grid;grid-template-columns:1fr 440px;gap:28px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 .hero h1{font-size:2.6rem;margin:0 0 12px}
 .lead{color:var(--muted);font-size:1.05rem;margin-bottom:18px}
 .actions .btn{margin-right:12px}
