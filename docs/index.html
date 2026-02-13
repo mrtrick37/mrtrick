@@ -3,13 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>MRTrick Guides</title>
+    <title>Setup Guides — MRTrick Linux Gaming</title>
+    <meta name="description" content="Complete setup guides for Bazzite and CachyOS gaming distributions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+    <meta name="theme-color" content="#0b0f12">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../index.html">MRTrick</a>
+        <a class="brand" href="../index.html">mrtrick_alpha_v.01</a>
         <nav class="nav">
           <a href="../index.html">Home</a>
           <a href="bazzite.html">Bazzite Setup</a>
@@ -18,23 +23,64 @@
         </nav>
       </div>
     </header>
-    <main class="container">
-      <section style="padding:48px 0">
-        <h1>Guides & How-tos</h1>
-        <p class="lead">Complete setup guides for getting started with Bazzite and CachyOS gaming distributions.</p>
+    <main>
+      <section class="hero" style="padding:64px 0">
+        <div class="container">
+          <div class="hero-card">
+            <div class="hero-content" style="text-align:center">
+              <h1>Setup <span class="highlight">Guides</span></h1>
+              <p class="lead" style="margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto">Complete installation and configuration guides for the best Linux gaming distributions. Choose the path that fits your experience level.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div class="grid" style="grid-template-columns:1fr;gap:12px;margin-top:18px">
-          <article class="card">
-            <h3><a href="bazzite.html">Bazzite Setup Guide</a></h3>
-            <p><strong>🌟 Most Beginner-Friendly Option</strong> — No Linux knowledge required! Install Bazzite, configure gaming mode, and get your games running with excellent performance out-of-the-box. Everything just works.</p>
+      <section class="container features" style="padding-top:0">
+        <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:24px">
+          <article class="card guide-card">
+            <div class="guide-badge beginner">Recommended</div>
+            <div class="icon">🎮</div>
+            <h2 style="margin:12px 0 8px"><a href="bazzite.html" style="text-decoration:none;color:inherit">Bazzite Setup Guide</a></h2>
+            <p style="margin:0 0 12px"><strong style="color:var(--accent)">🌟 Most Beginner-Friendly</strong></p>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">No Linux knowledge required! Everything works out-of-the-box with excellent performance, Steam Deck UI, and automatic updates. Perfect for newcomers making the switch from Windows.</p>
+            <ul class="benefit-list" style="margin-bottom:20px">
+              <li>Zero configuration needed</li>
+              <li>All gaming tools pre-installed</li>
+              <li>Atomic rollback if issues occur</li>
+              <li>Steam Deck mode available</li>
+            </ul>
+            <a href="bazzite.html" class="btn primary" style="width:100%">View Bazzite Guide</a>
           </article>
-          <article class="card">
-            <h3><a href="cachyos.html">CachyOS Setup Guide</a></h3>
-            <p><strong>⚡ Best Performance</strong> — Maximum FPS and responsiveness with optimized kernel and cutting-edge tweaks. Requires some Linux familiarity for installation and configuration.</p>
+
+          <article class="card guide-card">
+            <div class="guide-badge advanced">Advanced</div>
+            <div class="icon">⚡</div>
+            <h2 style="margin:12px 0 8px"><a href="cachyos.html" style="text-decoration:none;color:inherit">CachyOS Setup Guide</a></h2>
+            <p style="margin:0 0 12px"><strong style="color:var(--accent-2)">⚡ Best Performance</strong></p>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Maximum FPS and system responsiveness with performance-tuned kernel and cutting-edge optimizations. Requires some Linux familiarity for installation and fine-tuning.</p>
+            <ul class="benefit-list" style="margin-bottom:20px">
+              <li>Optimized kernel patches</li>
+              <li>Latest Arch packages</li>
+              <li>Maximum gaming performance</li>
+              <li>Full system customization</li>
+            </ul>
+            <a href="cachyos.html" class="btn ghost" style="width:100%">View CachyOS Guide</a>
           </article>
+        </div>
+
+        <div style="text-align:center;margin:64px 0 32px">
+          <h2 style="margin-bottom:16px">Not sure which to choose?</h2>
+          <p style="color:var(--muted);max-width:600px;margin:0 auto 24px;line-height:1.7">Start with Bazzite if you're new to Linux or want a hassle-free experience. Switch to CachyOS later if you want to squeeze out every bit of performance.</p>
+          <a href="../quickstart.html" class="btn primary">Quick Start Guide</a>
         </div>
       </section>
     </main>
-    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> MRTrick — Linux Gaming & Tweaks</p>
+        <p><a href="../index.html">Home</a> · <a href="../community.html">Community</a> · <a href="../quickstart.html">Quick Start</a></p>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
   </body>
 </html>

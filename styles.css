@@ -84,6 +84,13 @@ body{
 .quickstart-footer{margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.05)}
 .quickstart-footer h2{text-align:center;margin-bottom:8px}
 
+.guide-card{position:relative;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease}
+.guide-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,255,163,0.15)}
+.guide-card .icon{font-size:48px;line-height:1;margin-bottom:0}
+.guide-badge{position:absolute;top:16px;right:16px;padding:6px 12px;border-radius:20px;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.guide-badge.beginner{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#061218}
+.guide-badge.advanced{background:rgba(0,163,255,0.15);color:var(--accent-2);border:1px solid var(--accent-2)}
+
 @media (max-width:1000px){
   .grid{grid-template-columns:repeat(2,1fr)}
   .hero-features{grid-template-columns:1fr}
