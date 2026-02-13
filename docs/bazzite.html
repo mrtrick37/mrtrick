@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bazzite Setup Guide — MRTrick</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">MRTrick</a>
+        <nav class="nav">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Guides</a>
+          <a href="cachyos.html">CachyOS Setup</a>
+          <a href="../community.html">Community</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section style="padding:48px 0">
+        <h1>Bazzite Setup Guide</h1>
+        <p class="lead">Complete guide to installing and configuring Bazzite for the ultimate Linux gaming experience.</p>
+
+        <article class="card" style="margin:24px 0">
+          <h2>What is Bazzite?</h2>
+          <p>Bazzite is an OCI image built on Fedora Silverblue specifically designed for gaming. It features immutable atomic updates, built-in gaming tools, hardware acceleration out-of-the-box, and Steam Deck experience on desktop.</p>
+          <ul class="benefit-list">
+            <li>Immutable & atomic updates for stability</li>
+            <li>Gaming-first design with all tools pre-installed</li>
+            <li>Steam, Lutris, and Heroic pre-configured</li>
+            <li>HDR and VRR support enabled</li>
+            <li>Nvidia drivers included</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 1: Download Bazzite</h2>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Visit <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a></li>
+            <li>Select your hardware type (Desktop, Laptop, or Handheld)</li>
+            <li>Choose your GPU vendor (AMD, Intel, or Nvidia)</li>
+            <li>Select your preferred desktop environment (KDE Plasma or GNOME)</li>
+            <li>Download the ISO file</li>
+          </ol>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 2: Create Installation Media</h2>
+          <p>Flash the downloaded ISO to a USB drive using one of these tools:</p>
+          <ul class="benefit-list">
+            <li><a href="https://www.ventoy.net/" target="_blank" rel="noopener">Ventoy</a> - Boot multiple ISOs from one USB</li>
+            <li><a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a> - Simple cross-platform tool</li>
+            <li><a href="https://rufus.ie/" target="_blank" rel="noopener">Rufus</a> - Windows USB creator</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 3: Install Bazzite</h2>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Boot from the USB drive (press F12, F2, or DEL during startup)</li>
+            <li>Select "Install Bazzite" from the boot menu</li>
+            <li>Follow the Anaconda installer prompts</li>
+            <li>Configure your timezone and keyboard layout</li>
+            <li>Set up disk partitioning (automatic recommended for beginners)</li>
+            <li>Create your user account and password</li>
+            <li>Wait for installation to complete (typically 10-20 minutes)</li>
+            <li>Reboot and remove the USB drive</li>
+          </ol>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 4: First Boot & Initial Setup</h2>
+          <p>After rebooting into Bazzite:</p>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Log in with your user credentials</li>
+            <li>Complete the first-run setup wizard (Yafti)</li>
+            <li>Install additional applications if desired</li>
+            <li>System will automatically check for updates</li>
+          </ol>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 5: Configure Gaming Tools</h2>
+          <h3>Steam Setup</h3>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Launch Steam (pre-installed)</li>
+            <li>Log in with your Steam account</li>
+            <li>Enable Steam Play for all titles in Settings → Steam Play</li>
+            <li>Download and play your games</li>
+          </ol>
+          
+          <h3>Additional Launchers</h3>
+          <ul class="benefit-list">
+            <li><strong>Lutris</strong> - Pre-installed for GOG, Epic Games, and more</li>
+            <li><strong>Heroic Games Launcher</strong> - Pre-installed for Epic and GOG</li>
+            <li><strong>Bottles</strong> - Available in the app store for Windows applications</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 6: Performance Optimization</h2>
+          <h3>GameMode (Pre-configured)</h3>
+          <p>GameMode automatically optimizes your system for gaming. It's enabled by default for Steam games.</p>
+          
+          <h3>MangoHud (Pre-installed)</h3>
+          <p>Display FPS, GPU/CPU stats in-game. Enable with:</p>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>mangohud %command%</code></pre>
+          <p>Add this to Steam game launch options.</p>
+          
+          <h3>Custom Kernel Parameters</h3>
+          <p>For advanced users, add kernel parameters via:</p>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo rpm-ostree kargs --append="your_parameter"</code></pre>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Useful Commands</h2>
+          <h3>Update System</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>rpm-ostree upgrade</code></pre>
+          
+          <h3>Rollback to Previous Version</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>rpm-ostree rollback</code></pre>
+          
+          <h3>Install Layered Packages</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>rpm-ostree install package-name</code></pre>
+          
+          <h3>Pin Current Deployment</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo ostree admin pin 0</code></pre>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Troubleshooting</h2>
+          <h3>Game Won't Launch</h3>
+          <ul class="benefit-list">
+            <li>Verify game files in Steam</li>
+            <li>Try different Proton versions (right-click game → Properties → Compatibility)</li>
+            <li>Check <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> for known issues and fixes</li>
+          </ul>
+          
+          <h3>Poor Performance</h3>
+          <ul class="benefit-list">
+            <li>Ensure GameMode is enabled</li>
+            <li>Check graphics drivers are properly installed</li>
+            <li>Lower in-game graphics settings</li>
+            <li>Enable FSR or DLSS if supported</li>
+          </ul>
+          
+          <h3>Audio Issues</h3>
+          <ul class="benefit-list">
+            <li>Check PipeWire is running: <code>systemctl --user status pipewire</code></li>
+            <li>Restart audio: <code>systemctl --user restart pipewire</code></li>
+            <li>Use pavucontrol for advanced audio configuration</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Resources</h2>
+          <ul class="benefit-list">
+            <li><a href="https://docs.bazzite.gg/" target="_blank" rel="noopener">Official Bazzite Documentation</a></li>
+            <li><a href="https://discord.bazzite.gg/" target="_blank" rel="noopener">Bazzite Discord Community</a></li>
+            <li><a href="https://universal-blue.discourse.group/c/bazzite/5" target="_blank" rel="noopener">Bazzite Discourse Forum</a></li>
+            <li><a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB - Game Compatibility Database</a></li>
+          </ul>
+        </article>
+
+        <div style="text-align:center;margin:48px 0">
+          <a href="index.html" class="btn ghost">Back to Guides</a>
+          <a href="../community.html" class="btn primary">Join Community</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> MRTrick — Linux Gaming & Tweaks</p>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
