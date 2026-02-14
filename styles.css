@@ -84,6 +84,13 @@ body{
 .quickstart-footer{margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.05)}
 .quickstart-footer h2{text-align:center;margin-bottom:8px}
 
+.quickstart-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.guide-column{display:flex;flex-direction:column;gap:16px;min-height:100%}
+.guide-column h2{margin:0}
+.guide-steps{margin:0;padding-left:20px;color:#b3d9f2;line-height:1.7;display:flex;flex-direction:column;gap:10px;flex:1}
+.guide-steps a{color:var(--accent)}
+.guide-steps a:hover{color:var(--accent-2)}
+
 .guide-card{position:relative;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease}
 .guide-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,255,163,0.15)}
 .guide-card .icon{font-size:48px;line-height:1;margin-bottom:0}
@@ -93,6 +100,7 @@ body{
 
 @media (max-width:1000px){
   .grid{grid-template-columns:repeat(2,1fr)}
+  .quickstart-columns{grid-template-columns:1fr}
   .hero-features{grid-template-columns:1fr}
   .newsletter-inner{flex-direction:column;align-items:flex-start}
 }

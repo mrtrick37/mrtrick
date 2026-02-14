@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Quick Start Guide — Bazzite Linux Gaming</title>
-    <meta name="description" content="Get started with Bazzite in minutes. Simple installation and gaming setup guide." />
+    <title>Quick Start Guides — Bazzite, CachyOS, Aurora</title>
+    <meta name="description" content="Quick start guides for Bazzite, CachyOS, and Aurora. Install fast and get your Linux gaming setup ready." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
         <nav class="nav">
           <a href="index.html#features">Features</a>
           <a href="docs/index.html">Guides</a>
-          <a href="index.html#games">Games</a>
+          <a href="index.html#operating-systems">Operating Systems</a>
           <a href="community.html">Community</a>
           <a class="cta" href="quickstart.html">Quick Start</a>
         </nav>
@@ -31,85 +31,53 @@
           <div class="hero-card">
             <div class="hero-content" style="text-align:left">
               <h1>Quick Start Guide</h1>
-              <p class="lead" style="margin-bottom:32px">Get gaming on Bazzite in three simple steps. No technical expertise required.</p>
+              <p class="lead" style="margin-bottom:32px">Pick your distro and follow the quick steps to install and start gaming fast.</p>
             </div>
           </div>
         </div>
       </section>
 
       <section class="container features">
-        <div class="quickstart-steps">
-          <article class="step-card">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h2>Download Bazzite</h2>
-              <p>Head to <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a> and download the ISO for your hardware. Bazzite offers editions for desktops, laptops, and gaming handhelds like the Steam Deck, ROG Ally, and Legion Go.</p>
-              <ul class="benefit-list">
-                <li>Choose between KDE Plasma or GNOME desktop</li>
-                <li>Nvidia drivers included out-of-the-box</li>
-                <li>Optimized for AMD, Intel, and Nvidia GPUs</li>
-              </ul>
-              <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Download Bazzite</a>
-            </div>
+        <div class="quickstart-columns">
+          <article class="card guide-column">
+            <h2>Bazzite</h2>
+            <ol class="guide-steps">
+              <li>Download the correct ISO from <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a>.</li>
+              <li>Create a bootable USB with Ventoy, Balena Etcher, or Rufus.</li>
+              <li>Boot, run installer, and complete first-time setup.</li>
+              <li>Sign into Steam and verify games on <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a>.</li>
+            </ol>
+            <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Open Bazzite</a>
           </article>
 
-          <article class="step-card">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h2>Create Installation Media & Install</h2>
-              <p>Flash the ISO to a USB drive using <a href="https://www.ventoy.net/" target="_blank" rel="noopener">Ventoy</a>, <a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a>, or <a href="https://rufus.ie/" target="_blank" rel="noopener">Rufus</a>. Boot from the USB and follow the simple installation wizard.</p>
-              <ul class="benefit-list">
-                <li>Guided installer walks you through each step</li>
-                <li>Dual-boot support for keeping Windows</li>
-                <li>LUKS encryption available for security</li>
-                <li>Installation takes 10-20 minutes</li>
-              </ul>
-            </div>
+          <article class="card guide-column">
+            <h2>CachyOS</h2>
+            <ol class="guide-steps">
+              <li>Download ISO from <a href="https://cachyos.org/download/" target="_blank" rel="noopener">cachyos.org</a>.</li>
+              <li>Write ISO to USB and boot the live environment.</li>
+              <li>Install via Calamares and choose your desktop/kernel preset.</li>
+              <li>Update system, install Steam/Lutris, and enable gaming tweaks.</li>
+            </ol>
+            <a href="https://cachyos.org/download/" target="_blank" rel="noopener" class="btn primary">Open CachyOS</a>
           </article>
 
-          <article class="step-card">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h2>Start Gaming Immediately</h2>
-              <p>That's it! Steam comes pre-installed with Proton ready to go. Just log in, download your games, and play. Bazzite includes all the compatibility layers, drivers, and optimizations you need.</p>
-              <ul class="benefit-list">
-                <li>Steam, Lutris, and Heroic pre-installed</li>
-                <li>Proton compatibility layer built-in</li>
-                <li>HDR and VRR support enabled</li>
-                <li>Performance mode for maximum FPS</li>
-                <li>Community game configs included</li>
-              </ul>
-              <a href="https://www.protondb.com/explore" target="_blank" rel="noopener" class="btn ghost">Check Game Compatibility</a>
-            </div>
+          <article class="card guide-column">
+            <h2>Aurora</h2>
+            <ol class="guide-steps">
+              <li>Go to <a href="https://getaurora.dev/" target="_blank" rel="noopener">getaurora.dev</a> and pick your hardware image.</li>
+              <li>Create installation USB using Fedora Media Writer.</li>
+              <li>Install Aurora and reboot into the configured desktop.</li>
+              <li>Open software store, install apps, and connect game libraries.</li>
+            </ol>
+            <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn primary">Open Aurora</a>
           </article>
-        </div>
-
-        <div class="quickstart-footer">
-          <h2>Why Bazzite is So Easy</h2>
-          <div class="grid" style="margin-top:24px">
-            <article class="card">
-              <div class="icon">📦</div>
-              <h3>Everything Included</h3>
-              <p>No need to install drivers, compatibility tools, or gaming software. It's all pre-configured and ready to use.</p>
-            </article>
-            <article class="card">
-              <div class="icon">🔄</div>
-              <h3>Atomic Updates</h3>
-              <p>Updates happen automatically in the background. If something breaks, rollback to the previous version instantly.</p>
-            </article>
-            <article class="card">
-              <div class="icon">🎯</div>
-              <h3>Gaming First</h3>
-              <p>Built specifically for gaming. Every tweak, tool, and optimization is designed to give you the best gaming experience.</p>
-            </article>
-          </div>
         </div>
 
         <div style="text-align:center;margin:48px 0">
           <h2 style="margin-bottom:16px">Need Help?</h2>
-          <p style="color:var(--muted);margin-bottom:24px">Join our community for support, tips, and game-specific configurations.</p>
-          <a href="https://discord.bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Join Discord</a>
-          <a href="https://docs.bazzite.gg/" target="_blank" rel="noopener" class="btn ghost">Read Documentation</a>
+          <p style="color:var(--muted);margin-bottom:24px">Join our community for support, setup tips, and distro-specific guidance.</p>
+          <a href="community.html" class="btn primary">Join Community</a>
+          <a href="docs/index.html" class="btn ghost">Read Guides</a>
         </div>
       </section>
     </main>
