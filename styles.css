@@ -32,8 +32,10 @@ body{
 .hero h1 .highlight{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .lead{color:var(--muted);font-size:1.2rem;margin-bottom:32px;line-height:1.7;max-width:700px;margin-left:auto;margin-right:auto}
 .hero-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:36px 0;text-align:left}
-.feature-item{display:flex;gap:14px;align-items:flex-start;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.06);transition:all .2s ease}
+.feature-item{display:flex;gap:14px;align-items:flex-start;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.06);transition:all .2s ease;cursor:pointer}
+.feature-item{text-decoration:none;color:inherit}
 .feature-item:hover{border-color:rgba(0,255,163,0.32);transform:translateY(-2px)}
+.feature-item:focus-visible{outline:2px solid rgba(0,255,163,0.45);outline-offset:2px}
 .feature-icon{font-size:28px;line-height:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .feature-copy{display:flex;flex-direction:column;gap:6px}
 .feature-tag{display:inline-block;width:max-content;padding:3px 8px;border-radius:999px;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:#9bead1;background:rgba(0,255,163,0.12);border:1px solid rgba(0,255,163,0.25)}
