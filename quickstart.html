@@ -30,8 +30,8 @@
         <div class="container">
           <div class="hero-card">
             <div class="hero-content" style="text-align:left">
-              <h1>Quick Start Guide</h1>
-              <p class="lead" style="margin-bottom:32px">Pick your distro and follow the quick steps to install and start gaming fast.</p>
+              <h1>Quick Start Guides</h1>
+              <p class="lead" style="margin-bottom:32px">Three distro paths, one goal: install quickly and get gaming with less setup friction.</p>
             </div>
           </div>
         </div>
@@ -40,36 +40,69 @@
       <section class="container features">
         <div class="quickstart-columns">
           <article class="card guide-column">
-            <h2>Bazzite</h2>
+            <div class="guide-header">
+              <img src="bazzite-icon.svg" alt="Bazzite logo" class="guide-logo">
+              <div>
+                <h2>Bazzite</h2>
+                <p>Immutable gaming-focused Fedora image</p>
+              </div>
+            </div>
             <ol class="guide-steps">
-              <li>Download the correct ISO from <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a>.</li>
-              <li>Create a bootable USB with Ventoy, Balena Etcher, or Rufus.</li>
-              <li>Boot, run installer, and complete first-time setup.</li>
-              <li>Sign into Steam and verify games on <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a>.</li>
+              <li><strong>Pick image:</strong> Download your hardware image from <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a> (desktop, handheld, or Nvidia variants).</li>
+              <li><strong>Create USB:</strong> Flash with Ventoy, Balena Etcher, or Rufus and verify the write succeeded.</li>
+              <li><strong>Install:</strong> Boot live media, run installer, set disk layout, timezone, and user account.</li>
+              <li><strong>First boot:</strong> Update system, enable game mode/power profile, and check GPU driver status.</li>
+              <li><strong>Gaming apps:</strong> Sign into Steam, then add Heroic/Lutris for non-Steam libraries if needed.</li>
+              <li><strong>Validate games:</strong> Check compatibility in <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> and apply suggested launch options.</li>
             </ol>
-            <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Open Bazzite</a>
+            <div class="guide-links">
+              <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Download Bazzite</a>
+              <a href="https://docs.bazzite.gg/" target="_blank" rel="noopener" class="btn ghost">Bazzite Docs</a>
+            </div>
           </article>
 
           <article class="card guide-column">
-            <h2>CachyOS</h2>
+            <div class="guide-header">
+              <img src="cachyos-icon.svg" alt="CachyOS logo" class="guide-logo">
+              <div>
+                <h2>CachyOS</h2>
+                <p>Performance-tuned Arch-based distro</p>
+              </div>
+            </div>
             <ol class="guide-steps">
-              <li>Download ISO from <a href="https://cachyos.org/download/" target="_blank" rel="noopener">cachyos.org</a>.</li>
-              <li>Write ISO to USB and boot the live environment.</li>
-              <li>Install via Calamares and choose your desktop/kernel preset.</li>
-              <li>Update system, install Steam/Lutris, and enable gaming tweaks.</li>
+              <li><strong>Download ISO:</strong> Get the latest release from <a href="https://cachyos.org/download/" target="_blank" rel="noopener">cachyos.org</a>.</li>
+              <li><strong>Prepare USB:</strong> Flash and boot live environment with UEFI enabled.</li>
+              <li><strong>Calamares setup:</strong> Choose desktop, kernel profile, and partitioning strategy.</li>
+              <li><strong>Post-install sync:</strong> Run full update and mirror refresh before installing games.</li>
+              <li><strong>Gaming stack:</strong> Install Steam, Proton-GE, and optional tools like MangoHud/GameMode.</li>
+              <li><strong>Tune + test:</strong> Validate FPS baseline in one game, then apply kernel/governor tweaks.</li>
             </ol>
-            <a href="https://cachyos.org/download/" target="_blank" rel="noopener" class="btn primary">Open CachyOS</a>
+            <div class="guide-links">
+              <a href="https://cachyos.org/download/" target="_blank" rel="noopener" class="btn primary">Download CachyOS</a>
+              <a href="https://wiki.cachyos.org/" target="_blank" rel="noopener" class="btn ghost">CachyOS Wiki</a>
+            </div>
           </article>
 
           <article class="card guide-column">
-            <h2>Aurora</h2>
+            <div class="guide-header">
+              <img src="aurora-icon.svg" alt="Aurora logo" class="guide-logo">
+              <div>
+                <h2>Aurora</h2>
+                <p>Stable immutable workstation image</p>
+              </div>
+            </div>
             <ol class="guide-steps">
-              <li>Go to <a href="https://getaurora.dev/" target="_blank" rel="noopener">getaurora.dev</a> and pick your hardware image.</li>
-              <li>Create installation USB using Fedora Media Writer.</li>
-              <li>Install Aurora and reboot into the configured desktop.</li>
-              <li>Open software store, install apps, and connect game libraries.</li>
+              <li><strong>Select image:</strong> Use <a href="https://getaurora.dev/" target="_blank" rel="noopener">getaurora.dev</a> to pick the correct hardware variant.</li>
+              <li><strong>Create installer:</strong> Build USB with Fedora Media Writer (recommended by project docs).</li>
+              <li><strong>Install system:</strong> Complete guided install and reboot into your new immutable base.</li>
+              <li><strong>Initial setup:</strong> Run first updates and configure Flatpak/software sources.</li>
+              <li><strong>Gaming tools:</strong> Install Steam and helper tools, then sign into game launchers.</li>
+              <li><strong>Verify workflow:</strong> Test one game, check controller/audio/display behavior, and snapshot settings.</li>
             </ol>
-            <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn primary">Open Aurora</a>
+            <div class="guide-links">
+              <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn primary">Download Aurora</a>
+              <a href="https://docs.getaurora.dev/" target="_blank" rel="noopener" class="btn ghost">Aurora Docs</a>
+            </div>
           </article>
         </div>
 
