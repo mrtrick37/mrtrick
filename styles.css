@@ -17,6 +17,10 @@ body{
   color:#e6f7ff;
   -webkit-font-smoothing:antialiased;
 }
+a{color:#8bdcff;text-decoration-color:rgba(139,220,255,0.85);text-underline-offset:2px}
+a:visited{color:#a9b8ff;text-decoration-color:rgba(169,184,255,0.85)}
+a:hover{color:#c8f0ff;text-decoration-color:currentColor}
+a:focus-visible{outline:2px solid rgba(139,220,255,0.55);outline-offset:2px;border-radius:4px}
 .container{max-width:1100px;margin:0 auto;padding:28px}
 .site-header{backdrop-filter:blur(6px);position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-bottom:1px solid rgba(255,255,255,0.03)}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
