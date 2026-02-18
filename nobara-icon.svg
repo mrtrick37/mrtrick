@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nobara logo mark">
+  <defs>
+    <linearGradient id="bg" x1="32" y1="32" x2="224" y2="224" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="hat" x1="72" y1="76" x2="184" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="48" fill="url(#bg)"/>
+  <path d="M72 136H184C186.209 136 188 137.791 188 140V148C188 150.209 186.209 152 184 152H72C69.7909 152 68 150.209 68 148V140C68 137.791 69.7909 136 72 136Z" fill="url(#hat)"/>
+  <path d="M96 108C96 92.536 108.536 80 124 80H132C147.464 80 160 92.536 160 108V136H96V108Z" fill="url(#hat)"/>
+  <rect x="116" y="104" width="24" height="8" rx="4" fill="#3B82F6"/>
+</svg>
