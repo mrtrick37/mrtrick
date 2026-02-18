@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Nobara Guide — MRTrick</title>
+    <title>Nobara Setup Guide — MRTrick</title>
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -13,42 +13,163 @@
         <nav class="nav">
           <a href="../index.html">Home</a>
           <a href="index.html">Guides</a>
+          <a href="bazzite.html">Bazzite Setup</a>
+          <a href="cachyos.html">CachyOS Setup</a>
           <a href="../community.html">Community</a>
         </nav>
       </div>
     </header>
-    <main class="container" style="padding:36px 0">
-      <h1>Nobara Quick Guide</h1>
-      <p class="lead">A fast setup checklist for gaming on Nobara with Steam, Proton, and common performance tweaks.</p>
+    <main class="container">
+      <section style="padding:48px 0">
+        <h1>Nobara Setup Guide</h1>
+        <p class="lead">Complete guide to installing and configuring Nobara for a smooth Linux gaming setup.</p>
 
-      <h2>Why Nobara</h2>
-      <ul>
-        <li>Fedora-based with gaming-focused defaults and patches.</li>
-        <li>Includes practical driver and codec setup out of the box.</li>
-        <li>Good balance of newer packages and day-to-day stability.</li>
-      </ul>
+        <article class="card" style="margin:24px 0">
+          <h2>What is Nobara?</h2>
+          <p>Nobara is a Fedora-based Linux distribution focused on gaming and content creation. It includes practical patches, multimedia codecs, and quality-of-life defaults to reduce first-time setup friction for desktop gaming.</p>
+          <ul class="benefit-list">
+            <li>Fedora base with gaming-focused patches</li>
+            <li>Multimedia codecs and practical defaults included</li>
+            <li>Strong Steam + Proton compatibility out of the box</li>
+            <li>Balanced update cadence for daily use</li>
+            <li>Great starting point for Windows switchers</li>
+          </ul>
+        </article>
 
-      <h2>Initial setup</h2>
-      <ol>
-        <li>Update your system from the software center or terminal.</li>
-        <li>Install Steam and launch it once to complete runtime setup.</li>
-        <li>Enable Steam Play for all titles in Steam settings.</li>
-      </ol>
+        <article class="card" style="margin:24px 0">
+          <h2>Step 1: Download Nobara</h2>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Visit <a href="https://nobaraproject.org/" target="_blank" rel="noopener">nobaraproject.org</a></li>
+            <li>Go to the download page and select the latest stable release</li>
+            <li>Choose your desktop environment image (KDE or GNOME variants)</li>
+            <li>Download the ISO and verify checksum when available</li>
+          </ol>
+        </article>
 
-      <h2>Recommended gaming tools</h2>
-      <ul>
-        <li>ProtonUp-Qt for installing Proton-GE builds.</li>
-        <li>MangoHud for FPS and frame time monitoring.</li>
-        <li>Gamemode for game-focused CPU governor tuning.</li>
-      </ul>
+        <article class="card" style="margin:24px 0">
+          <h2>Step 2: Create Installation Media</h2>
+          <p>Flash the downloaded ISO to a USB drive using one of these tools:</p>
+          <ul class="benefit-list">
+            <li><a href="https://www.ventoy.net/" target="_blank" rel="noopener">Ventoy</a> - Boot multiple ISOs from one USB</li>
+            <li><a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a> - Simple cross-platform tool</li>
+            <li><a href="https://rufus.ie/" target="_blank" rel="noopener">Rufus</a> - Windows USB creator</li>
+            <li><a href="https://fedoraproject.org/workstation/download" target="_blank" rel="noopener">Fedora Media Writer</a> - Reliable option for Fedora-based images</li>
+          </ul>
+        </article>
 
-      <h2>Quick troubleshooting</h2>
-      <ul>
-        <li>If a game fails to launch, try a different Proton version.</li>
-        <li>Keep GPU drivers current before game-specific tuning.</li>
-        <li>Test with a fresh prefix if a single title behaves oddly.</li>
-      </ul>
+        <article class="card" style="margin:24px 0">
+          <h2>Step 3: Install Nobara</h2>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Boot from USB (press F12, F2, ESC, or DEL during startup)</li>
+            <li>Select the live environment and launch the installer</li>
+            <li>Set language, keyboard layout, timezone, and user account</li>
+            <li>Use automatic partitioning if you are new to Linux</li>
+            <li>Start installation and wait for completion</li>
+            <li>Reboot and remove the USB drive</li>
+          </ol>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 4: First Boot & Updates</h2>
+          <h3>Update System Packages</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo dnf upgrade --refresh -y</code></pre>
+
+          <h3>Reboot After Updates</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo reboot</code></pre>
+
+          <p style="color:var(--muted)">A post-update reboot ensures new kernel or driver updates are fully applied before gaming setup.</p>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 5: Configure Gaming Tools</h2>
+          <h3>Steam Setup</h3>
+          <ol style="line-height:1.8;color:var(--muted)">
+            <li>Launch Steam and sign in</li>
+            <li>Open Settings → Compatibility (Steam Play)</li>
+            <li>Enable Steam Play for all titles</li>
+            <li>Select Proton Experimental or a Proton-GE build</li>
+          </ol>
+
+          <h3>Install ProtonUp-Qt (for Proton-GE)</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>flatpak install flathub net.davidotek.pupgui2</code></pre>
+
+          <h3>Performance Overlay + Tuning</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>mangohud %command%
+gamemoderun %command%
+gamemoderun mangohud %command%</code></pre>
+          <p>Add one of the above to Steam launch options depending on your needs.</p>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Step 6: Optional Tools</h2>
+          <ul class="benefit-list">
+            <li><strong>Lutris</strong> - Install and manage games from multiple launchers</li>
+            <li><strong>Heroic Games Launcher</strong> - Epic and GOG support</li>
+            <li><strong>Bottles</strong> - Isolated Wine environments for specific apps/games</li>
+            <li><strong>CoreCtrl</strong> - Optional GPU power profile tuning (advanced users)</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Useful Commands</h2>
+          <h3>System Update</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo dnf upgrade --refresh</code></pre>
+
+          <h3>Install Common Gaming Tools</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>sudo dnf install -y steam gamemode mangohud</code></pre>
+
+          <h3>List Installed Kernels</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>rpm -q kernel</code></pre>
+
+          <h3>Check GPU Driver Stack</h3>
+          <pre style="background:#0f1518;padding:12px;border-radius:8px;margin:12px 0;overflow-x:auto"><code>glxinfo | grep "OpenGL renderer"</code></pre>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Troubleshooting</h2>
+          <h3>Game Won't Launch</h3>
+          <ul class="benefit-list">
+            <li>Verify game files in Steam</li>
+            <li>Try another Proton version in per-game compatibility settings</li>
+            <li>Check <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> for known fixes</li>
+          </ul>
+
+          <h3>Poor Performance</h3>
+          <ul class="benefit-list">
+            <li>Use GameMode in launch options</li>
+            <li>Confirm GPU drivers are loaded correctly</li>
+            <li>Use MangoHud to monitor frame times and bottlenecks</li>
+          </ul>
+
+          <h3>Audio Problems</h3>
+          <ul class="benefit-list">
+            <li>Restart user audio services: <code>systemctl --user restart pipewire wireplumber</code></li>
+            <li>Use <code>pavucontrol</code> to verify output and per-app routing</li>
+          </ul>
+        </article>
+
+        <article class="card" style="margin:24px 0">
+          <h2>Resources</h2>
+          <ul class="benefit-list">
+            <li><a href="https://nobaraproject.org/" target="_blank" rel="noopener">Nobara Project</a></li>
+            <li><a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a></li>
+            <li><a href="https://lutris.net/" target="_blank" rel="noopener">Lutris</a></li>
+            <li><a href="https://heroicgameslauncher.com/" target="_blank" rel="noopener">Heroic Games Launcher</a></li>
+            <li><a href="https://discussion.fedoraproject.org/" target="_blank" rel="noopener">Fedora Discussion</a></li>
+          </ul>
+        </article>
+
+        <div style="text-align:center;margin:48px 0">
+          <a href="index.html" class="btn ghost">Back to Guides</a>
+          <a href="../community.html" class="btn primary">Join Community</a>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> MRTrick — Linux Gaming & Tweaks</p>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
   </body>
 </html>
