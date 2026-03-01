@@ -8,6 +8,25 @@ Prerequisites
 - Node 16+
 - A GitHub personal access token with `repo` scope (or `public_repo` for public repos). Set it to `GITHUB_TOKEN` environment variable.
 
+How to get a GitHub Personal Access Token
+------------------------------------------
+1. Sign in to [github.com](https://github.com).
+2. Click your profile photo (top-right) → **Settings**.
+3. In the left sidebar, scroll down and click **Developer settings**.
+4. Click **Personal access tokens** → **Tokens (classic)** → **Generate new token (classic)**.
+5. Give the token a descriptive note (e.g. `forum-api-token`).
+6. Set an expiration date that suits your needs.
+7. Under **Select scopes**, tick:
+   - `public_repo` — for a public repository (recommended minimal scope).
+   - `repo` — only if the repository is private.
+8. Click **Generate token** at the bottom of the page.
+9. **Copy the token immediately** — GitHub will not show it again.
+10. Store it securely (e.g. a password manager or a secrets manager) and set it as the `GITHUB_TOKEN` environment variable as shown in the examples below.
+
+> **Tip — Fine-grained tokens (newer option):** In step 4 you can also choose
+> **Fine-grained tokens** for more granular control.  Grant *Read and write*
+> access to **Discussions** for the target repository and no other permissions.
+
 Endpoints
 ---------
 - `GET /discussions?owner=OWNER&repo=REPO` — returns discussions using the GraphQL API.
