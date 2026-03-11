@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Quick Start Guides — Bazzite, CachyOS, Aurora, Nobara</title>
-    <meta name="description" content="Quick start guides for Bazzite, CachyOS, Aurora, and Nobara. Install fast and get your Linux gaming setup ready." />
+    <title>Quick Start — Kyth Linux</title>
+    <meta name="description" content="Quick start guide for Kyth Linux. Also includes guides for our community friends: Bazzite, CachyOS, Aurora, and Nobara." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,13 +14,11 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html">mrtrick_</a>
+        <a class="brand" href="index.html">Kyth Linux</a>
         <nav class="nav">
-          <a href="index.html#features">Features</a>
+          <a href="index.html">Home</a>
           <a href="docs/index.html">Guides</a>
-          <a href="index.html#operating-systems">Operating Systems</a>
           <a href="community.html">Community</a>
-          <a class="cta" href="quickstart.html">Quick Start</a>
         </nav>
       </div>
     </header>
@@ -30,8 +28,8 @@
         <div class="container">
           <div class="hero-card">
             <div class="hero-content" style="text-align:left">
-              <h1>Quick Start Guides</h1>
-              <p class="lead" style="margin-bottom:32px;margin-left:0;margin-right:0;text-align:left;font-size:1rem;white-space:nowrap">Four distro paths, one goal: install quickly and get gaming with less setup friction.</p>
+              <h1>Quick Start — <span class="highlight">Kyth Linux</span></h1>
+              <p class="lead" style="margin-bottom:32px;margin-left:0;margin-right:0;text-align:left;font-size:1rem">Get Kyth Linux up and running fast. Also includes quick start guides for our community friends.</p>
             </div>
           </div>
         </div>
@@ -39,7 +37,42 @@
 
       <section class="container features">
         <div class="quickstart-columns">
+
+          <article class="card guide-column" style="border-color:var(--accent)">
+            <div class="guide-badge recommended">Main Project</div>
+            <div class="guide-header">
+              <img src="kyth-icon.svg" alt="Kyth Linux logo" class="guide-logo">
+              <div>
+                <h2>Kyth Linux</h2>
+                <p>Our community-driven gaming & productivity image</p>
+              </div>
+            </div>
+            <ol class="guide-steps">
+              <li><strong>Download:</strong> Get the latest Kyth Linux image (link coming soon).</li>
+              <li><strong>Create USB:</strong> Flash with Ventoy, Balena Etcher, or Fedora Media Writer and verify the write succeeded.</li>
+              <li><strong>Install:</strong> Boot live media, run installer, set disk layout, timezone, and user account.</li>
+              <li><strong>First boot:</strong> Complete first-run setup, check for updates, and verify GPU drivers.</li>
+              <li><strong>Gaming apps:</strong> Steam is pre-installed. Sign in, enable Steam Play, and add Heroic or Lutris for non-Steam libraries.</li>
+              <li><strong>Validate games:</strong> Check compatibility at <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> and apply any suggested launch options.</li>
+            </ol>
+            <div class="guide-links">
+              <a href="#" class="btn primary">Download Kyth Linux</a>
+              <a href="docs/kyth.html" class="btn ghost">Kyth Docs</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-head" style="margin-top:56px">
+          <p class="section-kicker">Our Friends</p>
+          <h2>Community Friend Distros</h2>
+          <p style="color:var(--muted);max-width:600px;margin:0 auto 24px;line-height:1.7">We're part of a broader Linux community. These are the projects we're friends with and recommend for specific needs.</p>
+        </div>
+
+        <div class="quickstart-columns">
+
           <article class="card guide-column">
+            <div class="guide-badge beginner">Friend</div>
             <div class="guide-header">
               <img src="bazzite-icon.svg" alt="Bazzite logo" class="guide-logo">
               <div>
@@ -62,6 +95,7 @@
           </article>
 
           <article class="card guide-column">
+            <div class="guide-badge advanced">Friend</div>
             <div class="guide-header">
               <img src="cachyos-icon.svg" alt="CachyOS logo" class="guide-logo">
               <div>
@@ -84,6 +118,7 @@
           </article>
 
           <article class="card guide-column">
+            <div class="guide-badge beginner">Friend</div>
             <div class="guide-header">
               <img src="aurora-icon.svg" alt="Aurora logo" class="guide-logo">
               <div>
@@ -106,6 +141,7 @@
           </article>
 
           <article class="card guide-column">
+            <div class="guide-badge beginner">Friend</div>
             <div class="guide-header">
               <img src="nobara-icon.svg" alt="Nobara logo" class="guide-logo">
               <div>
@@ -126,11 +162,12 @@
               <a href="https://wiki.nobaraproject.org/" target="_blank" rel="noopener" class="btn ghost">Nobara Docs</a>
             </div>
           </article>
+
         </div>
 
         <div style="text-align:center;margin:48px 0">
           <h2 style="margin-bottom:16px">Need Help?</h2>
-          <p style="color:var(--muted);margin-bottom:24px">Join our community for support, setup tips, and distro-specific guidance.</p>
+          <p style="color:var(--muted);margin-bottom:24px">Join the Kyth community for support, setup tips, and distro-specific guidance.</p>
           <a href="community.html" class="btn primary">Join Community</a>
           <a href="docs/index.html" class="btn ghost">Read Guides</a>
         </div>
@@ -139,8 +176,9 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> MRTrick — Linux Gaming & Tweaks</p>
+        <p>© <span id="year"></span> Kyth Linux — Gaming & Productivity</p>
         <p><a href="index.html">Home</a> · <a href="docs/index.html">Guides</a> · <a href="community.html">Community</a></p>
+        <p>This site is a community project. We are not officially associated with any other distributions linked here.</p>
       </div>
     </footer>
 

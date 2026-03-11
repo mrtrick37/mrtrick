@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kyth Linux Documentation</title>
+    <meta name="description" content="Documentation for Kyth Linux: installation, configuration, gaming, productivity, and troubleshooting guides." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <meta name="theme-color" content="#0b0f12">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">Kyth Linux</a>
+        <nav class="nav">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Docs Home</a>
+          <a href="../community.html">Community</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section style="padding:48px 0">
+        <h1>Kyth Linux Documentation</h1>
+        <p class="lead">Find installation instructions, configuration tips, gaming tweaks, productivity guides, and troubleshooting help for Kyth Linux.</p>
+        <ul class="doc-list">
+          <li><a href="../quickstart.html">Quick Start Guide</a></li>
+          <li><a href="#install">Installation</a></li>
+          <li><a href="#gaming">Gaming Setup</a></li>
+          <li><a href="#productivity">Productivity Tools</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+        <hr style="margin:32px 0">
+        <section id="install">
+          <h2>Installation</h2>
+          <p>Download the latest Kyth Linux image (link coming soon). Use tools like Ventoy, Balena Etcher, or Fedora Media Writer to create a bootable USB. Boot from USB and follow the installer prompts.</p>
+        </section>
+        <section id="gaming">
+          <h2>Gaming Setup</h2>
+          <p>Kyth Linux comes with Steam pre-installed. Enable Steam Play for Proton compatibility, and use ProtonUp-Qt to install Proton-GE for additional fixes. Lutris and Heroic are available for non-Steam games.</p>
+        </section>
+        <section id="productivity">
+          <h2>Productivity Tools</h2>
+          <p>Office, development, and creative tools are available via Flatpak and the built-in package manager. See the guides for recommended apps and setup tips.</p>
+        </section>
+        <section id="troubleshooting">
+          <h2>Troubleshooting</h2>
+          <p>For help with drivers, updates, or gaming issues, check the community forums or Discord. See the docs for common fixes and tips.</p>
+        </section>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Kyth Linux — Gaming & Productivity</p>
+        <p><a href="../index.html">Home</a> · <a href="../community.html">Community</a></p>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
