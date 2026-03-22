@@ -1,157 +1,270 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Kyth — Custom Atomic Image for Gaming & Productivity</title>
-    <meta name="description" content="Kyth is a custom atomic image built for gaming and productivity, bringing together the best of the Fedora ecosystem." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="theme-color" content="#0b0f12">
-  </head>
-  <body class="home-page">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="#">Kyth</a>
-        <nav class="nav">
-          <a href="#what-is-kyth">About</a>
-          <a href="docs/index.html">Guides</a>
-          <a href="community.html">Community</a>
-        </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kyth — Custom Atomic Image for Gaming & Productivity</title>
+  <meta name="description" content="Kyth is a custom atomic image built for gaming and productivity. Discover the best gaming Linux OSes including Bazzite, CachyOS, Nobara, and Aurora." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#080c10">
+</head>
+<body class="home-page">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
+        Kyth
+      </a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="docs/index.html">Guides</a>
+        <a href="community.html">Community</a>
+      </nav>
+      <a class="btn ghost nav-cta" href="quickstart.html">Quick Start →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-mesh" aria-hidden="true"></div>
+      <div class="hero-blob blob-1" aria-hidden="true"></div>
+      <div class="hero-blob blob-2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Custom Atomic Linux Image</p>
+          <h1>Built to game.<br><span class="gradient-text">Built to work.</span></h1>
+          <p class="lead">Kyth is a custom atomic image designed for people who game and get things done — immutable by default, gaming-ready out of the box, and built on a strong community ecosystem.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
+            <a class="btn ghost" href="quickstart.html">Quick Start →</a>
+          </div>
+          <div class="hero-chips">
+            <span class="stat-chip"><span aria-hidden="true">🔒</span> Atomic Updates</span>
+            <span class="stat-chip"><span aria-hidden="true">🎮</span> Gaming Ready</span>
+            <span class="stat-chip"><span aria-hidden="true">👥</span> Community Built</span>
+            <span class="stat-chip"><span aria-hidden="true">⚡</span> Open Source</span>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main>
+    <!-- ── What is Kyth ──────────────────────────────────────── -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head centered">
+          <p class="section-kicker">What is Kyth?</p>
+          <h2>Atomic. Gaming-ready. Yours.</h2>
+          <p class="section-blurb centered-blurb">An immutable OS image where updates apply atomically and roll back if something breaks. On top of that stable base, everything you need to game and work is already included.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon-wrap">🔒</div>
+            <div>
+              <h3>Atomic & Immutable</h3>
+              <p>The base system is read-only. Updates apply atomically and can be rolled back instantly if anything goes wrong — no more broken systems after an update.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap">🎮</div>
+            <div>
+              <h3>Gaming Ready</h3>
+              <p>Steam, Proton, and the tools you need are included from first boot. No driver hunting, no manual configuration — just install and play.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap">🛠️</div>
+            <div>
+              <h3>Productivity First</h3>
+              <p>Flatpak, development tools, and a stable base that won't break when you update. Work and game on the same machine without compromise.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap">🌐</div>
+            <div>
+              <h3>Community Driven</h3>
+              <p>Built by the community, for the community. Get help, share configs, and shape where Kyth goes next — on Discord or in the forums.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!-- Hero -->
-      <section class="hero">
-        <div class="container">
-          <div class="hero-card">
-            <div class="hero-content">
-              <p class="eyebrow">Custom Atomic Image</p>
-              <h1>Built to game.<br><span class="highlight">Built to work.</span></h1>
-              <p class="lead">Kyth is a custom atomic image designed for people who game and get things done — immutable by default, gaming-ready out of the box, and built on a strong community ecosystem.</p>
-              <div class="hero-actions">
-                <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
-                <a class="btn ghost" href="quickstart.html">Quick Start</a>
+    <!-- ── Gaming OS Landscape ───────────────────────────────── -->
+    <section id="ecosystem" class="section section-alt">
+      <div class="container">
+        <div class="section-head centered">
+          <p class="section-kicker">The Ecosystem</p>
+          <h2>The Best Gaming Linux OSes</h2>
+          <p class="section-blurb centered-blurb">Kyth is part of a rich ecosystem of exceptional gaming Linux distributions. Whether you want maximum performance, SteamDeck compatibility, or a developer-friendly setup — there's something great for you.</p>
+        </div>
+
+        <!-- Kyth Featured Card -->
+        <div class="kyth-featured">
+          <div class="kyth-top-bar"></div>
+          <div class="kyth-layout">
+            <div class="kyth-left">
+              <img src="kyth-icon.svg" alt="Kyth" class="kyth-logo">
+              <span class="coming-soon-badge">Coming Soon</span>
+              <h3 class="kyth-name">Kyth</h3>
+              <p class="kyth-tagline">Our take on the perfect gaming + productivity OS</p>
+              <div class="kyth-ctas">
+                <a class="btn primary" href="#">Download <span class="btn-note">(soon)</span></a>
+                <a class="btn ghost" href="docs/kyth.html">Docs</a>
               </div>
+            </div>
+            <div class="kyth-right">
+              <p class="kyth-desc">A custom atomic image built on the best of the Fedora ecosystem. Kyth brings together everything we love about gaming Linux — atomic updates, gaming-ready hardware support, and productivity tools — in a single community-crafted image.</p>
+              <ul class="kyth-feature-list">
+                <li>Atomic, immutable base with instant rollbacks</li>
+                <li>Steam, Proton & gaming tools pre-installed</li>
+                <li>Flatpak-first app management</li>
+                <li>Community-curated packages and configs</li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- What is Kyth -->
-      <section id="what-is-kyth" class="container home-section">
-        <div class="section-head">
-          <p class="section-kicker">What is Kyth?</p>
-          <h2>Atomic. Gaming-ready. Yours.</h2>
-          <p class="section-blurb">An immutable OS image where updates apply atomically and roll back if something breaks. On top of that stable base, everything you need to game and work is already included.</p>
-        </div>
-        <div class="grid grid-2 home-grid">
-          <article class="card home-card">
-            <div class="home-card-icon">🔒</div>
-            <h3>Atomic & Immutable</h3>
-            <p>The base system is read-only. Updates apply atomically and can be rolled back instantly if anything goes wrong — no more broken systems after an update.</p>
-          </article>
-          <article class="card home-card">
-            <div class="home-card-icon">🎮</div>
-            <h3>Gaming Ready</h3>
-            <p>Steam, Proton, and the tools you need are included from first boot. No driver hunting, no manual configuration — just install and play.</p>
-          </article>
-          <article class="card home-card">
-            <div class="home-card-icon">🛠️</div>
-            <h3>Productivity First</h3>
-            <p>Flatpak, development tools, and a stable base that won't break when you update. Work and game on the same machine without compromise.</p>
-          </article>
-          <article class="card home-card">
-            <div class="home-card-icon">🌐</div>
-            <h3>Community Driven</h3>
-            <p>Built by the community, for the community. Get help, share configs, and shape where Kyth goes next — on Discord or in the forums.</p>
-          </article>
-        </div>
-      </section>
+        <!-- Other OS Grid -->
+        <p class="os-grid-label">Other great options</p>
+        <div class="os-grid">
 
-      <!-- Ecosystem band -->
-      <section id="ecosystem" class="ecosystem-band">
-        <div class="container">
-          <p class="section-kicker" style="text-align:center">The Ecosystem</p>
-          <h2 style="text-align:center;margin:8px 0 12px">Standing on the shoulders of great projects</h2>
-          <p style="text-align:center;color:var(--muted);max-width:580px;margin:0 auto 40px;line-height:1.7">Kyth draws from and is part of a broader Linux ecosystem. These are the projects we learn from and recommend.</p>
-          <div class="ecosystem-strip">
-            <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="ecosystem-item">
-              <img src="bazzite-icon.svg" alt="Bazzite" class="ecosystem-logo">
-              <span>Bazzite</span>
-            </a>
-            <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="ecosystem-item">
-              <img src="aurora-icon.svg" alt="Aurora" class="ecosystem-logo">
-              <span>Aurora</span>
-            </a>
-            <a href="https://fedoraproject.org/atomic-desktops/" target="_blank" rel="noopener" class="ecosystem-item">
-              <span class="ecosystem-emoji">🎩</span>
-              <span>Fedora Atomic</span>
-            </a>
-            <a href="https://cachyos.org/" target="_blank" rel="noopener" class="ecosystem-item">
-              <img src="cachyos-icon.svg" alt="CachyOS" class="ecosystem-logo">
-              <span>CachyOS</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Guides -->
-      <section id="guides" class="container home-section">
-        <div class="section-head">
-          <p class="section-kicker">Get started</p>
-          <h2>Guides & Documentation</h2>
-          <p class="section-blurb">Everything you need to install, configure, and get the most out of Kyth.</p>
-        </div>
-        <div class="grid grid-3 home-grid">
-          <article class="card home-card card-cta">
-            <div class="home-card-icon">⚡</div>
-            <h3>Quick Start</h3>
-            <p>Install Kyth fast — step-by-step from download to first boot, with gaming setup included.</p>
-            <a href="quickstart.html" class="btn ghost card-btn">View Quick Start</a>
+          <article class="os-card bazzite">
+            <div class="os-card-head">
+              <img src="bazzite-icon.svg" alt="Bazzite" class="os-logo">
+              <div>
+                <h4 class="os-name">Bazzite</h4>
+                <span class="os-badge">Stable</span>
+              </div>
+            </div>
+            <p class="os-tagline">The gold standard for Linux gaming</p>
+            <ul class="os-feature-list">
+              <li>Fedora-based atomic image</li>
+              <li>SteamDeck compatibility mode</li>
+              <li>Steam & Proton pre-installed</li>
+              <li>GNOME and KDE variants</li>
+            </ul>
+            <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Bazzite →</a>
           </article>
-          <article class="card home-card card-cta">
-            <div class="home-card-icon">📖</div>
-            <h3>Full Docs</h3>
-            <p>In-depth installation guides, gaming configuration, productivity tools, and troubleshooting.</p>
-            <a href="docs/index.html" class="btn ghost card-btn">Browse Docs</a>
+
+          <article class="os-card cachyos">
+            <div class="os-card-head">
+              <img src="cachyos-icon.svg" alt="CachyOS" class="os-logo">
+              <div>
+                <h4 class="os-name">CachyOS</h4>
+                <span class="os-badge">Stable</span>
+              </div>
+            </div>
+            <p class="os-tagline">Maximum performance for serious gamers</p>
+            <ul class="os-feature-list">
+              <li>Arch-based with custom kernel</li>
+              <li>BORE scheduler for low latency</li>
+              <li>PGO/LTO optimized packages</li>
+              <li>Full AUR support</li>
+            </ul>
+            <a href="https://cachyos.org/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit CachyOS →</a>
           </article>
-          <article class="card home-card card-cta">
-            <div class="home-card-icon">💬</div>
-            <h3>Community</h3>
-            <p>Join the Discord, browse discussions, and connect with other Kyth users and contributors.</p>
-            <a href="community.html" class="btn ghost card-btn">Join Community</a>
+
+          <article class="os-card nobara">
+            <div class="os-card-head">
+              <img src="nobara-icon.svg" alt="Nobara" class="os-logo">
+              <div>
+                <h4 class="os-name">Nobara</h4>
+                <span class="os-badge">Stable</span>
+              </div>
+            </div>
+            <p class="os-tagline">Fedora, tuned for gaming</p>
+            <ul class="os-feature-list">
+              <li>Fedora base with gaming patches</li>
+              <li>fsync/futex2 kernel patches</li>
+              <li>OBS Studio & streaming tools</li>
+              <li>Steam & Lutris ready</li>
+            </ul>
+            <a href="https://nobaraproject.org/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Nobara →</a>
           </article>
+
+          <article class="os-card aurora">
+            <div class="os-card-head">
+              <img src="aurora-icon.svg" alt="Aurora" class="os-logo">
+              <div>
+                <h4 class="os-name">Aurora</h4>
+                <span class="os-badge">Stable</span>
+              </div>
+            </div>
+            <p class="os-tagline">Immutable desktop for devs who game</p>
+            <ul class="os-feature-list">
+              <li>Universal Blue / KDE Plasma</li>
+              <li>Dev tools & Distrobox included</li>
+              <li>Atomic updates & rollbacks</li>
+              <li>Flatpak-first apps</li>
+            </ul>
+            <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Aurora →</a>
+          </article>
+
         </div>
-      </section>
-
-      <!-- CTA -->
-      <section id="contact" class="cta-band">
-        <div class="container cta-inner">
-          <h2>Ready to get started?</h2>
-          <p>Download Kyth or join the community — we'd love to have you.</p>
-          <div class="cta-actions">
-            <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
-            <a class="btn ghost" href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">💬 Join Discord</a>
-            <a class="btn ghost" href="mailto:mrtrick@mrtrick.org">✉️ Email Us</a>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
-        <p><a href="docs/index.html">Docs</a> · <a href="quickstart.html">Quick Start</a> · <a href="community.html">Community</a></p>
-        <p>This is a community project. We are not officially associated with any other projects referenced on this page.</p>
       </div>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- ── Guides ─────────────────────────────────────────────── -->
+    <section id="guides" class="section">
+      <div class="container">
+        <div class="section-head centered">
+          <p class="section-kicker">Get Started</p>
+          <h2>Guides & Documentation</h2>
+          <p class="section-blurb centered-blurb">Everything you need to install, configure, and get the most out of your gaming Linux setup.</p>
+        </div>
+        <div class="guide-row">
+          <article class="guide-card">
+            <div class="guide-icon">⚡</div>
+            <h3>Quick Start</h3>
+            <p>Install fast — step-by-step from download to first boot, with gaming setup included.</p>
+            <a href="quickstart.html" class="btn ghost">View Quick Start</a>
+          </article>
+          <article class="guide-card">
+            <div class="guide-icon">📖</div>
+            <h3>Full Docs</h3>
+            <p>In-depth guides for installation, gaming config, productivity tools, and troubleshooting.</p>
+            <a href="docs/index.html" class="btn ghost">Browse Docs</a>
+          </article>
+          <article class="guide-card">
+            <div class="guide-icon">💬</div>
+            <h3>Community</h3>
+            <p>Join the Discord, browse discussions, and connect with other users and contributors.</p>
+            <a href="community.html" class="btn ghost">Join Community</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <h2>Ready to get started?</h2>
+        <p>Download Kyth or join the community — we'd love to have you.</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
+          <a class="btn ghost" href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">💬 Join Discord</a>
+          <a class="btn ghost" href="mailto:mrtrick@mrtrick.org">✉️ Email Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
+      <p><a href="docs/index.html">Docs</a> · <a href="quickstart.html">Quick Start</a> · <a href="community.html">Community</a></p>
+      <p>This is a community project. We are not officially associated with any other projects referenced on this page.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
