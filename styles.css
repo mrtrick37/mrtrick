@@ -120,6 +120,16 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   padding: 100px 0 80px;
   overflow: hidden;
 }
+.home-page .hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(7,16,23,0) 0%, rgba(5,8,12,0.94) 100%);
+}
 /* Mesh grid background */
 .hero-mesh {
   position: absolute;
@@ -286,16 +296,17 @@ main section[id] { scroll-margin-top: 110px }
 }
 .home-page .home-stack-section {
   padding: 56px 0 80px;
+  background: transparent;
+  border: 0;
 }
 .home-page .home-stack-section .section-head {
   max-width: 760px;
   margin: 0 auto 32px;
 }
-.home-page .home-top-fade {
-  background: linear-gradient(180deg, rgba(3, 6, 9, 0) 0%, rgba(3, 6, 9, 0.78) 18%, rgba(5, 8, 12, 0.98) 100%);
-}
+.home-page .home-top-fade,
 .home-page .home-stack-section.section-alt {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  background: transparent;
+  border: 0;
 }
 .band-h2 {
   margin: 0 0 12px;
