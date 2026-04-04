@@ -45,15 +45,18 @@
         </div>
       </section>
 
-      <section class="container features" style="padding-top:0">
-
-        <!-- KythOS primary card -->
-        <div class="section-head">
+      <!-- Primary docs heading -->
+      <section class="section-heading-band">
+        <div class="container" style="text-align:center">
           <p class="section-kicker">Primary Documentation</p>
-          <h2>KythOS Guides</h2>
+          <h2 class="band-h2">KythOS Guides</h2>
         </div>
+      </section>
 
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px">
+      <!-- Primary docs cards -->
+      <section class="section-cards">
+        <div class="container">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:0">
 
           <article class="card guide-card">
             <div class="guide-badge recommended">Start Here</div>
@@ -101,13 +104,21 @@
 
         </div>
 
-        <!-- Other distro guides -->
-        <div class="section-head" style="margin-top:16px">
-          <p class="section-kicker">The Ecosystem</p>
-          <h2>Other Recommended Distro Guides</h2>
-          <p style="color:var(--muted);max-width:600px;margin:0 0 24px;line-height:1.7">KythOS is part of a broader gaming Linux ecosystem. These community-recommended alternatives may be a better fit for some users.</p>
         </div>
+      </section>
 
+      <!-- Ecosystem heading -->
+      <section class="section-heading-band section-alt">
+        <div class="container" style="text-align:center">
+          <p class="section-kicker">The Ecosystem</p>
+          <h2 class="band-h2">Other Recommended Distro Guides</h2>
+          <p class="section-blurb centered-blurb">KythOS is part of a broader gaming Linux ecosystem. These community-recommended alternatives may be a better fit for some users.</p>
+        </div>
+      </section>
+
+      <!-- Ecosystem cards -->
+      <section class="section-cards">
+        <div class="container">
         <div class="grid section-grid">
 
           <article class="card guide-card">
@@ -157,28 +168,36 @@
 
         </div>
 
-        <!-- Tool guides -->
-        <div class="section-head" style="margin-top:48px">
+        </div>
+      </section>
+
+      <!-- Tool guides heading -->
+      <section class="section-heading-band">
+        <div class="container" style="text-align:center">
           <p class="section-kicker">Tool Guides</p>
-          <h2>Gaming Compatibility Tools</h2>
-          <p style="color:var(--muted);max-width:600px;margin:0 0 24px;line-height:1.7">Learn how the underlying compatibility layers work to run Windows games on Linux.</p>
+          <h2 class="band-h2">Gaming Compatibility Tools</h2>
+          <p class="section-blurb centered-blurb">Learn how the underlying compatibility layers work to run Windows games on Linux.</p>
         </div>
+      </section>
 
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
-          <article class="card guide-card">
-            <div class="icon">🍷</div>
-            <h2 style="margin:12px 0 8px"><a href="proton.html" style="text-decoration:none;color:inherit">Proton Guide</a></h2>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Learn how Proton enables Windows game compatibility on Linux. Covers Proton stable, Proton-GE, launch options, and per-game configuration.</p>
-            <a href="proton.html" class="btn ghost">View Proton Guide</a>
-          </article>
-          <article class="card guide-card">
-            <div class="icon">🍸</div>
-            <h2 style="margin:12px 0 8px"><a href="wine.html" style="text-decoration:none;color:inherit">Wine Guide</a></h2>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Wine runs Windows applications outside of Steam. Covers Wine prefixes, DXVK, VKD3D-Proton, and common application setup patterns.</p>
-            <a href="wine.html" class="btn ghost">View Wine Guide</a>
-          </article>
+      <!-- Tool guides cards -->
+      <section class="section-cards">
+        <div class="container">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+            <article class="card guide-card">
+              <div class="icon">🍷</div>
+              <h2 style="margin:12px 0 8px"><a href="proton.html" style="text-decoration:none;color:inherit">Proton Guide</a></h2>
+              <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Learn how Proton enables Windows game compatibility on Linux. Covers Proton stable, Proton-GE, launch options, and per-game configuration.</p>
+              <a href="proton.html" class="btn ghost">View Proton Guide</a>
+            </article>
+            <article class="card guide-card">
+              <div class="icon">🍸</div>
+              <h2 style="margin:12px 0 8px"><a href="wine.html" style="text-decoration:none;color:inherit">Wine Guide</a></h2>
+              <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Wine runs Windows applications outside of Steam. Covers Wine prefixes, DXVK, VKD3D-Proton, and common application setup patterns.</p>
+              <a href="wine.html" class="btn ghost">View Wine Guide</a>
+            </article>
+          </div>
         </div>
-
       </section>
     </main>
 

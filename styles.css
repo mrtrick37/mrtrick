@@ -210,21 +210,21 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 /* ── Sections ───────────────────────────────────────────────── */
 .section { padding: 88px 0 }
 .section-alt {
-  background: rgba(255,255,255,0.012);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.032);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
 /* Heading-only band — compact, vertically centered text */
 .section-heading-band {
-  padding: 64px 0;
+  padding: 52px 0 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* Cards-only section — no top border/bg, clean breathing room */
+/* Cards immediately below heading band — tight top, generous bottom */
 .section-cards {
-  padding: 52px 0 72px;
+  padding: 0 0 72px;
 }
 .band-h2 {
   margin: 0 0 12px;
@@ -245,10 +245,10 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 .section-blurb { margin: 0; color: var(--muted); max-width: 680px; line-height: 1.75 }
 .section-blurb.centered-blurb { margin-left: auto; margin-right: auto }
 
-/* ── Feature Grid (What is Kyth) ────────────────────────────── */
+/* ── Feature Grid (What is KythOS) ──────────────────────────── */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .feature-card {
@@ -695,6 +695,7 @@ pre code { background: none; border: none; padding: 0; color: inherit }
   .guide-row { grid-template-columns: repeat(2,1fr) }
   .kyth-layout { grid-template-columns: 1fr; gap: 28px }
   .kyth-feature-list { grid-template-columns: 1fr }
+  .section-cards { padding-bottom: 52px }
 }
 
 @media (max-width: 640px) {
