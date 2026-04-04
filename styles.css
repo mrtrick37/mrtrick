@@ -26,6 +26,11 @@ body {
   background: linear-gradient(180deg, #071017 0%, #050608 100%);
   color: #e6f7ff;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+main {
+  position: relative;
+  overflow-x: clip;
 }
 a { color: #8bdcff; text-decoration-color: rgba(139,220,255,0.85); text-underline-offset: 2px }
 a:visited { color: #a9b8ff; text-decoration-color: rgba(169,184,255,0.85) }
@@ -33,7 +38,7 @@ a:hover { color: #c8f0ff; text-decoration-color: currentColor }
 a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px; border-radius: 4px }
 
 /* ── Layout ─────────────────────────────────────────────────── */
-.container { max-width: 1100px; margin: 0 auto; padding: 28px }
+.container { width: min(100%, 1100px); max-width: 1100px; margin: 0 auto; padding: 28px }
 
 /* ── Header ─────────────────────────────────────────────────── */
 .site-header {
@@ -44,7 +49,7 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px }
 .brand {
   font-weight: 800;
   color: var(--accent);
@@ -56,7 +61,13 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   flex-shrink: 0;
 }
 .brand-icon { width: 26px; height: 26px; object-fit: contain }
-.nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 0.92rem }
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 18px;
+}
+.nav a { color: var(--muted); text-decoration: none; margin-left: 0; font-size: 0.92rem }
 .nav a:hover { color: #e6f7ff }
 .nav-cta { font-size: 0.88rem; padding: 7px 14px !important }
 
@@ -145,6 +156,23 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   max-width: 760px;
   margin: 0 auto;
 }
+.home-page .hero-content {
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(15,21,24,0.82), rgba(11,15,18,0.46));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.24);
+  backdrop-filter: blur(8px);
+}
+.home-page .hero-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,255,163,0.55), rgba(0,163,255,0.45), transparent);
+}
 .eyebrow {
   display: inline-block;
   margin: 0 0 16px;
@@ -220,10 +248,20 @@ main section[id] { scroll-margin-top: 110px }
 /* Heading-only band — compact, vertically centered text */
 .section-heading-band {
   position: relative;
-  padding: 60px 0 32px;
+  padding: 68px 0 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.section-heading-band::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(240px, 40vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(0,255,163,0.45), transparent);
 }
 .section-heading-band + .section-cards {
   padding-top: 8px;
@@ -265,8 +303,9 @@ main section[id] { scroll-margin-top: 110px }
 /* ── Feature Grid (What is KythOS) ──────────────────────────── */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
+  align-items: stretch;
 }
 .feature-card {
   display: flex;
@@ -407,8 +446,13 @@ main section[id] { scroll-margin-top: 110px }
 }
 .os-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
+}
+.os-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 48px;
 }
 .os-card {
   display: flex;
@@ -500,8 +544,9 @@ main section[id] { scroll-margin-top: 110px }
 /* ── Guide Cards ────────────────────────────────────────────── */
 .guide-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
+  align-items: stretch;
 }
 .guide-card {
   position: relative;
@@ -563,9 +608,11 @@ main section[id] { scroll-margin-top: 110px }
 }
 .card:hover { transform: translateY(-2px); border-color: rgba(0,255,163,0.2); box-shadow: 0 10px 24px rgba(0,0,0,0.18) }
 .card .icon { font-size: 28px; margin-bottom: 8px }
-.grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px }
-.grid-2 { grid-template-columns: repeat(2,1fr) }
-.grid-3 { grid-template-columns: repeat(3,1fr) }
+.grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; align-items: stretch }
+.grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)) }
+.grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)) }
+.docs-primary-grid { gap: 18px; margin-bottom: 0 }
+.docs-tool-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px }
 
 /* ── Quickstart page styles ─────────────────────────────────── */
 .quickstart-steps { display: flex; flex-direction: column; gap: 32px; margin-bottom: 48px }
@@ -599,7 +646,7 @@ main section[id] { scroll-margin-top: 110px }
 .benefit-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold }
 .quickstart-footer { margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.05) }
 .quickstart-footer h2 { text-align: center; margin-bottom: 8px }
-.quickstart-columns { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-bottom: 32px }
+.quickstart-columns { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; margin-bottom: 32px; align-items: stretch }
 .guide-column {
   display: flex;
   flex-direction: column;
@@ -661,8 +708,8 @@ main section[id] { scroll-margin-top: 110px }
   background-clip: text;
 }
 /* Inner-page hero features grid */
-.hero-features { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin: 36px 0; text-align: left; align-items: stretch }
-.feature-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px; height: 100%; background: linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); transition: transform .2s ease,border-color .2s ease,box-shadow .2s ease; text-decoration: none; color: inherit }
+.hero-features { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin: 36px 0; text-align: left; align-items: stretch }
+.feature-item { display: flex; gap: 16px; align-items: flex-start; min-width: 0; padding: 20px; height: 100%; background: linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015)); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); transition: transform .2s ease,border-color .2s ease,box-shadow .2s ease; text-decoration: none; color: inherit }
 .feature-item:hover { border-color: rgba(0,255,163,0.35); transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.28) }
 .feature-icon { font-size: 28px; line-height: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0 }
 .feature-copy { display: flex; flex-direction: column; gap: 8px }
@@ -692,6 +739,10 @@ main section[id] { scroll-margin-top: 110px }
 .newsletter-inner { display: flex; gap: 20px; align-items: center; justify-content: space-between }
 .newsletter-form { display: flex; gap: 10px }
 .newsletter-form input { padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: transparent; color: inherit; min-width: 260px }
+
+.feature-card, .os-card, .guide-card, .guide-column, .kyth-left, .kyth-right {
+  min-width: 0;
+}
 
 .os-link { text-decoration: none; color: inherit; display: block; transition: all 0.2s ease }
 .os-link h3 { margin: 0; color: #e6f7ff; transition: color 0.2s ease }
@@ -749,6 +800,7 @@ pre code { background: none; border: none; padding: 0; color: inherit }
   .hero h1 { font-size: 2.2rem }
   .hero-actions { flex-direction: column; gap: 10px; align-items: center }
   .hero-chips { gap: 8px }
+  .home-page .hero-content { padding: 28px 18px; border-radius: 18px }
   .kyth-layout { padding: 28px 20px }
   .kyth-ctas { flex-direction: column }
   .section { padding: 60px 0 }
