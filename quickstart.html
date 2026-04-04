@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Quick Start — Kyth</title>
-    <meta name="description" content="Quick start guide for Kyth. Also includes guides for recommended distros: Bazzite, CachyOS, Aurora, and Nobara." />
+    <title>Quick Start — KythOS</title>
+    <meta name="description" content="Quick start guide for KythOS. Step-by-step from download to first boot, with gaming setup included. Also covers Bazzite, CachyOS, Aurora, and Nobara." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,12 +14,16 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html">Kyth</a>
+        <a class="brand" href="index.html">
+          <img src="kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
+          KythOS
+        </a>
         <nav class="nav">
           <a href="index.html">Home</a>
           <a href="docs/index.html">Guides</a>
           <a href="community.html">Community</a>
         </nav>
+        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
       </div>
     </header>
 
@@ -28,45 +32,134 @@
         <div class="container">
           <div class="hero-card">
             <div class="hero-content" style="text-align:left">
-              <h1>Quick Start — <span class="highlight">Kyth</span></h1>
-              <p class="lead" style="margin-bottom:32px;margin-left:0;margin-right:0;text-align:left;font-size:1rem">Get Kyth up and running fast. Also includes quick start guides for other recommended distros.</p>
+              <p class="eyebrow">Installation Guide</p>
+              <h1>Quick Start — <span class="highlight">KythOS</span></h1>
+              <p class="lead" style="margin-bottom:32px;margin-left:0;margin-right:0;text-align:left;font-size:1rem">Get KythOS up and running fast. Step-by-step from download to first boot, with gaming fully configured. Also includes quick start guides for other community-recommended distros.</p>
             </div>
           </div>
         </div>
       </section>
 
       <section class="container features">
-        <div class="quickstart-columns">
+
+        <!-- KythOS Quick Start -->
+        <div class="quickstart-columns" style="grid-template-columns:1fr">
 
           <article class="card guide-column" style="border-color:var(--accent)">
-            <div class="guide-badge recommended">Main Project</div>
+            <div class="guide-badge recommended">Primary — KythOS</div>
             <div class="guide-header">
-              <img src="kyth-icon.svg" alt="Kyth logo" class="guide-logo">
+              <img src="kyth-icon.svg" alt="KythOS logo" class="guide-logo">
               <div>
-                <h2>Kyth</h2>
-                <p>A custom atomic image for gaming & productivity</p>
+                <h2>KythOS</h2>
+                <p>Custom atomic image for gaming & productivity</p>
               </div>
             </div>
-            <ol class="guide-steps">
-              <li><strong>Download:</strong> Get the latest Kyth image (link coming soon).</li>
-              <li><strong>Create USB:</strong> Flash with Ventoy, Balena Etcher, or Fedora Media Writer and verify the write succeeded.</li>
-              <li><strong>Install:</strong> Boot live media, run installer, set disk layout, timezone, and user account.</li>
-              <li><strong>First boot:</strong> Complete first-run setup, check for updates, and verify GPU drivers.</li>
-              <li><strong>Gaming apps:</strong> Steam is pre-installed. Sign in, enable Steam Play, and add Heroic or Lutris for non-Steam libraries.</li>
-              <li><strong>Validate games:</strong> Check compatibility at <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> and apply any suggested launch options.</li>
-            </ol>
-            <div class="guide-links">
-              <a href="#" class="btn primary">Download Kyth</a>
-              <a href="docs/kyth.html" class="btn ghost">Kyth Docs</a>
+
+            <div class="quickstart-steps" style="margin-top:16px">
+
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h2>Download the ISO</h2>
+                  <p>Grab the latest KythOS release from GitHub. Choose the variant that matches your GPU:</p>
+                  <ul class="benefit-list">
+                    <li><strong>AMD / Intel</strong> — recommended for most users (open-source Mesa drivers)</li>
+                    <li><strong>Nvidia</strong> — includes proprietary Nvidia driver pre-installed</li>
+                    <li><strong>KDE Plasma</strong> or <strong>GNOME</strong> desktop environment variants available</li>
+                  </ul>
+                  <a href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener" class="btn primary" style="margin-top:8px">Download KythOS on GitHub →</a>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h2>Create a Bootable USB</h2>
+                  <p>Flash the downloaded ISO to a USB drive (8 GB or larger). Use one of these tools:</p>
+                  <ul class="benefit-list">
+                    <li><a href="https://www.ventoy.net/" target="_blank" rel="noopener">Ventoy</a> — put multiple ISOs on one USB, great for trying multiple distros</li>
+                    <li><a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a> — simple cross-platform tool (Windows, macOS, Linux)</li>
+                    <li><a href="https://fedoraproject.org/en/workstation/download/" target="_blank" rel="noopener">Fedora Media Writer</a> — recommended for Fedora-based images</li>
+                  </ul>
+                  <p>After flashing, verify the USB was written correctly before removing it.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h2>Boot & Install</h2>
+                  <p>Plug in the USB and reboot. Enter your BIOS/UEFI boot menu (usually <kbd>F12</kbd>, <kbd>F2</kbd>, or <kbd>Del</kbd>) and select the USB drive.</p>
+                  <ul class="benefit-list">
+                    <li>Select <strong>Install KythOS</strong> from the boot menu</li>
+                    <li>Follow the Anaconda installer — choose your disk, timezone, and language</li>
+                    <li>Create your user account and set a password</li>
+                    <li>Disk encryption is optional but recommended for laptops</li>
+                    <li>Installation takes roughly 10–20 minutes depending on your hardware</li>
+                  </ul>
+                  <p>When the installer completes, reboot and remove the USB drive.</p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h2>First Boot Setup</h2>
+                  <p>KythOS will run a first-boot setup wizard (GNOME Initial Setup or KDE Welcome). Complete it, then:</p>
+                  <ul class="benefit-list">
+                    <li>Check for pending image updates: <code style="color:var(--accent)">bootc upgrade</code></li>
+                    <li>If an update downloads, reboot to apply it</li>
+                    <li>Verify GPU drivers loaded correctly: <code style="color:var(--accent)">glxinfo | grep renderer</code></li>
+                    <li>Configure Flatpak remotes if any are missing</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h2>Set Up Gaming</h2>
+                  <p>Steam is pre-installed. Open it, sign in, and enable Steam Play:</p>
+                  <ul class="benefit-list">
+                    <li>Steam → Settings → Compatibility → <strong>Enable Steam Play for all titles</strong></li>
+                    <li>Install <strong>ProtonUp-Qt</strong> (via Flatpak) to add Proton-GE for extra game compatibility</li>
+                    <li><strong>Heroic Games Launcher</strong> is available for Epic Games and GOG libraries</li>
+                    <li><strong>Lutris</strong> covers Battle.net, Ubisoft Connect, and other launchers</li>
+                    <li>MangoHud is pre-installed — add <code style="color:var(--accent)">MANGOHUD=1 %command%</code> to any Steam launch option</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                  <h2>Check Compatibility & Play</h2>
+                  <p>Before diving in, look up your games on ProtonDB:</p>
+                  <ul class="benefit-list">
+                    <li>Visit <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB.com</a> and search for your game</li>
+                    <li>Apply any recommended Steam launch options for your title</li>
+                    <li>For anti-cheat games, check if EAC/BattlEye Linux is supported</li>
+                    <li>If a game is broken on Proton stable, try Proton-GE (installed via ProtonUp-Qt)</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div><!-- /quickstart-steps -->
+
+            <div class="guide-links" style="margin-top:8px">
+              <a href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener" class="btn primary">Download KythOS</a>
+              <a href="docs/kyth.html" class="btn ghost">Full KythOS Docs</a>
+              <a href="community.html" class="btn ghost">Get Help</a>
             </div>
           </article>
 
         </div>
 
-        <div class="section-head" style="margin-top:56px">
+        <!-- Other Distros -->
+        <div class="section-head" style="margin-top:64px">
           <p class="section-kicker">The Ecosystem</p>
           <h2>Other Recommended Distros</h2>
-          <p style="color:var(--muted);max-width:600px;margin:0 auto 24px;line-height:1.7">Kyth is part of a broader Linux ecosystem. These are projects we recommend for specific needs.</p>
+          <p style="color:var(--muted);max-width:600px;margin:0 0 24px;line-height:1.7">These are community-recommended projects we think are excellent. If KythOS isn't right for you, one of these probably is.</p>
         </div>
 
         <div class="quickstart-columns">
@@ -81,12 +174,12 @@
               </div>
             </div>
             <ol class="guide-steps">
-              <li><strong>Pick image:</strong> Download your hardware image from <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a> (desktop, handheld, or Nvidia variants).</li>
-              <li><strong>Create USB:</strong> Flash with Ventoy, Balena Etcher, or Rufus and verify the write succeeded.</li>
-              <li><strong>Install:</strong> Boot live media, run installer, set disk layout, timezone, and user account.</li>
-              <li><strong>First boot:</strong> Update system, enable game mode/power profile, and check GPU driver status.</li>
-              <li><strong>Gaming apps:</strong> Sign into Steam, then add Heroic/Lutris for non-Steam libraries if needed.</li>
-              <li><strong>Validate games:</strong> Check compatibility in <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> and apply suggested launch options.</li>
+              <li><strong>Pick image:</strong> Download from <a href="https://bazzite.gg/" target="_blank" rel="noopener">bazzite.gg</a> — choose Desktop, Handheld, or Nvidia variant.</li>
+              <li><strong>Create USB:</strong> Flash with Fedora Media Writer, Balena Etcher, or Ventoy.</li>
+              <li><strong>Install:</strong> Boot live media, run the Anaconda installer, set disk/timezone/user.</li>
+              <li><strong>First boot:</strong> Complete Yafti setup wizard, check GPU driver status.</li>
+              <li><strong>Gaming:</strong> Steam is pre-installed. Sign in, enable Steam Play, add Heroic/Lutris if needed.</li>
+              <li><strong>Validate:</strong> Check game compatibility at <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> and apply any launch options.</li>
             </ol>
             <div class="guide-links">
               <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn primary">Download Bazzite</a>
@@ -104,12 +197,12 @@
               </div>
             </div>
             <ol class="guide-steps">
-              <li><strong>Download ISO:</strong> Get the latest release from <a href="https://cachyos.org/download/" target="_blank" rel="noopener">cachyos.org</a>.</li>
+              <li><strong>Download ISO:</strong> Get the latest from <a href="https://cachyos.org/download/" target="_blank" rel="noopener">cachyos.org/download</a>.</li>
               <li><strong>Prepare USB:</strong> Flash and boot live environment with UEFI enabled.</li>
-              <li><strong>Calamares setup:</strong> Choose desktop, kernel profile, and partitioning strategy.</li>
-              <li><strong>Post-install sync:</strong> Run full update and mirror refresh before installing games.</li>
-              <li><strong>Gaming stack:</strong> Install Steam, Proton-GE, and optional tools like MangoHud/GameMode.</li>
-              <li><strong>Tune + test:</strong> Validate FPS baseline in one game, then apply kernel/governor tweaks.</li>
+              <li><strong>Calamares setup:</strong> Choose desktop, kernel (linux-cachyos recommended), and partitioning.</li>
+              <li><strong>Post-install sync:</strong> Run <code>sudo pacman -Syu</code> and refresh mirrors before installing games.</li>
+              <li><strong>Gaming stack:</strong> Install Steam from the repos, Proton-GE via ProtonUp-Qt, MangoHud, GameMode.</li>
+              <li><strong>Tune + test:</strong> Enable the BORE scheduler, validate FPS baseline, apply governor tweaks.</li>
             </ol>
             <div class="guide-links">
               <a href="https://cachyos.org/download/" target="_blank" rel="noopener" class="btn primary">Download CachyOS</a>
@@ -123,16 +216,16 @@
               <img src="aurora-icon.svg" alt="Aurora logo" class="guide-logo">
               <div>
                 <h2>Aurora</h2>
-                <p>Stable immutable workstation image</p>
+                <p>Immutable workstation for devs who game</p>
               </div>
             </div>
             <ol class="guide-steps">
-              <li><strong>Select image:</strong> Use <a href="https://getaurora.dev/" target="_blank" rel="noopener">getaurora.dev</a> to pick the correct hardware variant.</li>
-              <li><strong>Create installer:</strong> Build USB with Fedora Media Writer (recommended by project docs).</li>
-              <li><strong>Install system:</strong> Complete guided install and reboot into your new immutable base.</li>
-              <li><strong>Initial setup:</strong> Run first updates and configure Flatpak/software sources.</li>
-              <li><strong>Gaming tools:</strong> Install Steam and helper tools, then sign into game launchers.</li>
-              <li><strong>Verify workflow:</strong> Test one game, check controller/audio/display behavior, and snapshot settings.</li>
+              <li><strong>Select image:</strong> Go to <a href="https://getaurora.dev/" target="_blank" rel="noopener">getaurora.dev</a> — pick Aurora (gaming) or Aurora DX (dev tools included).</li>
+              <li><strong>Create installer:</strong> Fedora Media Writer is the recommended tool per project docs.</li>
+              <li><strong>Install system:</strong> Complete Anaconda guided install and reboot into your new immutable base.</li>
+              <li><strong>Initial setup:</strong> Run first updates, configure Flatpak sources and app permissions via Flatseal.</li>
+              <li><strong>Gaming tools:</strong> Install Steam Flatpak, enable Proton, sign into game launchers.</li>
+              <li><strong>Verify workflow:</strong> Test one game, check controller / audio / display, snapshot your settings.</li>
             </ol>
             <div class="guide-links">
               <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn primary">Download Aurora</a>
@@ -150,12 +243,12 @@
               </div>
             </div>
             <ol class="guide-steps">
-              <li><strong>Download ISO:</strong> Get the latest release from <a href="https://nobaraproject.org/" target="_blank" rel="noopener">nobaraproject.org</a>.</li>
-              <li><strong>Create USB:</strong> Write the image with Ventoy, Balena Etcher, or Fedora Media Writer.</li>
-              <li><strong>Install:</strong> Boot the live environment, run installer, and complete user/timezone/storage setup.</li>
-              <li><strong>First update:</strong> Update packages and reboot once to ensure drivers and kernel are current.</li>
-              <li><strong>Gaming setup:</strong> Install Steam, enable Steam Play, and optionally add ProtonUp-Qt for Proton-GE.</li>
-              <li><strong>Validate titles:</strong> Test one game and check fixes on <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> if needed.</li>
+              <li><strong>Download ISO:</strong> Get the latest from <a href="https://nobaraproject.org/" target="_blank" rel="noopener">nobaraproject.org</a>.</li>
+              <li><strong>Create USB:</strong> Flash with Ventoy, Balena Etcher, or Fedora Media Writer.</li>
+              <li><strong>Install:</strong> Boot the live environment, run the installer, complete user/timezone/storage setup.</li>
+              <li><strong>First update:</strong> Run <code>sudo dnf upgrade --refresh</code> and reboot once to get current kernel and drivers.</li>
+              <li><strong>Gaming setup:</strong> Install Steam, enable Steam Play for all titles, add ProtonUp-Qt for Proton-GE.</li>
+              <li><strong>Validate titles:</strong> Test a game and check fixes on <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> if needed.</li>
             </ol>
             <div class="guide-links">
               <a href="https://nobaraproject.org/" target="_blank" rel="noopener" class="btn primary">Download Nobara</a>
@@ -165,20 +258,21 @@
 
         </div>
 
-        <div style="text-align:center;margin:48px 0">
-          <h2 style="margin-bottom:16px">Need Help?</h2>
-          <p style="color:var(--muted);margin-bottom:24px">Join the Kyth community for support, setup tips, and distro-specific guidance.</p>
-          <a href="community.html" class="btn primary">Join Community</a>
-          <a href="docs/index.html" class="btn ghost">Read Guides</a>
+        <div style="text-align:center;margin:56px 0 0">
+          <h2 style="margin-bottom:12px">Need help choosing?</h2>
+          <p style="color:var(--muted);margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto">Ask in the community — we're happy to help you pick the right distro for your hardware and workflow.</p>
+          <a href="community.html" class="btn primary">Join the Community</a>
+          <a href="docs/index.html" class="btn ghost" style="margin-left:10px">Browse All Guides</a>
         </div>
+
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
-        <p><a href="index.html">Home</a> · <a href="docs/index.html">Guides</a> · <a href="community.html">Community</a></p>
-        <p>This site is a community project. We are not officially associated with any other distributions linked here.</p>
+        <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
+        <p><a href="index.html">Home</a> · <a href="docs/index.html">Guides</a> · <a href="community.html">Community</a> · <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a></p>
+        <p>KythOS is a community project. We are not officially affiliated with Fedora, Universal Blue, or any other distributions linked here.</p>
       </div>
     </footer>
 

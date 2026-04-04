@@ -1,26 +1,42 @@
-# Kyth Linux
+# KythOS
 
-Kyth Linux is a fast, community-driven Linux image designed for gaming and productivity. It features:
+KythOS is a Fedora-based atomic Linux image built for gaming and productivity. It uses the `bootc` / Universal Blue toolchain to deliver an immutable, OCI image-based system that updates atomically and can roll back instantly.
 
-- Gaming-ready setup out of the box
-- Productivity tools included
-- Fast updates and stable base
-- Friendly community support
+## Features
+
+- **Immutable & atomic** — base system is read-only; updates are whole image swaps
+- **Gaming ready at first boot** — Steam, Proton, MangoHud, GameMode pre-installed
+- **Flatpak-first** — apps are sandboxed and independent from the base OS
+- **Distrobox** — run any Linux environment as a container from your desktop
+- **Fedora foundation** — up-to-date kernel, Mesa, and hardware support
+- **Community built** — open source, PRs welcome
+
+## Download
+
+Get the latest release from [GitHub Releases](https://github.com/mrtrick37/mrtrick/releases/latest).
 
 ## Quick Start
 
-See [quickstart.html](quickstart.html) for installation instructions.
+See [quickstart.html](quickstart.html) for step-by-step installation instructions.
 
 ## Documentation
 
-Guides and setup docs are available in the [docs/](docs/index.html) directory.
+Full guides and docs are available in the [docs/](docs/kyth.html) directory.
 
-## Other Recommended Images
+## Community
 
-We also recommend these community distros for specific needs:
-- [Bazzite](https://bazzite.gg/): Gaming-focused OCI image
-- [CachyOS](https://cachyos.org/): Performance-optimized Arch Linux
-- [Nobara](docs/nobara.html): Fedora-based gaming distro
+- [Discord](https://discord.gg/p7s44gzf) — real-time help and chat
+- [GitHub Discussions](https://github.com/mrtrick37/mrtrick/discussions) — questions and community forum
+- [GitHub Issues](https://github.com/mrtrick37/mrtrick/issues) — bug reports
+
+## Other Recommended Distros
+
+We also recommend these for specific use cases:
+- [Bazzite](https://bazzite.gg/) — most beginner-friendly, Fedora atomic gaming image
+- [CachyOS](https://cachyos.org/) — maximum performance, Arch-based
+- [Nobara](https://nobaraproject.org/) — Fedora with gaming patches, made by GloriousEggroll
+- [Aurora](https://getaurora.dev/) — Universal Blue / KDE for devs who game
 
 ---
-This site is a community project. We are not officially associated with any other distributions linked here.
+
+This site is a community project. KythOS is not officially affiliated with Fedora, Universal Blue, or any other distributions linked here.

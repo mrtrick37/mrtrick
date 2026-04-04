@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kyth Setup & Guides</title>
-    <meta name="description" content="Kyth setup, installation, and configuration guides. Gaming and productivity on Linux." />
+    <title>Guides & Documentation — KythOS</title>
+    <meta name="description" content="KythOS setup, installation, and configuration guides. Gaming and productivity on Linux. Also covers Bazzite, CachyOS, Nobara, and Aurora." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,100 +14,179 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../index.html">Kyth</a>
+        <a class="brand" href="../index.html">
+          <img src="../kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
+          KythOS
+        </a>
         <nav class="nav">
           <a href="../index.html">Home</a>
-          <a href="kyth.html">Kyth Guide</a>
+          <a href="kyth.html">KythOS Guide</a>
+          <a href="../quickstart.html">Quick Start</a>
           <a href="../community.html">Community</a>
         </nav>
+        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
       </div>
     </header>
+
     <main>
       <section class="hero" style="padding:64px 0">
         <div class="container">
           <div class="hero-card">
             <div class="hero-content" style="text-align:center">
-              <h1>Kyth <span class="highlight">Setup & Guides</span></h1>
-              <p class="lead" style="margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto">Install, configure, and get the most out of Kyth. Gaming and productivity, made easy.</p>
+              <p class="eyebrow">Documentation</p>
+              <h1>KythOS <span class="highlight">Guides & Docs</span></h1>
+              <p class="lead" style="margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto">Install, configure, and get the most out of KythOS. Comprehensive guides for gaming, productivity, system management, and troubleshooting.</p>
+              <div class="hero-actions" style="justify-content:center">
+                <a href="kyth.html" class="btn primary">KythOS Full Docs</a>
+                <a href="../quickstart.html" class="btn ghost">Quick Start →</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="container features" style="padding-top:0">
-        <div class="grid section-grid single-grid">
+
+        <!-- KythOS primary card -->
+        <div class="section-head">
+          <p class="section-kicker">Primary Documentation</p>
+          <h2>KythOS Guides</h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px">
+
           <article class="card guide-card">
-            <div class="guide-badge recommended">Main Project</div>
-            <div class="icon os-icon-img">
-              <img src="../kyth-icon.svg" alt="Kyth logo" class="os-logo">
-            </div>
-            <h2 style="margin:12px 0 8px"><a href="kyth.html" style="text-decoration:none;color:inherit">Kyth Guide</a></h2>
-            <p style="margin:0 0 12px"><strong style="color:var(--accent)">🦊 Gaming & Productivity</strong></p>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Kyth is a fast, custom atomic image for gaming and productivity. Simple setup, powerful tools, and a welcoming community.</p>
+            <div class="guide-badge recommended">Start Here</div>
+            <div class="icon" style="font-size:32px">⚡</div>
+            <h2 style="margin:12px 0 8px"><a href="../quickstart.html" style="text-decoration:none;color:inherit">Quick Start</a></h2>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Get from ISO to first game in one guide. Covers download, flash, install, and gaming setup — step by step.</p>
             <ul class="benefit-list" style="margin-bottom:20px">
-              <li>Gaming-ready out of the box</li>
-              <li>Productivity tools included</li>
-              <li>Fast updates, stable base</li>
-              <li>Friendly community support</li>
+              <li>Pick the right variant for your GPU</li>
+              <li>Create bootable USB media</li>
+              <li>Walk through the installer</li>
+              <li>Set up Steam and Proton</li>
             </ul>
-            <a href="kyth.html" class="btn primary" style="width:100%">View Kyth Guide</a>
+            <a href="../quickstart.html" class="btn primary" style="width:100%">Quick Start Guide</a>
           </article>
-        </div>
-        <div class="section-head" style="margin-top:48px">
-          <h2>Other Recommended Images</h2>
-          <p style="color:var(--muted);max-width:600px;margin:0 auto 24px;line-height:1.7">We also recommend these community distros for specific needs. Links provided for convenience.</p>
-        </div>
-        <div class="grid section-grid">
+
           <article class="card guide-card">
-            <div class="guide-badge beginner">Alternative</div>
+            <div class="guide-badge recommended">Full Docs</div>
+            <div class="icon os-icon-img">
+              <img src="../kyth-icon.svg" alt="KythOS logo" class="os-logo">
+            </div>
+            <h2 style="margin:12px 0 8px"><a href="kyth.html" style="text-decoration:none;color:inherit">KythOS Complete Guide</a></h2>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">In-depth documentation covering everything from installation to advanced customization, gaming, productivity, and the atomic update system.</p>
+            <ul class="benefit-list" style="margin-bottom:20px">
+              <li>Installation & system requirements</li>
+              <li>Gaming stack setup (Steam, Proton, MangoHud)</li>
+              <li>Updates, rollbacks & bootc</li>
+              <li>Distrobox & development tools</li>
+            </ul>
+            <a href="kyth.html" class="btn primary" style="width:100%">View Full Docs</a>
+          </article>
+
+          <article class="card guide-card">
+            <div class="guide-badge" style="background:rgba(0,163,255,0.12);color:var(--accent-2);border-color:var(--accent-2)">Community</div>
+            <div class="icon" style="font-size:32px">💬</div>
+            <h2 style="margin:12px 0 8px"><a href="../community.html" style="text-decoration:none;color:inherit">Community Forum</a></h2>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Browse topics, get help, share setups, and report compatibility notes. Backed by GitHub Discussions.</p>
+            <ul class="benefit-list" style="margin-bottom:20px">
+              <li>Real-time help on Discord</li>
+              <li>GitHub Discussions forum</li>
+              <li>Compatibility reports</li>
+              <li>Announcements & changelogs</li>
+            </ul>
+            <a href="../community.html" class="btn ghost" style="width:100%">Join Community</a>
+          </article>
+
+        </div>
+
+        <!-- Other distro guides -->
+        <div class="section-head" style="margin-top:16px">
+          <p class="section-kicker">The Ecosystem</p>
+          <h2>Other Recommended Distro Guides</h2>
+          <p style="color:var(--muted);max-width:600px;margin:0 0 24px;line-height:1.7">KythOS is part of a broader gaming Linux ecosystem. These community-recommended alternatives may be a better fit for some users.</p>
+        </div>
+
+        <div class="grid section-grid">
+
+          <article class="card guide-card">
+            <div class="guide-badge beginner">Most Beginner-Friendly</div>
             <div class="icon">🎮</div>
             <h2 style="margin:12px 0 8px"><a href="bazzite.html" style="text-decoration:none;color:inherit">Bazzite Setup Guide</a></h2>
-            <p style="margin:0 0 12px"><strong style="color:var(--accent)">🌟 Most Beginner-Friendly</strong></p>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">No Linux knowledge required! Everything works out-of-the-box with excellent performance, Steam Deck UI, and automatic updates. Perfect for newcomers making the switch from Windows.</p>
+            <p style="margin:0 0 4px"><strong style="color:var(--accent)">Fedora Atomic • Gaming-First</strong></p>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">No Linux knowledge required. Everything works out of the box with Steam Deck UI mode, automatic updates, and all gaming tools pre-installed. Perfect for Windows switchers.</p>
             <ul class="benefit-list" style="margin-bottom:20px">
               <li>Zero configuration needed</li>
-              <li>All gaming tools pre-installed</li>
-              <li>Atomic rollback if issues occur</li>
               <li>Steam Deck mode available</li>
+              <li>Nvidia variants included</li>
+              <li>Atomic rollback if issues occur</li>
             </ul>
             <a href="bazzite.html" class="btn ghost" style="width:100%">View Bazzite Guide</a>
           </article>
+
           <article class="card guide-card">
-            <div class="guide-badge advanced">Alternative</div>
+            <div class="guide-badge advanced">Best Performance</div>
             <div class="icon">⚡</div>
             <h2 style="margin:12px 0 8px"><a href="cachyos.html" style="text-decoration:none;color:inherit">CachyOS Setup Guide</a></h2>
-            <p style="margin:0 0 12px"><strong style="color:var(--accent-2)">⚡ Best Performance</strong></p>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Maximum FPS and system responsiveness with performance-tuned kernel and cutting-edge optimizations. Requires some Linux familiarity for installation and fine-tuning.</p>
+            <p style="margin:0 0 4px"><strong style="color:var(--accent-2)">Arch-Based • Maximum FPS</strong></p>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">Maximum FPS and system responsiveness with a performance-tuned kernel, BORE scheduler, and PGO/LTO optimized packages. Requires some Linux familiarity.</p>
             <ul class="benefit-list" style="margin-bottom:20px">
-              <li>Optimized kernel patches</li>
-              <li>Latest Arch packages</li>
-              <li>Maximum gaming performance</li>
-              <li>Full system customization</li>
+              <li>BORE + sched-ext schedulers</li>
+              <li>PGO/LTO optimized packages</li>
+              <li>Full AUR access</li>
+              <li>Hardware-specific kernel builds</li>
             </ul>
             <a href="cachyos.html" class="btn ghost" style="width:100%">View CachyOS Guide</a>
           </article>
+
           <article class="card guide-card">
-            <div class="guide-badge beginner">Alternative</div>
+            <div class="guide-badge beginner">Fedora Gaming Spin</div>
             <div class="icon">🎩</div>
             <h2 style="margin:12px 0 8px"><a href="nobara.html" style="text-decoration:none;color:inherit">Nobara Setup Guide</a></h2>
-            <p style="margin:0 0 12px"><strong style="color:var(--accent)">🧩 Fedora + Gaming Tweaks</strong></p>
-            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">A gaming-focused Fedora spin with practical defaults, updated packages, and a straightforward setup path for Steam and Proton.</p>
+            <p style="margin:0 0 4px"><strong style="color:var(--accent)">Fedora + Gaming Patches</strong></p>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:20px">A gaming-focused Fedora spin maintained by GloriousEggroll (creator of Proton-GE). Practical defaults, updated packages, and a straightforward setup for Steam and Proton.</p>
             <ul class="benefit-list" style="margin-bottom:20px">
-              <li>Fedora base with gaming patches</li>
-              <li>Simple first-boot workflow</li>
-              <li>Good balance of freshness and stability</li>
-              <li>Fast setup for Steam Play</li>
+              <li>fsync / futex2 kernel patches</li>
+              <li>OBS & streaming tools included</li>
+              <li>Good freshness / stability balance</li>
+              <li>Fast Steam Play setup</li>
             </ul>
             <a href="nobara.html" class="btn ghost" style="width:100%">View Nobara Guide</a>
           </article>
+
         </div>
+
+        <!-- Tool guides -->
+        <div class="section-head" style="margin-top:48px">
+          <p class="section-kicker">Tool Guides</p>
+          <h2>Gaming Compatibility Tools</h2>
+          <p style="color:var(--muted);max-width:600px;margin:0 0 24px;line-height:1.7">Learn how the underlying compatibility layers work to run Windows games on Linux.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+          <article class="card guide-card">
+            <div class="icon">🍷</div>
+            <h2 style="margin:12px 0 8px"><a href="proton.html" style="text-decoration:none;color:inherit">Proton Guide</a></h2>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Learn how Proton enables Windows game compatibility on Linux. Covers Proton stable, Proton-GE, launch options, and per-game configuration.</p>
+            <a href="proton.html" class="btn ghost">View Proton Guide</a>
+          </article>
+          <article class="card guide-card">
+            <div class="icon">🍸</div>
+            <h2 style="margin:12px 0 8px"><a href="wine.html" style="text-decoration:none;color:inherit">Wine Guide</a></h2>
+            <p style="color:var(--muted);line-height:1.7;margin-bottom:16px">Wine runs Windows applications outside of Steam. Covers Wine prefixes, DXVK, VKD3D-Proton, and common application setup patterns.</p>
+            <a href="wine.html" class="btn ghost">View Wine Guide</a>
+          </article>
+        </div>
+
       </section>
     </main>
+
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
-        <p><a href="../index.html">Home</a> · <a href="../community.html">Community</a> · <a href="../quickstart.html">Quick Start</a></p>
-        <p>This site is a community project. We are not officially associated with any other distributions linked here.</p>
+        <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
+        <p><a href="../index.html">Home</a> · <a href="../community.html">Community</a> · <a href="../quickstart.html">Quick Start</a> · <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a></p>
+        <p>KythOS is a community project. Not affiliated with Fedora, Universal Blue, or any other distributions linked here.</p>
       </div>
     </footer>
     <script src="../script.js"></script>

@@ -645,6 +645,28 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 .os-link:hover h3 { color: var(--accent) }
 .os-icon-img { display: flex; align-items: center; justify-content: flex-start }
 
+/* ── Inline code & kbd ──────────────────────────────────────── */
+code {
+  font-family: 'Fira Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.88em;
+  background: rgba(0,255,163,0.08);
+  border: 1px solid rgba(0,255,163,0.15);
+  border-radius: 5px;
+  padding: 1px 6px;
+  color: #b8f4d4;
+}
+kbd {
+  font-family: 'Fira Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.82em;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  padding: 1px 7px;
+  color: #c8e0f0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+}
+pre code { background: none; border: none; padding: 0; color: inherit }
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1000px) {
   .grid { grid-template-columns: repeat(2,1fr) }

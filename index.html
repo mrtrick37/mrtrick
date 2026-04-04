@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kyth — Custom Atomic Image for Gaming & Productivity</title>
-  <meta name="description" content="Kyth is a custom atomic image built for gaming and productivity. Discover the best gaming Linux OSes including Bazzite, CachyOS, Nobara, and Aurora." />
+  <title>KythOS — Atomic Linux for Gaming & Productivity</title>
+  <meta name="description" content="KythOS is a Fedora-based atomic Linux image built for gaming and productivity. Immutable by default, gaming-ready out of the box, community built." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -17,122 +17,224 @@
     <div class="container header-inner">
       <a class="brand" href="index.html">
         <img src="kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
-        Kyth
+        KythOS
       </a>
       <nav class="nav">
         <a href="#about">About</a>
+        <a href="#features">Features</a>
         <a href="#ecosystem">Ecosystem</a>
         <a href="docs/index.html">Guides</a>
         <a href="community.html">Community</a>
       </nav>
-      <a class="btn ghost nav-cta" href="quickstart.html">Quick Start →</a>
+      <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
     </div>
   </header>
 
   <main>
 
-    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <!-- ── Hero ───────────────────────────────────────────────── -->
     <section class="hero">
       <div class="hero-mesh" aria-hidden="true"></div>
       <div class="hero-blob blob-1" aria-hidden="true"></div>
       <div class="hero-blob blob-2" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-content">
-          <p class="eyebrow">Custom Atomic Linux Image</p>
+          <p class="eyebrow">Fedora-Based Atomic Linux Image</p>
           <h1>Built to game.<br><span class="gradient-text">Built to work.</span></h1>
-          <p class="lead">Kyth is a custom atomic image designed for people who game and get things done — immutable by default, gaming-ready out of the box, and built on a strong community ecosystem.</p>
+          <p class="lead">KythOS is a custom immutable Linux image for people who game and get things done. Atomic updates, gaming-ready hardware support, and productivity tools — all in one community-crafted image.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
+            <a class="btn primary" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download KythOS</a>
             <a class="btn ghost" href="quickstart.html">Quick Start →</a>
           </div>
           <div class="hero-chips">
-            <span class="stat-chip"><span aria-hidden="true">🔒</span> Atomic Updates</span>
+            <span class="stat-chip"><span aria-hidden="true">🔒</span> Immutable Base</span>
             <span class="stat-chip"><span aria-hidden="true">🎮</span> Gaming Ready</span>
+            <span class="stat-chip"><span aria-hidden="true">⚡</span> Atomic Updates</span>
             <span class="stat-chip"><span aria-hidden="true">👥</span> Community Built</span>
-            <span class="stat-chip"><span aria-hidden="true">⚡</span> Open Source</span>
+            <span class="stat-chip"><span aria-hidden="true">🦊</span> Fedora Based</span>
+            <span class="stat-chip"><span aria-hidden="true">📦</span> Flatpak First</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── What is Kyth ──────────────────────────────────────── -->
+    <!-- ── What is KythOS ─────────────────────────────────────── -->
     <section id="about" class="section">
       <div class="container">
         <div class="section-head centered">
-          <p class="section-kicker">What is Kyth?</p>
-          <h2>Atomic. Gaming-ready. Yours.</h2>
-          <p class="section-blurb centered-blurb">An immutable OS image where updates apply atomically and roll back if something breaks. On top of that stable base, everything you need to game and work is already included.</p>
+          <p class="section-kicker">What is KythOS?</p>
+          <h2>Atomic. Immutable. Gaming-ready.</h2>
+          <p class="section-blurb centered-blurb">KythOS is a Fedora-based atomic image built on the Universal Blue toolchain. The base system is read-only and managed as an OCI container image — updates are reliable, rollbacks are instant, and gaming works from first boot.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <div class="feature-icon-wrap">🔒</div>
             <div>
               <h3>Atomic & Immutable</h3>
-              <p>The base system is read-only. Updates apply atomically and can be rolled back instantly if anything goes wrong — no more broken systems after an update.</p>
+              <p>The base system is read-only. Updates are applied atomically as whole image swaps and can be rolled back instantly — no more broken systems after a bad update.</p>
             </div>
           </article>
           <article class="feature-card">
             <div class="feature-icon-wrap">🎮</div>
             <div>
-              <h3>Gaming Ready</h3>
-              <p>Steam, Proton, and the tools you need are included from first boot. No driver hunting, no manual configuration — just install and play.</p>
+              <h3>Gaming Ready at First Boot</h3>
+              <p>Steam, Proton, MangoHud, GameMode, and Vulkan drivers are pre-installed and pre-configured. Install and play — no manual setup required.</p>
             </div>
           </article>
           <article class="feature-card">
             <div class="feature-icon-wrap">🛠️</div>
             <div>
-              <h3>Productivity First</h3>
-              <p>Flatpak, development tools, and a stable base that won't break when you update. Work and game on the same machine without compromise.</p>
+              <h3>Productivity Without Compromise</h3>
+              <p>Flatpak apps, development tools via Distrobox, and a stable base that won't break when you update. Game and work on the same machine, no tradeoffs.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap">📦</div>
+            <div>
+              <h3>OCI Image Architecture</h3>
+              <p>KythOS is delivered as a container image using <code>bootc</code>. Updates pull the new image in the background and apply on reboot — like Android system updates, but for your desktop.</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap">🦊</div>
+            <div>
+              <h3>Fedora Foundation</h3>
+              <p>Built on Fedora's bleeding-edge kernel and hardware support. You get up-to-date drivers, Mesa, and firmware without sacrificing stability.</p>
             </div>
           </article>
           <article class="feature-card">
             <div class="feature-icon-wrap">🌐</div>
             <div>
               <h3>Community Driven</h3>
-              <p>Built by the community, for the community. Get help, share configs, and shape where Kyth goes next — on Discord or in the forums.</p>
+              <p>Built by the community, for the community. Shape where KythOS goes next — join the Discord, file issues on GitHub, or submit a pull request.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ── Gaming OS Landscape ───────────────────────────────── -->
-    <section id="ecosystem" class="section section-alt">
+    <!-- ── Features Deep Dive ─────────────────────────────────── -->
+    <section id="features" class="section section-alt">
       <div class="container">
         <div class="section-head centered">
-          <p class="section-kicker">The Ecosystem</p>
-          <h2>The Best Gaming Linux OSes</h2>
-          <p class="section-blurb centered-blurb">Kyth is part of a rich ecosystem of exceptional gaming Linux distributions. Whether you want maximum performance, SteamDeck compatibility, or a developer-friendly setup — there's something great for you.</p>
+          <p class="section-kicker">What's Included</p>
+          <h2>Everything you need, nothing you don't</h2>
+          <p class="section-blurb centered-blurb">KythOS ships a carefully curated set of tools. Apps you'll actually use are pre-installed. Everything else is a Flatpak or Distrobox container away.</p>
         </div>
 
-        <!-- Kyth Featured Card -->
-        <div class="kyth-featured">
+        <div class="feature-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 32px;">
+          <article class="feature-card">
+            <div class="feature-icon-wrap" style="font-size:22px">🎮</div>
+            <div>
+              <h3>Gaming Stack</h3>
+              <ul class="os-feature-list" style="margin-top:8px">
+                <li>Steam + Proton (latest stable)</li>
+                <li>Proton-GE via ProtonUp-Qt</li>
+                <li>Heroic Games Launcher</li>
+                <li>Lutris</li>
+                <li>MangoHud overlay</li>
+                <li>GameMode daemon</li>
+              </ul>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap" style="font-size:22px">⚙️</div>
+            <div>
+              <h3>System & Drivers</h3>
+              <ul class="os-feature-list" style="margin-top:8px">
+                <li>Latest Fedora kernel</li>
+                <li>AMD Mesa (open, full Vulkan)</li>
+                <li>Intel ANV Vulkan driver</li>
+                <li>Nvidia drivers (included variant)</li>
+                <li>PipeWire audio</li>
+                <li>Wayland + XWayland</li>
+              </ul>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon-wrap" style="font-size:22px">🛠️</div>
+            <div>
+              <h3>Productivity & Dev</h3>
+              <ul class="os-feature-list" style="margin-top:8px">
+                <li>Flatpak app runtime</li>
+                <li>Distrobox (any Linux env)</li>
+                <li>Podman containers</li>
+                <li>Flatseal for permissions</li>
+                <li>KDE Plasma or GNOME DE</li>
+                <li>GNOME Software / Discover</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="kyth-featured" style="margin-top:40px">
           <div class="kyth-top-bar"></div>
           <div class="kyth-layout">
             <div class="kyth-left">
-              <img src="kyth-icon.svg" alt="Kyth" class="kyth-logo">
-              <span class="coming-soon-badge">Coming Soon</span>
-              <h3 class="kyth-name">Kyth</h3>
-              <p class="kyth-tagline">Our take on the perfect gaming + productivity OS</p>
+              <img src="kyth-icon.svg" alt="KythOS" class="kyth-logo">
+              <h3 class="kyth-name">KythOS</h3>
+              <p class="kyth-tagline">The atomic gaming + productivity image you've been waiting for.</p>
               <div class="kyth-ctas">
-                <a class="btn primary" href="#">Download <span class="btn-note">(soon)</span></a>
-                <a class="btn ghost" href="docs/kyth.html">Docs</a>
+                <a class="btn primary" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download KythOS</a>
+                <a class="btn ghost" href="quickstart.html">Quick Start</a>
+                <a class="btn ghost" href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub →</a>
               </div>
             </div>
             <div class="kyth-right">
-              <p class="kyth-desc">A custom atomic image built on the best of the Fedora ecosystem. Kyth brings together everything we love about gaming Linux — atomic updates, gaming-ready hardware support, and productivity tools — in a single community-crafted image.</p>
+              <p class="kyth-desc">KythOS is built on the Universal Blue / bootc toolchain on top of Fedora. The image is published to GitHub Container Registry (ghcr.io) and updates automatically in the background. When a new version is ready, you reboot — that's it. No package manager conflicts, no half-applied updates, no broken systems.</p>
               <ul class="kyth-feature-list">
-                <li>Atomic, immutable base with instant rollbacks</li>
-                <li>Steam, Proton & gaming tools pre-installed</li>
+                <li>Atomic image swaps via bootc</li>
+                <li>Instant rollback to previous deployment</li>
+                <li>Steam, Proton & MangoHud pre-installed</li>
                 <li>Flatpak-first app management</li>
-                <li>Community-curated packages and configs</li>
+                <li>Distrobox for any Linux environment</li>
+                <li>Active community on Discord & GitHub</li>
               </ul>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Other OS Grid -->
-        <p class="os-grid-label">Other great options</p>
+    <!-- ── How It Works ───────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head centered">
+          <p class="section-kicker">How It Works</p>
+          <h2>Atomic updates, explained simply</h2>
+          <p class="section-blurb centered-blurb">KythOS uses image-based updates instead of traditional package management. Here's what that means in practice.</p>
+        </div>
+        <div class="guide-row">
+          <article class="guide-card">
+            <div class="guide-icon">1️⃣</div>
+            <h3>Install Once</h3>
+            <p>Flash the ISO, boot, and run the installer. KythOS sets up your immutable base system. Your home directory, Flatpaks, and Distrobox containers are all separate from the base — they persist across updates.</p>
+          </article>
+          <article class="guide-card">
+            <div class="guide-icon">2️⃣</div>
+            <h3>Updates in the Background</h3>
+            <p>KythOS pulls the latest image from ghcr.io in the background while you work or game. When an update is staged, you'll get a notification. Updates never interrupt your current session.</p>
+          </article>
+          <article class="guide-card">
+            <div class="guide-icon">3️⃣</div>
+            <h3>Reboot to Apply</h3>
+            <p>Reboot to switch to the new image. If anything goes wrong, a single command rolls you back to the previous deployment. You can always recover.</p>
+            <code style="display:block;margin-top:8px;padding:8px 12px;background:rgba(0,0,0,0.3);border-radius:8px;font-size:0.85em;color:var(--accent)">bootc rollback</code>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gaming OS Ecosystem ────────────────────────────────── -->
+    <section id="ecosystem" class="section section-alt">
+      <div class="container">
+        <div class="section-head centered">
+          <p class="section-kicker">The Ecosystem</p>
+          <h2>The Best Gaming Linux Options</h2>
+          <p class="section-blurb centered-blurb">KythOS is part of a rich ecosystem of exceptional gaming Linux distributions. Not sure which to pick? These are all great options depending on your needs.</p>
+        </div>
+
+        <p class="os-grid-label">Community-recommended distros</p>
         <div class="os-grid">
 
           <article class="os-card bazzite">
@@ -140,15 +242,16 @@
               <img src="bazzite-icon.svg" alt="Bazzite" class="os-logo">
               <div>
                 <h4 class="os-name">Bazzite</h4>
-                <span class="os-badge">Stable</span>
+                <span class="os-badge">Most Beginner-Friendly</span>
               </div>
             </div>
             <p class="os-tagline">The gold standard for Linux gaming</p>
             <ul class="os-feature-list">
-              <li>Fedora-based atomic image</li>
+              <li>Fedora-based atomic OCI image</li>
               <li>SteamDeck compatibility mode</li>
-              <li>Steam & Proton pre-installed</li>
+              <li>Steam & Proton pre-configured</li>
               <li>GNOME and KDE variants</li>
+              <li>Nvidia & AMD/Intel variants</li>
             </ul>
             <a href="https://bazzite.gg/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Bazzite →</a>
           </article>
@@ -158,15 +261,16 @@
               <img src="cachyos-icon.svg" alt="CachyOS" class="os-logo">
               <div>
                 <h4 class="os-name">CachyOS</h4>
-                <span class="os-badge">Stable</span>
+                <span class="os-badge">Best Performance</span>
               </div>
             </div>
             <p class="os-tagline">Maximum performance for serious gamers</p>
             <ul class="os-feature-list">
               <li>Arch-based with custom kernel</li>
-              <li>BORE scheduler for low latency</li>
+              <li>BORE + sched-ext schedulers</li>
               <li>PGO/LTO optimized packages</li>
-              <li>Full AUR support</li>
+              <li>Full AUR access</li>
+              <li>Hardware-specific kernels</li>
             </ul>
             <a href="https://cachyos.org/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit CachyOS →</a>
           </article>
@@ -176,15 +280,16 @@
               <img src="nobara-icon.svg" alt="Nobara" class="os-logo">
               <div>
                 <h4 class="os-name">Nobara</h4>
-                <span class="os-badge">Stable</span>
+                <span class="os-badge">Fedora + Gaming</span>
               </div>
             </div>
             <p class="os-tagline">Fedora, tuned for gaming</p>
             <ul class="os-feature-list">
               <li>Fedora base with gaming patches</li>
-              <li>fsync/futex2 kernel patches</li>
+              <li>fsync / futex2 kernel patches</li>
               <li>OBS Studio & streaming tools</li>
               <li>Steam & Lutris ready</li>
+              <li>Maintained by GloriousEggroll</li>
             </ul>
             <a href="https://nobaraproject.org/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Nobara →</a>
           </article>
@@ -194,15 +299,16 @@
               <img src="aurora-icon.svg" alt="Aurora" class="os-logo">
               <div>
                 <h4 class="os-name">Aurora</h4>
-                <span class="os-badge">Stable</span>
+                <span class="os-badge">Dev + Gaming</span>
               </div>
             </div>
-            <p class="os-tagline">Immutable desktop for devs who game</p>
+            <p class="os-tagline">Immutable workstation for devs who game</p>
             <ul class="os-feature-list">
               <li>Universal Blue / KDE Plasma</li>
               <li>Dev tools & Distrobox included</li>
               <li>Atomic updates & rollbacks</li>
-              <li>Flatpak-first apps</li>
+              <li>Flatpak-first app model</li>
+              <li>dx variant adds dev tools</li>
             </ul>
             <a href="https://getaurora.dev/" target="_blank" rel="noopener" class="btn ghost os-btn">Visit Aurora →</a>
           </article>
@@ -217,25 +323,25 @@
         <div class="section-head centered">
           <p class="section-kicker">Get Started</p>
           <h2>Guides & Documentation</h2>
-          <p class="section-blurb centered-blurb">Everything you need to install, configure, and get the most out of your gaming Linux setup.</p>
+          <p class="section-blurb centered-blurb">Everything you need to install, configure, and get the most out of KythOS and the gaming Linux ecosystem.</p>
         </div>
         <div class="guide-row">
           <article class="guide-card">
             <div class="guide-icon">⚡</div>
             <h3>Quick Start</h3>
-            <p>Install fast — step-by-step from download to first boot, with gaming setup included.</p>
+            <p>Download, flash, install — step-by-step from ISO to first boot with gaming setup included. Covers KythOS and other recommended distros.</p>
             <a href="quickstart.html" class="btn ghost">View Quick Start</a>
           </article>
           <article class="guide-card">
             <div class="guide-icon">📖</div>
             <h3>Full Docs</h3>
-            <p>In-depth guides for installation, gaming config, productivity tools, and troubleshooting.</p>
+            <p>In-depth guides for installation, post-install configuration, gaming setup, productivity tools, and troubleshooting common issues.</p>
             <a href="docs/index.html" class="btn ghost">Browse Docs</a>
           </article>
           <article class="guide-card">
             <div class="guide-icon">💬</div>
             <h3>Community</h3>
-            <p>Join the Discord, browse discussions, and connect with other users and contributors.</p>
+            <p>Join the Discord, browse GitHub Discussions, and connect with other KythOS users and contributors. Get help, share configs, report bugs.</p>
             <a href="community.html" class="btn ghost">Join Community</a>
           </article>
         </div>
@@ -245,10 +351,11 @@
     <!-- ── CTA ────────────────────────────────────────────────── -->
     <section class="cta-band">
       <div class="container cta-inner">
-        <h2>Ready to get started?</h2>
-        <p>Download Kyth or join the community — we'd love to have you.</p>
+        <h2>Ready to try KythOS?</h2>
+        <p>Download the latest release, or join the community — we'd love to have you.</p>
         <div class="cta-actions">
-          <a class="btn primary" href="#">Download Kyth <span class="btn-note">(coming soon)</span></a>
+          <a class="btn primary" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download KythOS</a>
+          <a class="btn ghost" href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub →</a>
           <a class="btn ghost" href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">💬 Join Discord</a>
           <a class="btn ghost" href="mailto:mrtrick@mrtrick.org">✉️ Email Us</a>
         </div>
@@ -259,9 +366,14 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
-      <p><a href="docs/index.html">Docs</a> · <a href="quickstart.html">Quick Start</a> · <a href="community.html">Community</a></p>
-      <p>This is a community project. We are not officially associated with any other projects referenced on this page.</p>
+      <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
+      <p>
+        <a href="docs/index.html">Docs</a> ·
+        <a href="quickstart.html">Quick Start</a> ·
+        <a href="community.html">Community</a> ·
+        <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a>
+      </p>
+      <p>KythOS is a community project. We are not officially affiliated with Fedora, Universal Blue, or any other projects referenced on this site.</p>
     </div>
   </footer>
 

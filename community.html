@@ -3,25 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Community — Kyth</title>
+    <title>Community — KythOS</title>
+    <meta name="description" content="Join the KythOS community. Browse topics, ask questions, and connect with other users on Discord and GitHub Discussions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#0b0f12">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html">Kyth</a>
+        <a class="brand" href="index.html">
+          <img src="kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
+          KythOS
+        </a>
         <nav class="nav">
           <a href="index.html">Home</a>
           <a href="docs/index.html">Guides</a>
           <a href="community.html">Community</a>
         </nav>
+        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
       </div>
     </header>
 
     <main class="container" style="padding:36px 0">
       <div class="community-hero">
-        <h1>Community Forum</h1>
-        <p class="lead" style="text-align:left;margin-left:0;margin-right:0">Browse topics, report compatibility notes, and start new discussions. This forum mirrors GitHub Discussions for the repo.</p>
+        <p class="eyebrow" style="display:inline-block;margin-bottom:12px">Community</p>
+        <h1 style="margin:0 0 12px;font-size:2.2rem;color:#e6f7ff">KythOS Community Forum</h1>
+        <p class="lead" style="text-align:left;margin-left:0;margin-right:0;margin-bottom:16px">Browse topics, ask questions, report compatibility notes, and start new discussions. Powered by GitHub Discussions.</p>
+        <p style="color:var(--muted);margin-bottom:20px">Prefer real-time chat? <a href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">Join our Discord →</a></p>
         <p>
           <a id="new-topic" class="btn primary" href="#">New Topic</a>
           <a id="refresh" class="btn ghost" href="#">Refresh</a>
@@ -79,7 +90,12 @@
       </div>
     </main>
 
-    <footer class="site-footer"><div class="container">&nbsp;</div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
+        <p><a href="index.html">Home</a> · <a href="docs/index.html">Guides</a> · <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a> · <a href="mailto:mrtrick@mrtrick.org">Contact</a></p>
+      </div>
+    </footer>
 
     <script>
       // Configuration: auto-detected repo owner + name

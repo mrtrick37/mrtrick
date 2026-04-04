@@ -3,59 +3,475 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kyth Documentation</title>
-    <meta name="description" content="Documentation for Kyth: installation, configuration, gaming, productivity, and troubleshooting guides." />
+    <title>KythOS Documentation — Installation, Gaming & Productivity</title>
+    <meta name="description" content="Complete KythOS documentation: installation, post-install setup, gaming configuration, productivity tools, and troubleshooting." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <meta name="theme-color" content="#0b0f12">
+    <style>
+      .doc-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 40px }
+      .doc-nav a { padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: all 0.2s }
+      .doc-nav a:hover { color: var(--accent); border-color: rgba(0,255,163,0.35) }
+      .doc-section { margin-bottom: 56px }
+      .doc-section h2 { font-size: 1.6rem; margin: 0 0 16px; color: #e6f7ff; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 12px }
+      .doc-section h3 { font-size: 1.1rem; margin: 28px 0 10px; color: #c8e8f8 }
+      .doc-section p { color: var(--muted); line-height: 1.8; margin: 0 0 14px }
+      .doc-section ul, .doc-section ol { color: var(--muted); line-height: 1.85; padding-left: 24px; margin: 10px 0 16px }
+      .doc-section li { margin-bottom: 6px }
+      .doc-section a { color: var(--accent) }
+      .cmd-block { background: #060c10; border: 1px solid rgba(0,255,163,0.15); border-radius: 10px; padding: 14px 18px; margin: 14px 0; font-family: 'Fira Mono', 'Cascadia Code', Consolas, monospace; font-size: 0.9rem; overflow-x: auto; color: #b8f4d4 }
+      .cmd-block code { background: none; padding: 0 }
+      .callout { padding: 16px 20px; border-radius: 10px; margin: 16px 0; border-left: 3px solid }
+      .callout.info { background: rgba(0,163,255,0.07); border-color: var(--accent-2); color: #a8d8f8 }
+      .callout.warn { background: rgba(255,180,0,0.06); border-color: #ffb400; color: #f0d080 }
+      .callout.tip { background: rgba(0,255,163,0.06); border-color: var(--accent); color: #a0eec8 }
+      .toc { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 20px 24px; margin: 24px 0 40px }
+      .toc h4 { margin: 0 0 12px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted) }
+      .toc ol { padding-left: 20px; margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.9 }
+      .toc a { color: #8bdcff; text-decoration: none }
+      .toc a:hover { color: var(--accent) }
+    </style>
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="../index.html">Kyth</a>
+        <a class="brand" href="../index.html">
+          <img src="../kyth-icon.svg" alt="" class="brand-icon" aria-hidden="true">
+          KythOS
+        </a>
         <nav class="nav">
           <a href="../index.html">Home</a>
           <a href="index.html">Docs Home</a>
+          <a href="../quickstart.html">Quick Start</a>
           <a href="../community.html">Community</a>
         </nav>
+        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
       </div>
     </header>
-    <main class="container">
-      <section style="padding:48px 0">
-        <h1>Kyth Documentation</h1>
-        <p class="lead">Find installation instructions, configuration tips, gaming tweaks, productivity guides, and troubleshooting help for Kyth.</p>
-        <ul class="doc-list">
-          <li><a href="../quickstart.html">Quick Start Guide</a></li>
-          <li><a href="#install">Installation</a></li>
-          <li><a href="#gaming">Gaming Setup</a></li>
-          <li><a href="#productivity">Productivity Tools</a></li>
-          <li><a href="#troubleshooting">Troubleshooting</a></li>
-        </ul>
-        <hr style="margin:32px 0">
-        <section id="install">
+
+    <main class="container" style="max-width:860px">
+      <section style="padding:48px 0 0">
+
+        <p class="eyebrow" style="display:inline-block">KythOS Documentation</p>
+        <h1 style="margin:12px 0 8px;font-size:2.4rem;color:#e6f7ff">Complete KythOS Guide</h1>
+        <p class="lead" style="margin-bottom:0">Everything you need to install, configure, and get the most out of KythOS — from first boot to advanced gaming tweaks.</p>
+
+        <nav class="doc-nav" aria-label="Jump to section">
+          <a href="#overview">Overview</a>
+          <a href="#install">Installation</a>
+          <a href="#post-install">Post-Install</a>
+          <a href="#gaming">Gaming Setup</a>
+          <a href="#productivity">Productivity</a>
+          <a href="#updates">Updates & Rollback</a>
+          <a href="#customization">Customization</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+          <a href="#commands">Command Reference</a>
+        </nav>
+
+        <div class="toc">
+          <h4>Table of Contents</h4>
+          <ol>
+            <li><a href="#overview">Overview — What is KythOS?</a></li>
+            <li><a href="#install">Installation</a></li>
+            <li><a href="#post-install">Post-Install Setup</a></li>
+            <li><a href="#gaming">Gaming Setup</a></li>
+            <li><a href="#productivity">Productivity & Development</a></li>
+            <li><a href="#updates">Updates & Rollback</a></li>
+            <li><a href="#customization">Customization</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#commands">Command Reference</a></li>
+          </ol>
+        </div>
+
+        <!-- ── Overview ─────────────────────────────────────────── -->
+        <div class="doc-section" id="overview">
+          <h2>Overview — What is KythOS?</h2>
+          <p>KythOS is a Fedora-based atomic Linux image built for gaming and productivity. It's delivered as an OCI container image using the <strong>bootc</strong> system (from the Universal Blue / Fedora ecosystem), which means the entire base system is treated as a versioned, immutable artifact.</p>
+
+          <h3>Key Design Principles</h3>
+          <ul>
+            <li><strong>Immutable base</strong> — The root filesystem is read-only. System files can't be accidentally broken by user actions or bad package updates.</li>
+            <li><strong>Atomic updates</strong> — Updates are whole image swaps pulled in the background. Apply on next reboot. If something goes wrong, roll back with one command.</li>
+            <li><strong>Flatpak-first apps</strong> — Applications live in Flatpak sandboxes, separate from the base OS. Install, remove, and update apps without touching the system.</li>
+            <li><strong>Distrobox for everything else</strong> — Need a package not in Flatpak? Spin up a Distrobox container (Arch, Ubuntu, Fedora, etc.) and use it transparently from your desktop.</li>
+            <li><strong>Gaming ready at first boot</strong> — Steam, Proton, MangoHud, GameMode, and Vulkan drivers come pre-configured. No setup required.</li>
+          </ul>
+
+          <div class="callout info">
+            <strong>Based on Fedora.</strong> KythOS tracks Fedora's stable releases, giving you a current kernel, up-to-date Mesa, and modern hardware support — while the atomic model keeps your system stable.
+          </div>
+        </div>
+
+        <!-- ── Installation ─────────────────────────────────────── -->
+        <div class="doc-section" id="install">
           <h2>Installation</h2>
-          <p>Download the latest Kyth image (link coming soon). Use tools like Ventoy, Balena Etcher, or Fedora Media Writer to create a bootable USB. Boot from USB and follow the installer prompts.</p>
-        </section>
-        <section id="gaming">
+
+          <h3>System Requirements</h3>
+          <ul>
+            <li><strong>CPU:</strong> x86_64 (AMD or Intel), 4+ cores recommended</li>
+            <li><strong>RAM:</strong> 8 GB minimum, 16 GB recommended for gaming</li>
+            <li><strong>Storage:</strong> 50 GB minimum, 100 GB+ recommended</li>
+            <li><strong>GPU:</strong> AMD (open drivers), Intel (integrated/Arc), or Nvidia (use Nvidia variant)</li>
+            <li><strong>Boot:</strong> UEFI required (Legacy BIOS is not supported)</li>
+            <li><strong>USB:</strong> 8 GB or larger for installation media</li>
+          </ul>
+
+          <h3>Step 1: Download</h3>
+          <p>Download the latest KythOS ISO from GitHub Releases. Select the variant for your hardware:</p>
+          <ul>
+            <li><strong>AMD/Intel</strong> — open-source Mesa drivers, works for most hardware</li>
+            <li><strong>Nvidia</strong> — includes proprietary Nvidia drivers pre-installed</li>
+            <li><strong>KDE Plasma</strong> or <strong>GNOME</strong> — choose your preferred desktop</li>
+          </ul>
+          <a href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener" class="btn primary" style="margin:12px 0 0;display:inline-block">Download Latest KythOS →</a>
+
+          <h3>Step 2: Create Bootable USB</h3>
+          <p>Flash the ISO to a USB drive using one of these tools:</p>
+          <ul>
+            <li><a href="https://fedoraproject.org/en/workstation/download/" target="_blank" rel="noopener">Fedora Media Writer</a> — recommended for Fedora-based images</li>
+            <li><a href="https://etcher.balena.io/" target="_blank" rel="noopener">Balena Etcher</a> — simple cross-platform tool</li>
+            <li><a href="https://www.ventoy.net/" target="_blank" rel="noopener">Ventoy</a> — allows multiple ISOs on one USB stick</li>
+          </ul>
+          <div class="callout warn">
+            <strong>This will erase the USB drive.</strong> Back up any data on it before flashing.
+          </div>
+
+          <h3>Step 3: Boot from USB</h3>
+          <p>Reboot your computer. Enter the boot menu — usually by pressing <kbd>F12</kbd>, <kbd>F2</kbd>, <kbd>Esc</kbd>, or <kbd>Del</kbd> during startup (varies by motherboard). Select your USB drive. If you see a Secure Boot error, disable Secure Boot in UEFI settings temporarily.</p>
+
+          <h3>Step 4: Run the Installer</h3>
+          <p>KythOS uses the Anaconda installer (same as Fedora). You'll configure:</p>
+          <ul>
+            <li><strong>Language & Keyboard</strong> — select your region</li>
+            <li><strong>Installation Destination</strong> — choose your disk (automatic partitioning recommended for most users)</li>
+            <li><strong>Timezone</strong> — or let NTP handle it automatically</li>
+            <li><strong>Root Password / User Account</strong> — create your user with administrator privileges</li>
+          </ul>
+          <p>Click <strong>Begin Installation</strong>. This takes 10–20 minutes. When done, click <strong>Reboot</strong> and remove the USB drive.</p>
+        </div>
+
+        <!-- ── Post-Install ─────────────────────────────────────── -->
+        <div class="doc-section" id="post-install">
+          <h2>Post-Install Setup</h2>
+
+          <h3>Complete First-Boot Setup</h3>
+          <p>On first login, the desktop setup wizard will run (GNOME Initial Setup or KDE Welcome). Complete it to configure your timezone, online accounts, and privacy settings.</p>
+
+          <h3>Check for Updates</h3>
+          <p>After first boot, check for a newer image:</p>
+          <div class="cmd-block">bootc upgrade</div>
+          <p>If an update is available, it will download in the background. Reboot to apply it.</p>
+
+          <h3>Verify GPU Drivers</h3>
+          <p>Confirm your GPU is recognized correctly:</p>
+          <div class="cmd-block">glxinfo | grep "OpenGL renderer"<br>vulkaninfo --summary</div>
+          <p>AMD users should see a RadeonSI or RADV renderer. Nvidia users should see an Nvidia renderer. Intel users should see ANV or i965.</p>
+
+          <h3>Set Up Flathub</h3>
+          <p>Flathub is the main Flatpak app repository. It may already be configured, but you can verify:</p>
+          <div class="cmd-block">flatpak remote-list<br>flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</div>
+        </div>
+
+        <!-- ── Gaming ───────────────────────────────────────────── -->
+        <div class="doc-section" id="gaming">
           <h2>Gaming Setup</h2>
-          <p>Kyth comes with Steam pre-installed. Enable Steam Play for Proton compatibility, and use ProtonUp-Qt to install Proton-GE for additional fixes. Lutris and Heroic are available for non-Steam games.</p>
-        </section>
-        <section id="productivity">
-          <h2>Productivity Tools</h2>
-          <p>Office, development, and creative tools are available via Flatpak and the built-in package manager. See the guides for recommended apps and setup tips.</p>
-        </section>
-        <section id="troubleshooting">
+
+          <h3>Steam & Proton</h3>
+          <p>Steam is pre-installed in KythOS. To enable Windows game compatibility:</p>
+          <ol>
+            <li>Open Steam → Settings → Compatibility</li>
+            <li>Enable <strong>"Enable Steam Play for all other titles"</strong></li>
+            <li>Select Proton (latest stable) as the default compatibility tool</li>
+            <li>Restart Steam</li>
+          </ol>
+          <p>You can now install and run most Windows games directly through Steam.</p>
+
+          <h3>Proton-GE (Extended Compatibility)</h3>
+          <p>Proton-GE is a community fork of Proton with more patches and fixes. It often fixes games that don't work on Proton stable.</p>
+          <div class="cmd-block">flatpak install flathub net.davidotek.pupgui2</div>
+          <p>Open <strong>ProtonUp-Qt</strong>, select Steam as the launcher, and install the latest Proton-GE version. Then in Steam, right-click a game → Properties → Compatibility → select Proton-GE.</p>
+
+          <h3>Non-Steam Launchers</h3>
+          <ul>
+            <li><strong>Heroic Games Launcher</strong> — Epic Games Store and GOG. Install via Flatpak: <code>flatpak install flathub com.heroicgameslauncher.hgl</code></li>
+            <li><strong>Lutris</strong> — covers Battle.net, EA App, Ubisoft Connect, and custom Wine prefixes: <code>flatpak install flathub net.lutris.Lutris</code></li>
+            <li><strong>Bottles</strong> — run any Windows application in an isolated Wine prefix: <code>flatpak install flathub com.usebottles.bottles</code></li>
+          </ul>
+
+          <h3>MangoHud (Performance Overlay)</h3>
+          <p>MangoHud is pre-installed. Add it to any Steam game via launch options:</p>
+          <div class="cmd-block">MANGOHUD=1 %command%</div>
+          <p>Or for Vulkan games specifically:</p>
+          <div class="cmd-block">mangohud %command%</div>
+          <p>Configure MangoHud by editing <code>~/.config/MangoHud/MangoHud.conf</code>.</p>
+
+          <h3>GameMode</h3>
+          <p>GameMode temporarily boosts CPU governor and tweaks system parameters while a game is running. It's pre-installed and active. Add it to Steam launch options:</p>
+          <div class="cmd-block">gamemoderun %command%</div>
+          <p>Combine with MangoHud: <code>MANGOHUD=1 gamemoderun %command%</code></p>
+
+          <h3>Checking Game Compatibility</h3>
+          <p>Before buying or installing a game, check <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB.com</a>. Reports from other Linux users include:</p>
+          <ul>
+            <li>Overall compatibility rating (Platinum, Gold, Silver, Bronze, Borked)</li>
+            <li>Specific launch options or fixes needed</li>
+            <li>Anti-cheat status (EAC/BattlEye Linux support)</li>
+          </ul>
+
+          <h3>Controller Support</h3>
+          <p>Most controllers work out of the box via Steam Input or the kernel's HID layer:</p>
+          <ul>
+            <li><strong>Xbox controllers</strong> — plug in via USB or pair via Bluetooth</li>
+            <li><strong>PlayStation controllers</strong> — supported via USB or Bluetooth; DualSense haptics work in some games</li>
+            <li><strong>Nintendo Switch Pro / Joy-Con</strong> — supported via <code>hid-nintendo</code> kernel module</li>
+            <li><strong>Steam Controller</strong> — fully supported via Steam</li>
+          </ul>
+        </div>
+
+        <!-- ── Productivity ─────────────────────────────────────── -->
+        <div class="doc-section" id="productivity">
+          <h2>Productivity & Development</h2>
+
+          <h3>Flatpak Applications</h3>
+          <p>Install productivity apps from Flathub — they're sandboxed and work independently of the base OS:</p>
+          <div class="cmd-block">
+            flatpak install flathub org.libreoffice.LibreOffice<br>
+            flatpak install flathub com.obsproject.Studio<br>
+            flatpak install flathub com.visualstudio.code<br>
+            flatpak install flathub org.gimp.GIMP<br>
+            flatpak install flathub org.inkscape.Inkscape
+          </div>
+          <p>Browse all available apps at <a href="https://flathub.org/" target="_blank" rel="noopener">flathub.org</a>.</p>
+
+          <h3>Development with Distrobox</h3>
+          <p>Distrobox lets you run any Linux distribution as a container, accessible from your desktop. Use it to install packages that aren't available as Flatpaks or in the base image:</p>
+          <div class="cmd-block">
+            # Create an Arch Linux environment<br>
+            distrobox create --name arch --image archlinux:latest<br>
+            distrobox enter arch<br>
+            <br>
+            # Create an Ubuntu environment<br>
+            distrobox create --name ubuntu --image ubuntu:24.04<br>
+            distrobox enter ubuntu
+          </div>
+          <p>You can even export GUI apps from a Distrobox container to your desktop menu.</p>
+
+          <h3>Layering Packages (Advanced)</h3>
+          <p>For system-level packages, you can layer them onto the KythOS base image using <code>rpm-ostree</code>. Use this sparingly — prefer Flatpak or Distrobox when possible:</p>
+          <div class="cmd-block">
+            # Layer a package onto the base system<br>
+            rpm-ostree install htop<br>
+            <br>
+            # List layered packages<br>
+            rpm-ostree status
+          </div>
+          <div class="callout warn">
+            Layered packages persist across image updates but can sometimes cause conflicts. For most software, Flatpak or Distrobox is a better option.
+          </div>
+
+          <h3>Development Containers</h3>
+          <p>KythOS ships with <strong>Podman</strong> for running OCI containers. Use it for dev environments, services, or testing:</p>
+          <div class="cmd-block">
+            podman run -it --rm ubuntu:24.04 bash<br>
+            podman run -d -p 5432:5432 postgres:16
+          </div>
+        </div>
+
+        <!-- ── Updates ─────────────────────────────────────────── -->
+        <div class="doc-section" id="updates">
+          <h2>Updates & Rollback</h2>
+
+          <h3>Checking for Updates</h3>
+          <div class="cmd-block">bootc upgrade</div>
+          <p>This checks the remote image registry for a newer version and downloads it if available. Updates are staged — they don't apply until the next reboot.</p>
+
+          <h3>Applying Updates</h3>
+          <p>Simply reboot. KythOS will boot into the new image. Your home directory, Flatpak apps, and Distrobox containers are untouched.</p>
+
+          <h3>Rolling Back</h3>
+          <p>If an update breaks something, roll back to the previous deployment:</p>
+          <div class="cmd-block">bootc rollback</div>
+          <p>Then reboot. You'll be on the previous image. Report the issue on <a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub</a> so it can be fixed.</p>
+
+          <h3>Checking Current Status</h3>
+          <div class="cmd-block">bootc status</div>
+          <p>Shows the currently booted image, staged image (if any), and rollback image.</p>
+
+          <div class="callout tip">
+            KythOS can be configured to check for and stage updates automatically via a systemd timer. This means updates are always ready and waiting — just reboot when convenient.
+          </div>
+
+          <h3>Flatpak Updates</h3>
+          <p>Flatpak apps update independently of the base image:</p>
+          <div class="cmd-block">flatpak update</div>
+          <p>Or use GNOME Software / KDE Discover to update Flatpaks with a GUI.</p>
+        </div>
+
+        <!-- ── Customization ────────────────────────────────────── -->
+        <div class="doc-section" id="customization">
+          <h2>Customization</h2>
+
+          <h3>Desktop Theming</h3>
+          <p>Customize your desktop environment using the built-in tools:</p>
+          <ul>
+            <li><strong>KDE Plasma</strong> — System Settings → Appearance for themes, icons, fonts, and colors</li>
+            <li><strong>GNOME</strong> — Install GNOME Tweaks via Flatpak for additional customization options</li>
+          </ul>
+
+          <h3>Kernel Arguments</h3>
+          <p>Add or modify kernel parameters for advanced tuning:</p>
+          <div class="cmd-block">
+            # Add a kernel argument<br>
+            sudo rpm-ostree kargs --append="mitigations=off"<br>
+            <br>
+            # Remove a kernel argument<br>
+            sudo rpm-ostree kargs --delete="quiet"<br>
+            <br>
+            # List current kernel arguments<br>
+            rpm-ostree kargs
+          </div>
+          <div class="callout warn">
+            Disabling CPU mitigations (<code>mitigations=off</code>) can improve performance but reduces security. Only do this on trusted hardware used exclusively for gaming.
+          </div>
+
+          <h3>Building a Custom KythOS Image</h3>
+          <p>Since KythOS is an OCI image, you can fork it and add your own customizations using a Containerfile:</p>
+          <div class="cmd-block">
+            FROM ghcr.io/mrtrick37/mrtrick:latest<br>
+            <br>
+            RUN rpm-ostree install vim neovim && \<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;rpm-ostree cleanup -m && \<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;ostree container commit
+          </div>
+          <p>See the <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub repo</a> for the base Containerfile and build instructions.</p>
+        </div>
+
+        <!-- ── Troubleshooting ──────────────────────────────────── -->
+        <div class="doc-section" id="troubleshooting">
           <h2>Troubleshooting</h2>
-          <p>For help with drivers, updates, or gaming issues, check the community forums or Discord. See the docs for common fixes and tips.</p>
-        </section>
+
+          <h3>Game Won't Launch</h3>
+          <ul>
+            <li>Right-click the game in Steam → Properties → Compatibility → Force a specific Proton version</li>
+            <li>Try Proton-GE (install via ProtonUp-Qt) — it has more patches than Proton stable</li>
+            <li>Check <a href="https://www.protondb.com/" target="_blank" rel="noopener">ProtonDB</a> for known fixes and launch options</li>
+            <li>Verify game files in Steam (right-click → Properties → Local Files → Verify integrity)</li>
+            <li>Check Steam launch output by running Steam from the terminal: <code>steam</code></li>
+          </ul>
+
+          <h3>Poor Performance / Low FPS</h3>
+          <ul>
+            <li>Add <code>gamemoderun %command%</code> to the game's Steam launch options</li>
+            <li>Use MangoHud (<code>MANGOHUD=1 %command%</code>) to identify the bottleneck (CPU, GPU, VRAM)</li>
+            <li>Check that the correct GPU is being used: <code>glxinfo | grep renderer</code></li>
+            <li>For AMD: ensure Mesa is up to date (<code>bootc upgrade</code>)</li>
+            <li>Set the CPU governor to performance mode: <code>echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor</code></li>
+          </ul>
+
+          <h3>GPU / Driver Issues</h3>
+          <ul>
+            <li>AMD: verify Mesa is loaded correctly with <code>LIBGL_DEBUG=verbose glxinfo</code></li>
+            <li>Nvidia: check driver status with <code>nvidia-smi</code></li>
+            <li>If you installed the wrong variant (e.g., AMD image on Nvidia), reimage with the correct variant</li>
+          </ul>
+
+          <h3>Audio Not Working</h3>
+          <ul>
+            <li>Check PipeWire is running: <code>systemctl --user status pipewire</code></li>
+            <li>Restart audio: <code>systemctl --user restart pipewire wireplumber</code></li>
+            <li>Use <code>pavucontrol</code> (install via Flatpak) for detailed audio routing</li>
+            <li>For game audio issues, try adding <code>PULSE_LATENCY_MSEC=60 %command%</code> to Steam launch options</li>
+          </ul>
+
+          <h3>Update Fails or System Won't Boot After Update</h3>
+          <ul>
+            <li>At the GRUB menu, select the previous deployment entry to boot the old image</li>
+            <li>Once booted, run: <code>bootc rollback</code> then reboot to make the rollback permanent</li>
+            <li>Report the issue on <a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub Issues</a> with your bootc status output</li>
+          </ul>
+
+          <h3>Still Stuck?</h3>
+          <p>Join the community for real-time help:</p>
+          <ul>
+            <li><a href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">KythOS Discord</a> — fastest way to get help</li>
+            <li><a href="https://github.com/mrtrick37/mrtrick/discussions" target="_blank" rel="noopener">GitHub Discussions</a> — longer-form questions and community knowledge base</li>
+            <li><a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub Issues</a> — for confirmed bugs</li>
+          </ul>
+        </div>
+
+        <!-- ── Commands ─────────────────────────────────────────── -->
+        <div class="doc-section" id="commands">
+          <h2>Command Reference</h2>
+
+          <h3>System Updates (bootc)</h3>
+          <div class="cmd-block">
+            bootc status           # Show current, staged, and rollback images<br>
+            bootc upgrade          # Download latest image (staged, applied on reboot)<br>
+            bootc rollback         # Stage the previous image (applied on reboot)
+          </div>
+
+          <h3>Package Layering (rpm-ostree)</h3>
+          <div class="cmd-block">
+            rpm-ostree status                    # Show deployment status<br>
+            rpm-ostree install &lt;package&gt;         # Layer a package onto the base<br>
+            rpm-ostree uninstall &lt;package&gt;       # Remove a layered package<br>
+            rpm-ostree upgrade                   # Check for base image updates (legacy)<br>
+            rpm-ostree rollback                  # Roll back to previous deployment<br>
+            rpm-ostree kargs --append="&lt;arg&gt;"   # Add a kernel argument
+          </div>
+
+          <h3>Flatpak</h3>
+          <div class="cmd-block">
+            flatpak install flathub &lt;app-id&gt;   # Install an app from Flathub<br>
+            flatpak update                      # Update all Flatpak apps<br>
+            flatpak uninstall &lt;app-id&gt;         # Remove an app<br>
+            flatpak list                        # List installed Flatpak apps<br>
+            flatpak remote-list                 # List configured repositories
+          </div>
+
+          <h3>Distrobox</h3>
+          <div class="cmd-block">
+            distrobox create --name &lt;name&gt; --image &lt;image&gt;   # Create a container<br>
+            distrobox enter &lt;name&gt;                             # Enter a container<br>
+            distrobox list                                      # List all containers<br>
+            distrobox rm &lt;name&gt;                                # Remove a container<br>
+            distrobox-export --app &lt;app&gt;                       # Export GUI app to desktop
+          </div>
+
+          <h3>Gaming</h3>
+          <div class="cmd-block">
+            # MangoHud overlay<br>
+            MANGOHUD=1 %command%<br>
+            <br>
+            # GameMode performance boost<br>
+            gamemoderun %command%<br>
+            <br>
+            # Combined (add to Steam launch options)<br>
+            MANGOHUD=1 gamemoderun %command%<br>
+            <br>
+            # Check GPU renderer<br>
+            glxinfo | grep "OpenGL renderer"<br>
+            vulkaninfo --summary
+          </div>
+        </div>
+
+        <div style="text-align:center;margin:56px 0 32px;padding:32px;background:rgba(0,255,163,0.04);border:1px solid rgba(0,255,163,0.12);border-radius:14px">
+          <h2 style="margin:0 0 12px;color:#e6f7ff">Questions or Issues?</h2>
+          <p style="color:var(--muted);margin:0 0 24px">Join the community on Discord or open an issue on GitHub.</p>
+          <a href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener" class="btn primary">Join Discord</a>
+          <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener" class="btn ghost" style="margin-left:10px">GitHub →</a>
+        </div>
+
       </section>
     </main>
+
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Kyth — Gaming & Productivity</p>
-        <p><a href="../index.html">Home</a> · <a href="../community.html">Community</a></p>
+        <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
+        <p><a href="../index.html">Home</a> · <a href="index.html">Docs</a> · <a href="../community.html">Community</a> · <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a></p>
+        <p>KythOS is a community project. Not affiliated with Fedora, Universal Blue, or other referenced projects.</p>
       </div>
     </footer>
     <script src="../script.js"></script>
