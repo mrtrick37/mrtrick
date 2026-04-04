@@ -8,7 +8,8 @@ KythOS is a Fedora-based atomic Linux image built for gaming and productivity. I
 - **Gaming ready at first boot** — Steam, Proton, MangoHud, GameMode pre-installed
 - **Flatpak-first** — apps are sandboxed and independent from the base OS
 - **Distrobox** — run any Linux environment as a container from your desktop
-- **Fedora foundation** — up-to-date kernel, Mesa, and hardware support
+- **Fedora Kinoite base** — up-to-date Mesa, hardware support, and Fedora's ecosystem
+- **CachyOS kernel** — BORE scheduler, low-latency tuning, and better gaming performance
 - **Community built** — open source, PRs welcome
 
 ## Download
