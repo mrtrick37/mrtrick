@@ -122,13 +122,16 @@
           <p class="section-blurb centered-blurb">KythOS ships a carefully curated set of tools. Apps you'll actually use are pre-installed. Everything else is a Flatpak or Distrobox container away.</p>
         </div>
 
-        <div class="spec-grid">
-          <article class="spec-card">
-            <div class="spec-header">
-              <span class="spec-icon">🎮</span>
-              <h3 class="spec-title">Gaming Stack</h3>
+        <div class="os-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:40px">
+          <article class="os-card">
+            <div class="os-card-head">
+              <span style="font-size:26px;line-height:1">🎮</span>
+              <div>
+                <h4 class="os-name" style="color:#e6f7ff">Gaming Stack</h4>
+                <span class="os-badge">Pre-installed</span>
+              </div>
             </div>
-            <ul class="spec-list">
+            <ul class="os-feature-list">
               <li>Steam + Proton (latest stable)</li>
               <li>Proton-GE via ProtonUp-Qt</li>
               <li>Heroic Games Launcher</li>
@@ -137,26 +140,32 @@
               <li>GameMode daemon</li>
             </ul>
           </article>
-          <article class="spec-card">
-            <div class="spec-header">
-              <span class="spec-icon">⚙️</span>
-              <h3 class="spec-title">System & Drivers</h3>
+          <article class="os-card">
+            <div class="os-card-head">
+              <span style="font-size:26px;line-height:1">⚙️</span>
+              <div>
+                <h4 class="os-name" style="color:#e6f7ff">System & Drivers</h4>
+                <span class="os-badge">Pre-configured</span>
+              </div>
             </div>
-            <ul class="spec-list">
-              <li>CachyOS kernel <span class="spec-tag">BORE · low latency</span></li>
-              <li>AMD Mesa — full Vulkan</li>
-              <li>Intel ANV Vulkan driver</li>
-              <li>Nvidia drivers <span class="spec-tag">variant</span></li>
+            <ul class="os-feature-list">
+              <li>CachyOS kernel — BORE scheduler</li>
+              <li>Low-latency tuning out of the box</li>
+              <li>AMD Mesa — full open Vulkan</li>
+              <li>Intel ANV + Nvidia variant</li>
               <li>PipeWire audio</li>
               <li>Wayland + XWayland</li>
             </ul>
           </article>
-          <article class="spec-card">
-            <div class="spec-header">
-              <span class="spec-icon">🛠️</span>
-              <h3 class="spec-title">Productivity & Dev</h3>
+          <article class="os-card">
+            <div class="os-card-head">
+              <span style="font-size:26px;line-height:1">🛠️</span>
+              <div>
+                <h4 class="os-name" style="color:#e6f7ff">Productivity & Dev</h4>
+                <span class="os-badge">Included</span>
+              </div>
             </div>
-            <ul class="spec-list">
+            <ul class="os-feature-list">
               <li>Flatpak app runtime</li>
               <li>Distrobox — any Linux env</li>
               <li>Podman containers</li>
