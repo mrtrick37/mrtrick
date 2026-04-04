@@ -208,6 +208,8 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 }
 
 /* ── Sections ───────────────────────────────────────────────── */
+main section[id] { scroll-margin-top: 110px }
+
 .section { padding: 88px 0 }
 .section-alt {
   background: rgba(255,255,255,0.032);
@@ -217,14 +219,29 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 
 /* Heading-only band — compact, vertically centered text */
 .section-heading-band {
-  padding: 52px 0 40px;
+  position: relative;
+  padding: 60px 0 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.section-heading-band + .section-cards {
+  padding-top: 8px;
+}
+.section-heading-band.section-alt {
+  border-bottom: none;
+}
+.section-heading-band.section-alt + .section-cards {
+  background: rgba(255,255,255,0.032);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
 /* Cards immediately below heading band — tight top, generous bottom */
 .section-cards {
-  padding: 0 0 72px;
+  position: relative;
+  padding: 0 0 80px;
+}
+.section-cards > .container {
+  display: flow-root;
 }
 .band-h2 {
   margin: 0 0 12px;
@@ -487,10 +504,13 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   gap: 20px;
 }
 .guide-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 28px;
+  min-height: 100%;
+  overflow: hidden;
+  padding: 56px 28px 28px;
   background: linear-gradient(180deg, rgba(255,255,255,0.025), var(--card));
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 14px;
@@ -532,6 +552,8 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 
 /* ── Shared card styles (used by other pages) ───────────────── */
 .card {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), var(--card));
   padding: 18px;
   border-radius: 12px;
@@ -583,6 +605,7 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   flex-direction: column;
   gap: 16px;
   min-height: 100%;
+  padding-top: 56px;
   border: 1px solid rgba(255,255,255,0.06);
   background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
 }
@@ -597,7 +620,20 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
 .guide-steps a { color: var(--accent) }
 .guide-steps a:hover { color: var(--accent-2) }
 .guide-links { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 6px }
-.guide-badge { position: absolute; top: 16px; right: 16px; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px }
+.guide-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  max-width: calc(100% - 32px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: right;
+}
 .guide-badge.beginner { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color: #061218 }
 .guide-badge.advanced { background: rgba(0,163,255,0.15); color: var(--accent-2); border: 1px solid var(--accent-2) }
 
