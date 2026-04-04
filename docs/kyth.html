@@ -47,7 +47,7 @@
           <a href="../quickstart.html">Quick Start</a>
           <a href="../community.html">Community</a>
         </nav>
-        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener">Download →</a>
+        <a class="btn ghost nav-cta" href="https://github.com/mrtrick37/kyth/releases/latest" target="_blank" rel="noopener">Download →</a>
       </div>
     </header>
 
@@ -125,7 +125,7 @@
             <li><strong>Nvidia</strong> — includes proprietary Nvidia drivers pre-installed</li>
             <li><strong>KDE Plasma</strong> or <strong>GNOME</strong> — choose your preferred desktop</li>
           </ul>
-          <a href="https://github.com/mrtrick37/mrtrick/releases/latest" target="_blank" rel="noopener" class="btn primary" style="margin:12px 0 0;display:inline-block">Download Latest KythOS →</a>
+          <a href="https://github.com/mrtrick37/kyth/releases/latest" target="_blank" rel="noopener" class="btn primary" style="margin:12px 0 0;display:inline-block">Download Latest KythOS →</a>
 
           <h3>Step 2: Create Bootable USB</h3>
           <p>Flash the ISO to a USB drive using one of these tools:</p>
@@ -293,7 +293,7 @@
           <h3>Rolling Back</h3>
           <p>If an update breaks something, roll back to the previous deployment:</p>
           <div class="cmd-block">bootc rollback</div>
-          <p>Then reboot. You'll be on the previous image. Report the issue on <a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub</a> so it can be fixed.</p>
+          <p>Then reboot. You'll be on the previous image. Report the issue on <a href="https://github.com/mrtrick37/kyth/issues" target="_blank" rel="noopener">GitHub</a> so it can be fixed.</p>
 
           <h3>Checking Current Status</h3>
           <div class="cmd-block">bootc status</div>
@@ -339,13 +339,13 @@
           <h3>Building a Custom KythOS Image</h3>
           <p>Since KythOS is an OCI image, you can fork it and add your own customizations using a Containerfile:</p>
           <div class="cmd-block">
-            FROM ghcr.io/mrtrick37/mrtrick:latest<br>
+            FROM ghcr.io/mrtrick37/kyth:latest<br>
             <br>
             RUN rpm-ostree install vim neovim && \<br>
             &nbsp;&nbsp;&nbsp;&nbsp;rpm-ostree cleanup -m && \<br>
             &nbsp;&nbsp;&nbsp;&nbsp;ostree container commit
           </div>
-          <p>See the <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub repo</a> for the base Containerfile and build instructions.</p>
+          <p>See the <a href="https://github.com/mrtrick37/kyth" target="_blank" rel="noopener">GitHub repo</a> for the base Containerfile and build instructions.</p>
         </div>
 
         <!-- ── Troubleshooting ──────────────────────────────────── -->
@@ -389,15 +389,15 @@
           <ul>
             <li>At the GRUB menu, select the previous deployment entry to boot the old image</li>
             <li>Once booted, run: <code>bootc rollback</code> then reboot to make the rollback permanent</li>
-            <li>Report the issue on <a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub Issues</a> with your bootc status output</li>
+            <li>Report the issue on <a href="https://github.com/mrtrick37/kyth/issues" target="_blank" rel="noopener">GitHub Issues</a> with your bootc status output</li>
           </ul>
 
           <h3>Still Stuck?</h3>
           <p>Join the community for real-time help:</p>
           <ul>
             <li><a href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener">KythOS Discord</a> — fastest way to get help</li>
-            <li><a href="https://github.com/mrtrick37/mrtrick/discussions" target="_blank" rel="noopener">GitHub Discussions</a> — longer-form questions and community knowledge base</li>
-            <li><a href="https://github.com/mrtrick37/mrtrick/issues" target="_blank" rel="noopener">GitHub Issues</a> — for confirmed bugs</li>
+            <li><a href="https://github.com/mrtrick37/kyth/discussions" target="_blank" rel="noopener">GitHub Discussions</a> — longer-form questions and community knowledge base</li>
+            <li><a href="https://github.com/mrtrick37/kyth/issues" target="_blank" rel="noopener">GitHub Issues</a> — for confirmed bugs</li>
           </ul>
         </div>
 
@@ -461,7 +461,7 @@
           <h2 style="margin:0 0 12px;color:#e6f7ff">Questions or Issues?</h2>
           <p style="color:var(--muted);margin:0 0 24px">Join the community on Discord or open an issue on GitHub.</p>
           <a href="https://discord.gg/p7s44gzf" target="_blank" rel="noopener" class="btn primary">Join Discord</a>
-          <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener" class="btn ghost" style="margin-left:10px">GitHub →</a>
+          <a href="https://github.com/mrtrick37/kyth" target="_blank" rel="noopener" class="btn ghost" style="margin-left:10px">GitHub →</a>
         </div>
 
       </section>
@@ -470,7 +470,7 @@
     <footer class="site-footer">
       <div class="container">
         <p>© <span id="year"></span> KythOS — Gaming & Productivity Linux</p>
-        <p><a href="../index.html">Home</a> · <a href="index.html">Docs</a> · <a href="../community.html">Community</a> · <a href="https://github.com/mrtrick37/mrtrick" target="_blank" rel="noopener">GitHub</a></p>
+        <p><a href="../index.html">Home</a> · <a href="index.html">Docs</a> · <a href="../community.html">Community</a> · <a href="https://github.com/mrtrick37/kyth" target="_blank" rel="noopener">GitHub</a></p>
         <p>KythOS is a community project. Not affiliated with Fedora, Universal Blue, or other referenced projects.</p>
       </div>
     </footer>

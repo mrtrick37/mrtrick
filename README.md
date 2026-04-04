@@ -13,7 +13,7 @@ KythOS is a Fedora-based atomic Linux image built for gaming and productivity. I
 
 ## Download
 
-Get the latest release from [GitHub Releases](https://github.com/mrtrick37/mrtrick/releases/latest).
+Get the latest release from [GitHub Releases](https://github.com/mrtrick37/kyth/releases/latest).
 
 ## Quick Start
 
@@ -26,8 +26,8 @@ Full guides and docs are available in the [docs/](docs/kyth.html) directory.
 ## Community
 
 - [Discord](https://discord.gg/p7s44gzf) — real-time help and chat
-- [GitHub Discussions](https://github.com/mrtrick37/mrtrick/discussions) — questions and community forum
-- [GitHub Issues](https://github.com/mrtrick37/mrtrick/issues) — bug reports
+- [GitHub Discussions](https://github.com/mrtrick37/kyth/discussions) — questions and community forum
+- [GitHub Issues](https://github.com/mrtrick37/kyth/issues) — bug reports
 
 ## Other Recommended Distros
 
