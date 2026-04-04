@@ -51,27 +51,31 @@
             <span class="stat-chip"><span aria-hidden="true">🎮</span> Gaming Ready</span>
             <span class="stat-chip"><span aria-hidden="true">⚡</span> Atomic Updates</span>
             <span class="stat-chip"><span aria-hidden="true">👥</span> Community Built</span>
-            <span class="stat-chip"><span aria-hidden="true">🦊</span> Fedora Based</span>
+            <span class="stat-chip"><span aria-hidden="true">🦊</span> Fedora Kinoite</span>
             <span class="stat-chip"><span aria-hidden="true">📦</span> Flatpak First</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── What is KythOS ─────────────────────────────────────── -->
-    <section id="about" class="section">
+    <!-- ── What is KythOS — heading band ─────────────────────── -->
+    <section id="about" class="section-heading-band">
+      <div class="container" style="text-align:center">
+        <p class="section-kicker">What is KythOS?</p>
+        <h2 class="band-h2">Atomic. Immutable. Gaming-ready.</h2>
+        <p class="section-blurb centered-blurb">KythOS is a Fedora Kinoite–based atomic image built on the Universal Blue toolchain. The base system is read-only and managed as an OCI container image — updates are reliable, rollbacks are instant, and gaming works from first boot.</p>
+      </div>
+    </section>
+
+    <!-- ── What is KythOS — cards ────────────────────────────── -->
+    <section class="section-cards">
       <div class="container">
-        <div class="section-head centered">
-          <p class="section-kicker">What is KythOS?</p>
-          <h2>Atomic. Immutable. Gaming-ready.</h2>
-          <p class="section-blurb centered-blurb">KythOS is a Fedora-based atomic image built on the Universal Blue toolchain. The base system is read-only and managed as an OCI container image — updates are reliable, rollbacks are instant, and gaming works from first boot.</p>
-        </div>
         <div class="feature-grid">
           <article class="feature-card">
             <div class="feature-icon-wrap">🔒</div>
             <div>
               <h3>Atomic & Immutable</h3>
-              <p>The base system is read-only. Updates are applied atomically as whole image swaps and can be rolled back instantly — no more broken systems after a bad update.</p>
+              <p>The base system is read-only. Updates apply as whole image swaps and roll back instantly — no more broken systems after a bad update.</p>
             </div>
           </article>
           <article class="feature-card">
@@ -92,14 +96,14 @@
             <div class="feature-icon-wrap">📦</div>
             <div>
               <h3>OCI Image Architecture</h3>
-              <p>KythOS is delivered as a container image using <code>bootc</code>. Updates pull the new image in the background and apply on reboot — like Android system updates, but for your desktop.</p>
+              <p>KythOS is delivered as a container image using <code>bootc</code>. Updates pull in the background and apply on reboot — like Android system updates, but for your desktop.</p>
             </div>
           </article>
           <article class="feature-card">
             <div class="feature-icon-wrap">🦊</div>
             <div>
               <h3>Fedora Kinoite Base</h3>
-              <p>Built on Fedora Kinoite with the CachyOS kernel — you get Fedora's hardware support and Mesa drivers, with the performance tuning and low-latency scheduling of the CachyOS kernel on top.</p>
+              <p>Built on Fedora Kinoite with the CachyOS kernel — Fedora's hardware support and Mesa drivers, with BORE scheduling and low-latency tuning on top.</p>
             </div>
           </article>
           <article class="feature-card">
@@ -113,17 +117,17 @@
       </div>
     </section>
 
-    <!-- ── Features heading band ────────────────────────────────── -->
-    <section id="features" class="section-alt" style="padding:72px 0;display:flex;align-items:center;justify-content:center;text-align:center">
-      <div class="container">
+    <!-- ── What's Included — heading band ────────────────────── -->
+    <section id="features" class="section-heading-band section-alt">
+      <div class="container" style="text-align:center">
         <p class="section-kicker">What's Included</p>
-        <h2 style="margin:0 0 12px;font-size:2rem;color:#e6f7ff">Everything you need, nothing you don't</h2>
-        <p class="section-blurb centered-blurb">KythOS ships a carefully curated set of tools. Apps you'll actually use are pre-installed.<br>Everything else is a Flatpak or Distrobox container away.</p>
+        <h2 class="band-h2">Everything you need, nothing you don't</h2>
+        <p class="section-blurb centered-blurb">KythOS ships a carefully curated set of tools. Apps you'll actually use are pre-installed. Everything else is a Flatpak or Distrobox container away.</p>
       </div>
     </section>
 
-    <!-- ── Features cards ────────────────────────────────────────── -->
-    <section class="section" style="padding-top:48px;padding-bottom:0">
+    <!-- ── What's Included — cards ───────────────────────────── -->
+    <section class="section-cards">
       <div class="container">
         <div class="os-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:48px">
           <article class="os-card">
@@ -193,7 +197,7 @@
               </div>
             </div>
             <div class="kyth-right">
-              <p class="kyth-desc">KythOS is built on the Universal Blue / bootc toolchain on top of Fedora. The image is published to GitHub Container Registry (ghcr.io) and updates automatically in the background. When a new version is ready, you reboot — that's it. No package manager conflicts, no half-applied updates, no broken systems.</p>
+              <p class="kyth-desc">KythOS is built on Fedora Kinoite using the Universal Blue / bootc toolchain. The image is published to GitHub Container Registry (ghcr.io) and updates in the background. When a new version is ready, you reboot — that's it. No package manager conflicts, no half-applied updates, no broken systems.</p>
               <ul class="kyth-feature-list">
                 <li>Atomic image swaps via bootc</li>
                 <li>Instant rollback to previous deployment</li>
@@ -208,44 +212,51 @@
       </div>
     </section>
 
-    <!-- ── How It Works ───────────────────────────────────────── -->
-    <section class="section">
+    <!-- ── How It Works — heading band ───────────────────────── -->
+    <section class="section-heading-band">
+      <div class="container" style="text-align:center">
+        <p class="section-kicker">How It Works</p>
+        <h2 class="band-h2">Atomic updates, explained simply</h2>
+        <p class="section-blurb centered-blurb">KythOS uses image-based updates instead of traditional package management. Here's what that means in practice.</p>
+      </div>
+    </section>
+
+    <!-- ── How It Works — cards ──────────────────────────────── -->
+    <section class="section-cards">
       <div class="container">
-        <div class="section-head centered">
-          <p class="section-kicker">How It Works</p>
-          <h2>Atomic updates, explained simply</h2>
-          <p class="section-blurb centered-blurb">KythOS uses image-based updates instead of traditional package management. Here's what that means in practice.</p>
-        </div>
         <div class="guide-row">
           <article class="guide-card">
             <div class="guide-icon">1️⃣</div>
             <h3>Install Once</h3>
-            <p>Flash the ISO, boot, and run the installer. KythOS sets up your immutable base system. Your home directory, Flatpaks, and Distrobox containers are all separate from the base — they persist across updates.</p>
+            <p>Flash the ISO, boot, and run the installer. KythOS sets up your immutable base. Your home directory, Flatpaks, and Distrobox containers are separate from the base — they persist across every update.</p>
           </article>
           <article class="guide-card">
             <div class="guide-icon">2️⃣</div>
             <h3>Updates in the Background</h3>
-            <p>KythOS pulls the latest image from ghcr.io in the background while you work or game. When an update is staged, you'll get a notification. Updates never interrupt your current session.</p>
+            <p>KythOS pulls the latest image from ghcr.io while you work or game. When an update is staged, you'll get a notification. Your current session is never interrupted.</p>
           </article>
           <article class="guide-card">
             <div class="guide-icon">3️⃣</div>
             <h3>Reboot to Apply</h3>
-            <p>Reboot to switch to the new image. If anything goes wrong, a single command rolls you back to the previous deployment. You can always recover.</p>
+            <p>Reboot to switch to the new image. If anything goes wrong, a single command rolls you back to the previous deployment instantly.</p>
             <code style="display:block;margin-top:8px;padding:8px 12px;background:rgba(0,0,0,0.3);border-radius:8px;font-size:0.85em;color:var(--accent)">bootc rollback</code>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ── Gaming OS Ecosystem ────────────────────────────────── -->
-    <section id="ecosystem" class="section section-alt">
-      <div class="container">
-        <div class="section-head centered">
-          <p class="section-kicker">The Ecosystem</p>
-          <h2>The Best Gaming Linux Options</h2>
-          <p class="section-blurb centered-blurb">KythOS is part of a rich ecosystem of exceptional gaming Linux distributions. Not sure which to pick? These are all great options depending on your needs.</p>
-        </div>
+    <!-- ── Ecosystem — heading band ──────────────────────────── -->
+    <section id="ecosystem" class="section-heading-band section-alt">
+      <div class="container" style="text-align:center">
+        <p class="section-kicker">The Ecosystem</p>
+        <h2 class="band-h2">The Best Gaming Linux Options</h2>
+        <p class="section-blurb centered-blurb">KythOS is part of a rich ecosystem of exceptional gaming Linux distributions. Not sure which to pick? These are all great options depending on your needs.</p>
+      </div>
+    </section>
 
+    <!-- ── Ecosystem — cards ──────────────────────────────────── -->
+    <section class="section-cards">
+      <div class="container">
         <p class="os-grid-label">Community-recommended distros</p>
         <div class="os-grid">
 
@@ -329,14 +340,18 @@
       </div>
     </section>
 
-    <!-- ── Guides ─────────────────────────────────────────────── -->
-    <section id="guides" class="section">
+    <!-- ── Guides — heading band ──────────────────────────────── -->
+    <section id="guides" class="section-heading-band section-alt">
+      <div class="container" style="text-align:center">
+        <p class="section-kicker">Get Started</p>
+        <h2 class="band-h2">Guides & Documentation</h2>
+        <p class="section-blurb centered-blurb">Everything you need to install, configure, and get the most out of KythOS and the gaming Linux ecosystem.</p>
+      </div>
+    </section>
+
+    <!-- ── Guides — cards ────────────────────────────────────── -->
+    <section class="section-cards">
       <div class="container">
-        <div class="section-head centered">
-          <p class="section-kicker">Get Started</p>
-          <h2>Guides & Documentation</h2>
-          <p class="section-blurb centered-blurb">Everything you need to install, configure, and get the most out of KythOS and the gaming Linux ecosystem.</p>
-        </div>
         <div class="guide-row">
           <article class="guide-card">
             <div class="guide-icon">⚡</div>

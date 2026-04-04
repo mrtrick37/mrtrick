@@ -214,6 +214,23 @@ a:focus-visible { outline: 2px solid rgba(139,220,255,0.55); outline-offset: 2px
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+
+/* Heading-only band — compact, vertically centered text */
+.section-heading-band {
+  padding: 64px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Cards-only section — no top border/bg, clean breathing room */
+.section-cards {
+  padding: 52px 0 72px;
+}
+.band-h2 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  color: #e6f7ff;
+}
 .section-head { margin-bottom: 40px }
 .section-head.centered { text-align: center }
 .section-kicker {
